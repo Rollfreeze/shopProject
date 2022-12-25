@@ -294,3 +294,16 @@ td {
 .payments-ways-row {
     width: 630px;
 }
+
+.ul-text {
+    margin-left: 18px;
+    margin-bottom: 20px;
+}
+
+.li-text {
+    font-family: sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+    margin-bottom: 4px;
+    /* line-height: 1.5; */
+}
