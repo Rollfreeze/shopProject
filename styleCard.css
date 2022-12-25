@@ -1,7 +1,8 @@
 .products-container {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    /* justify-content: space-between; */
+    justify-content: flex-start;
 
     margin-top: 20px;
 }
@@ -12,6 +13,7 @@
     padding-top: 18px;
     padding-left: 14px;
     padding-right: 14px;
+    width: 245px;
 }
 
 .product-logo {
@@ -115,4 +117,8 @@
     padding: 0 10px;
     cursor: pointer;
     user-select: none;
+}
+
+.product-item {
+    cursor: pointer;
 }
