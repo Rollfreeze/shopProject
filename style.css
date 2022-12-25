@@ -236,3 +236,61 @@ td {
 .table {
     margin-bottom: 40px;
 }
+
+.warning-box {
+    width: 550px;
+    height: 140px;
+}
+
+.warning {
+    /* display: inline-block; */
+    width: 235px;
+    height: 235px;
+    background-image: url("assets/warning.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    margin-right: 35px;
+    margin-left: 10px;
+}
+
+.warning-note {
+    font-family: sans-serif;
+    font-size: 12px;
+    line-height: 1.5;
+    color: #000;
+    font-style: italic;
+}
+
+.visa, .masterCard, .jcb, .blue-circle {
+    width: 118px;
+    height: 36px;
+    background-image: url("assets/visa_logo.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    margin: 30px;
+}
+
+.masterCard {
+    margin: 30px 20px;
+    width: 100px;
+    height: 60px;
+    background-image: url("assets/mastercard_logo.png");
+}
+
+.jcb {
+    margin: 30px 20px;
+    width: 83px;
+    height: 61px;
+    background-image: url("assets/jcb_logo.png");
+}
+
+.blue-circle {
+    margin: 30px 20px;
+    width: 102px;
+    height: 63px;
+    background-image: url("assets/dcl_logo.png");
+}
+
+.payments-ways-row {
+    width: 630px;
+}
