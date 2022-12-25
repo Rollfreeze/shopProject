@@ -4,12 +4,13 @@
     /* justify-content: space-between; */
     justify-content: flex-start;
 
-    margin-top: 20px;
+    /* margin-top: 20px; */
+    margin-bottom: 0.2px;
 }
 
 .product-item {
     border: 1px solid #E0E0E0;
-    border-radius: 12px;
+    border-radius: 16px;
     padding-top: 18px;
     padding-left: 14px;
     padding-right: 14px;
