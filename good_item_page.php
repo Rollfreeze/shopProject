@@ -9,6 +9,8 @@
     <title>Просмотр товара</title>
 </head>
 <body>
+    <script type="text/javascript" src="js/counter.js"></script>
+
     <?php
         require_once "php/general_page.php";
         echo getHeader();
@@ -26,9 +28,36 @@
     </div>
 
     <div class="container">
-        <div class="good-item-page-avatar">
-            <div class="good-item-page-avatar-logo"></div>
+
+        <div class="show-up-container">
+            <div class="good-item-page-avatar">
+                <div class="good-item-page-avatar-logo"></div>
+            </div>
+            
+            <div class="second-col">
+                <h1 class="h1" style="text-align: left; margin-bottom: 5px; margin-top: 15px;">Персики</h1>
+                <div class="gray-hr"></div>
+
+                <div class="under-hr-description flex-row">
+                    <p class="show-up-description">Персики. Сладкие и сочные фрукты с цветочным ароматом.</p>
+
+                    <div class="counter-box">
+                        <p class="counter-box-money">573 руб.</p>
+
+                        <div class="product-item-kg-counter">
+                            <span class="down" onclick="deacreaseCount(event, this)">-</span>
+                            <input type="text" value="1"></input>
+                            <span class="up" onclick="increaseCount(event, this)">+</span>
+                        </div>
+
+                        <p class="normal-little" style="margin: 0 auto;">кг</p>
+                        
+                        <button class="product-button" style="margin-top: 100px;">Добавить в корзину</button>
+                    </div>
+                </div>
+            </div>
         </div>
+
 
 
         <!-- <div class="personal-data-law-box">
