@@ -17,7 +17,7 @@
                         
                         <div class="nav-right">
                             <div class="auth-box"></div>
-                            <a href="">Авторизироваться</a>
+                            <a href="authorization_page.php">Авторизироваться</a>
                         </div>
                     </div>
                 </div>

@@ -803,3 +803,37 @@ td {
     outline: 0px;
     cursor: pointer;
 }
+
+.authorization-form {
+    width: 200px;
+    margin: 0 auto;
+}
+
+.auth_form_input {
+    padding: 12px;
+    border: 1px solid #E0E0E0;
+    outline: 0;
+    border-radius: 6px;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 25px;
+}
+
+.auth_form_button {
+    background-color: #FE9730;
+    color: #ffffff;
+    width: 98%;
+    border: 0px;
+    border-radius: 6px;
+    padding: 12px 0px;
+    text-align: center;
+    cursor: pointer;
+    margin: 0 auto;
+    display: block;
+
+    margin-bottom: 40px;
+}
+
+.auth_form_button:hover {
+    background-color: #e47a10;
+}
