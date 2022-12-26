@@ -180,6 +180,10 @@
 
 .bread-bar {
     margin-top: 5px;
+    padding: 9px 0px;
+    padding-left: 5px;
+    background-color: #F5F5F5;
+    width: fit-content;
 }
 
 .bread-bar-item {

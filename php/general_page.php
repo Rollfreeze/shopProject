@@ -43,7 +43,7 @@
                     <div class="shop-basket-box">
                         <div class="shop-baket"></div>
                         <div class="shop-basket-note">
-                            <a href="">Ваша корзина</a>
+                            <a href="basket.php">Ваша корзина</a>
                             <p>Товаров нет</p>
                         </div>
                     </div>
