@@ -25,7 +25,7 @@
         </main>
     </div>
 
-    <div class="container">
+    <!-- <div class="container">
         <div class="personal-data-law-box">
             <h1 class="h1" style="text-align: left; margin-top: 0px;">Моя корзина</h1>
             <div class="empty-basket-box"></div>
@@ -34,17 +34,35 @@
                 <a class="link" href="index.php" style="display: inline; text-decoration: none; font-size: 16px">Нажмите здесь </a>
                 <p class="normal-text" style="display: inline; font-size: 16px"> чтобы продолжить покупки</p>
             </div>
-            
-            <!-- <p class="normal-text">Компания  основана в 2008 году, на сегодняшний день в числе лидеров по  поставкам свежих овощей и фруктов.</p>
-            <p class="normal-text">Товарный ассортимент интернет-магазина «Агро Лавка Фруктов» составляет сотни наименований различной продукции: овощи, фрукты, напитки, бакалея. </p>
-            <h2 class="h2">Партнеры компании.</h2>
-            <p class="normal-text">Мы являемся импортерами свежих овощей и фруктов из Таиланда, ЮАР, Чили, Израиля и т.д. а также обладаем прямыми контактами со странами СНГ. Заключены договора с фермерскими хозяйствами Липецкого, Тамбовского, Рязанского, Воронежского и Краснодарского края. </p>
-            <p class="normal-text">Настоящее согласие распространяется на следующие Ваши персональные данные: фамилия, имя и отчество, адрес электронной почты, почтовый адрес доставки заказов, контактный телефон, платёжные реквизиты.</p>
-            <h2 class="h2">Ресурсы Компании.</h2>
-            <p class="normal-text" style="margin-bottom: 0px;">1. Складские помещения: более 1600 кв.метров оборудованных холодильными установками.</p>
-            <p class="normal-text" style="margin-bottom: 0px;">2. Собственная служба доставки с автопарком более 20-и машин.</p>
-            <p class="normal-text" style="margin-bottom: 0px;">3. Квалифицированный персонал.</p>
-            <p class="normal-text" style="margin-bottom: 40px;">4. Прием заказов 24 часа - 364 дня в году.</p> -->
+        </div>
+    </div> -->
+
+    <div class="container">
+        <div class="personal-data-law-box">
+            <h1 class="h1" style="text-align: left; margin-top: 0px;">Моя корзина</h1>
+
+            <div class="pay-row">
+                <div class="pay-box flex-row">
+                    <div class="summury-col">
+                        <p class="normal-bold" style="margin-bottom: 5px;">Итого:</p>
+                        <p class="normal-gray" style="margin-bottom: 0px;">Общий вес: 1кг</p>
+                    </div>
+
+                    <div class="summury-money">174 руб.</div>
+
+                    <buttom class="pay-basket-button">Оформить заказ</buttom>
+                </div>
+            </div>
+        </div>
+
+        <div class="basket-box">
+            <div class="amount-row">
+                <div class="normal-little">В корзине товаров: 1</div>
+            </div>
+
+            <div class="good-item-row">
+
+            </div>
         </div>
     </div>
 

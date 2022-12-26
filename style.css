@@ -663,3 +663,76 @@ td {
     margin-bottom: 40px;
     margin-top: 30px;
 }
+
+.pay-row {
+    padding: 20px;
+    border: 1px solid #E0E0E0;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+.pay-box {
+    width: 500px;
+    align-items: flex-start;
+    /* justify-content: flex-end; */
+}
+
+.normal-bold {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: #2f3435;
+    display: block;
+    width: fit-content;
+}
+
+.normal-little {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: #2f3435;
+    display: block;
+    width: fit-content;
+}
+
+.normal-gray {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    color: #a1a1a1;
+    display: block;
+    width: fit-content;
+}
+
+.summury-money {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 36px;
+    font-weight: 400;
+    color: #2f3435;
+    display: block;
+    width: fit-content;
+}
+
+.pay-basket-button {
+    padding: 10px 16px;
+    color: white;
+    font-size: 13px;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #43b02a;
+    border: 1px solid black;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.amount-row {
+    padding: 20px;
+    display: flex;
+    justify-content: end;
+    background-color: #F2F2F2;
+    border: 1px solid #E0E0E0;
+    border-radius: 4px;
+}
+
+.basket-box {
+    margin-bottom: 40px;
+}
