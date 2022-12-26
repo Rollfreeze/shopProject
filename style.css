@@ -837,3 +837,26 @@ td {
 .auth_form_button:hover {
     background-color: #e47a10;
 }
+
+.good-item-page-avatar {
+    width: 610px;
+    height: 450px;
+    border: 1px solid #E0E0E0;
+    border-radius: 12px;
+    padding: 9px;
+    margin-bottom: 20px;
+}
+
+.good-item-page-avatar-logo {
+    width: 500px;
+    height: 450px;
+    /* height: max-content; */
+    background-image: url("assets/big-persik.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    /* margin-left: 50px; */
+    border: 0px;
+    outline: 0px;
+    cursor: pointer;
+    margin: 0 auto;
+}
