@@ -9,65 +9,10 @@
     <title>Соглашение на обработку персональных данных</title>
 </head>
 <body>
-    <header class="header">
-        <!-- Gray-Nav-Row -->
-        <div class="gray-box">
-            <div class="container">
-                <div class="nav">
-                    <div class="nav-left">
-                        <a href="">О компании</a>
-                        <a href="">Условия доставки</a>
-                        <a href="">Оплата</a>
-                        <a href="">Фрукты в офис</a>
-                        <a href="">Контакты</a>
-                    </div>
-                    
-                    <div class="nav-right">
-                        <div class="auth-box"></div>
-                        <a href="">Авторизироваться</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Logo-Row -->
-        <div class="container">
-            <div class="logo-row">
-                <a href="index.html" class="logo"></a>
-
-                <div class="call-numbers-box">
-                    <div class="call-number">
-                        <p>Городской:</p>
-                        <a href="tel:+79037203207">+7(903) 720-32-07</a>
-                    </div>
-
-                    <div class="call-number">
-                        <p>По России:</p>
-                        <a href="tel:+74957203207">+7(495) 720-32-07</a>
-                    </div>
-                </div>
-                
-                <div class="shop-basket-box">
-                    <div class="shop-baket"></div>
-                    <div class="shop-basket-note">
-                        <a href="">Ваша корзина</a>
-                        <p>Товаров нет</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Logo-Row -->
-        <div class="container">
-            <div class="categories-row">
-                <a href="">Экзотика</a>
-                <a href="">Грибы</a>
-                <a href="">Ягоды</a>
-                <a href="">Фрукты</a>
-                <a href="">Овощи</a>
-            </div>
-        </div>
-    </header>
+    <?php
+        require_once "php/general_page.php";
+        echo getHeader();
+    ?>
 
     <div class="container">
         <main class="main">
@@ -96,49 +41,9 @@
         </div>
     </div>
 
-    <footer class="footer">
-        <div class="gray-box">
-            <div class="container flex-row padding-vertical-35">
-                <div class="first-footer">
-                    <div class="call-number">
-                        <p class="dark">Городской:</p>
-                        <a class="dark" href="tel:+79037203207">+7(903) 720-32-07</a>
-                    </div>
-
-                    <div class="call-number top20">
-                        <p class="dark">Служба поддержки:</p>
-                        <a class="dark" href="tel:+79187205457">+7(918) 720-54-57</a>
-                    </div>
-                </div>
-
-                <div class="fourth-footer">
-                    <div class="call-number">
-                        <p class="dark">По России:</p>
-                        <a class="dark" href="tel:+74957203207">+7(495) 720-32-07</a>
-                    </div>
-                </div>
-
-                <div class="third-footer">
-                    <a href="" class="link bottom20">Обработка персональных данных</a>
-                </div>
-
-                <div class="second-footer">
-                    <p class="chapter">Каталог</p>
-                    <a href="">Экзотика</a>
-                    <a href="">Грибы</a>
-                    <a href="">Ягоды</a>
-                    <a href="">Фрукты</a>
-                    <a href="">Овощи</a>
-                </div>
-            </div>
-
-            <div class="footer-hr"></div>
-
-            <div class="container flex-row padding-vertical-35">
-                <p class="gray-footer">© Компания Алиберция - Доставка продуктов на дом по Москве и МО.</p>
-                <p class="gray-footer">Powered by ALFA Systems</p>
-            </div>
-        </div>
-    </footer>
+    <?php
+        require_once "php/general_page.php";
+        echo getFooter();
+    ?>
 </body>
 </html>
