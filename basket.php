@@ -28,7 +28,12 @@
     <div class="container">
         <div class="personal-data-law-box">
             <h1 class="h1" style="text-align: left; margin-top: 0px;">Моя корзина</h1>
+            <div class="empty-basket-box"></div>
 
+            <div class="align-center-box">
+                <a class="link" href="index.php" style="display: inline; text-decoration: none; font-size: 16px">Нажмите здесь </a>
+                <p class="normal-text" style="display: inline; font-size: 16px"> чтобы продолжить покупки</p>
+            </div>
             
             <!-- <p class="normal-text">Компания  основана в 2008 году, на сегодняшний день в числе лидеров по  поставкам свежих овощей и фруктов.</p>
             <p class="normal-text">Товарный ассортимент интернет-магазина «Агро Лавка Фруктов» составляет сотни наименований различной продукции: овощи, фрукты, напитки, бакалея. </p>
