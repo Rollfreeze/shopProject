@@ -9,6 +9,8 @@
     <title>Коризна</title>
 </head>
 <body>
+    <script type="text/javascript" src="js/counter.js"></script>
+
     <?php
         require_once "php/general_page.php";
         echo getHeader();
@@ -61,7 +63,23 @@
             </div>
 
             <div class="good-item-row">
+                <div class="good-item-row-left">
+                    <div class="good-item-logo"></div>
+                    <a href="" class="good-item-title">Яблоки Гренни Смит</a>
+                </div>
+                
 
+                <div class="good-item-kg-amount">
+                    <p class="normal-bold" style="display:bloc; margin-bottom: 0px; font-size: 18px;">кг:</p>
+                    <div class="product-item-kg-counter">
+                        <span class="down" onclick="deacreaseCount(event, this)">-</span>
+                        <input type="text" value="1"></input>
+                        <span class="up" onclick="increaseCount(event, this)">+</span>
+                    </div>
+                    <div class="good-item-price">174 руб.</div>
+                    <!-- <button class="delete-item-from-basket-box"></button> -->
+                    <a href="empty_basket.php" class="delete-item-from-basket-box"></a>
+                </div>
             </div>
         </div>
     </div>
