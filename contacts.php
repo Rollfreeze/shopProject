@@ -14,12 +14,13 @@
         echo getHeader();
     ?>
 
+    <!-- bread bar -->
     <div class="container">
         <main class="main">
            <div class="bread-bar">
-                <a class="bread-bar-item" href="index.html" style="margin-left: 0px">Главная</a>
+                <a class="bread-bar-item" href="index.php" style="margin-left: 0px">Главная</a>
                 <span class="bread-slesh">/</span>
-                <a class="bread-bar-item" href="contacts.html">Контакты</a>
+                <a class="bread-bar-item" href="contacts.php">Контакты</a>
            </div>
         </main>
     </div>

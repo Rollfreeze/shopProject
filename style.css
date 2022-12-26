@@ -172,7 +172,9 @@
 }
 
 .categories-row a:hover {
-    color: pink;
+    /* color: pink; */
+    /* color: #FE9730; */
+    color: wheat;
     transition: 0.25s linear;
 }
 
@@ -197,7 +199,7 @@
 .bread-slesh {
     display: inline-block;
     font-family: sans-serif;
-    font-size: 12px;
+    font-size: 18px;
 }
 
 .pesonal-data-link {
