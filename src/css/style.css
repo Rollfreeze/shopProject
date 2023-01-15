@@ -53,7 +53,7 @@
     display: inline-block;
     width: 20px;
     height: 20px;
-    background-image: url("assets/user.png");
+    background-image: url("../assets/user.png");
     background-size: 100%;
     background-repeat: no-repeat;
     /* background-position: center; */
@@ -78,7 +78,7 @@
     display: inline-block;
     width: 385px;
     height: 122px;
-    background-image: url("assets/logo.png");
+    background-image: url("../assets/logo.png");
     background-size: 80%;
     background-repeat: no-repeat;
 }
@@ -124,7 +124,7 @@
     display: inline-block;
     width: 40px;
     height: 40px;
-    background-image: url("assets/basket.png");
+    background-image: url("../assets/basket.png");
     color: #FE9730;
     background-size: 100%;
     background-repeat: no-repeat;
@@ -252,7 +252,7 @@ td {
     /* display: inline-block; */
     width: 235px;
     height: 235px;
-    background-image: url("assets/warning.png");
+    background-image: url("../assets/warning.png");
     background-size: 100%;
     background-repeat: no-repeat;
     margin-right: 35px;
@@ -270,7 +270,7 @@ td {
 .visa, .masterCard, .jcb, .blue-circle {
     width: 118px;
     height: 36px;
-    background-image: url("assets/visa_logo.png");
+    background-image: url("../assets/visa_logo.png");
     background-size: 100%;
     background-repeat: no-repeat;
     margin: 30px;
@@ -280,21 +280,21 @@ td {
     margin: 30px 20px;
     width: 100px;
     height: 60px;
-    background-image: url("assets/mastercard_logo.png");
+    background-image: url("../assets/mastercard_logo.png");
 }
 
 .jcb {
     margin: 30px 20px;
     width: 83px;
     height: 61px;
-    background-image: url("assets/jcb_logo.png");
+    background-image: url("../assets/jcb_logo.png");
 }
 
 .blue-circle {
     margin: 30px 20px;
     width: 102px;
     height: 63px;
-    background-image: url("assets/dcl_logo.png");
+    background-image: url("../assets/dcl_logo.png");
 }
 
 .payments-ways-row {
@@ -337,7 +337,7 @@ td {
     display: block;
     width: 220px;
     height: 180px;
-    background-image: url("assets/product-logo-1.jpg");
+    background-image: url("../assets/product-logo-1.jpg");
     background-size: contain;
     background-repeat: no-repeat;
     
@@ -490,22 +490,22 @@ td {
     width: 200px;
     height: 160px;
     display: inline-block;
-    background-image: url("assets/advertisment-logo-1.jpg");
+    background-image: url("../assets/advertisment-logo-1.jpg");
     background-size: contain;
     background-repeat: no-repeat;
     /* background-color:#11BDE4; */
 }
 
 .a2 {
-    background-image: url("assets/advertisment-logo-2.jpg");
+    background-image: url("../assets/advertisment-logo-2.jpg");
 }
 
 .a3 {
-    background-image: url("assets/advertisment-logo-3.jpg");
+    background-image: url("../assets/advertisment-logo-3.jpg");
 }
 
 .a4 {
-    background-image: url("assets/advertisment-logo-4.jpg");
+    background-image: url("../assets/advertisment-logo-4.jpg");
 }
 
 .advertisment-title {
@@ -651,7 +651,7 @@ td {
     height: 276px;
     display: block;
     margin: 0 auto;
-    background-image: url("assets/empty_basket.png");
+    background-image: url("../assets/empty_basket.png");
     background-size: contain;
     background-repeat: no-repeat;
 }
@@ -752,7 +752,7 @@ td {
     width: 140px;
     height: 100px;
     display: inline-block;
-    background-image: url("assets/good-logo-1.jpg");
+    background-image: url("../assets/good-logo-1.jpg");
     background-size: contain;
     background-repeat: no-repeat;
     margin-right: 35px;
@@ -795,7 +795,7 @@ td {
 .delete-item-from-basket-box {
     width: 30px;
     height: 30px;
-    background-image: url("assets/delete.png");
+    background-image: url("../assets/delete.png");
     background-size: contain;
     background-repeat: no-repeat;
     margin-left: 50px;
@@ -851,7 +851,7 @@ td {
     width: 500px;
     height: 450px;
     /* height: max-content; */
-    background-image: url("assets/big-persik.jpg");
+    background-image: url("../assets/big-persik.jpg");
     background-size: contain;
     background-repeat: no-repeat;
     /* margin-left: 50px; */
