@@ -1,7 +1,6 @@
 version: '3'
 services:
   php:
-    # image: php:8.1-fpm
     build:
       context: .
       dockerfile: Dockerfile
@@ -17,9 +16,27 @@ services:
       - './src/server-conf:/etc/nginx/conf.d'
       - './src/index.php:/usr/share/nginx/html/index.php'
   
-  mysql:
-    image: mysql:8
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    platform: linux/amd64
+    restart: always
+    ports:
+      - 8077:80
     environment:
+      # - PMA_ARBITRARY=1
+      - PMA_HOST=db
+    depends_on:
+      - db
+
+  db:
+    image: mysql:8
+    ports:
+      - '5506:3306'
+    restart: unless-stopped
+    environment:
+      - MYSQL_USER=root
       - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_PASSWORD=root
+      - MYSQL_DATABASE=shop-db
     volumes:
       - './src/mysql:/var/lib/mysql'
