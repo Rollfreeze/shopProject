@@ -2,9 +2,9 @@
 declare(strict_types=1);
 
 // echo "hello world!";
-// phpinfo();
-$connection = mysqli_connect('mysql', 'root', 'root');
+phpinfo();
+// $connection = mysqli_connect('mysql', 'root', 'root');
 // echo "<pre>";
 // var_dump($connection);
-$connection->query('CREATE DATABASE `check-db`');
+// $connection->query('CREATE DATABASE `check-db`');
 ?>

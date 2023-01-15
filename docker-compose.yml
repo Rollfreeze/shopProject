@@ -15,6 +15,7 @@ services:
     volumes:
       - './src:/var/www/html'
       - './src/server-conf:/etc/nginx/conf.d'
+      - './src/index.php:/usr/share/nginx/html/index.php'
   
   mysql:
     image: mysql:8
