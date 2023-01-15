@@ -6,6 +6,9 @@ services:
       dockerfile: Dockerfile
     volumes:
       - './src:/var/www/html'
+
+      # - './src/pages:/var/www/html/pages'
+      # - './src/php:/var/www/html/php'
   
   nginx:
     image: nginx:latest
@@ -14,7 +17,14 @@ services:
     volumes:
       - './src:/var/www/html'
       - './src/server-conf:/etc/nginx/conf.d'
-      - './src/index.php:/usr/share/nginx/html/index.php'
+      # - './src/index.php:/usr/share/nginx/html/index.php'
+      # - './src/pages/index.php:/usr/share/nginx/html/index.php'
+
+      # - './src/js:/var/www/html/js'
+      # - './src/css:/var/www/html/css'
+      # - './src/assets:/var/www/html/assets'
+
+
   
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
