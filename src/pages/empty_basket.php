@@ -12,7 +12,7 @@
     <script type="text/javascript" src="js/counter.js"></script>
 
     <?php
-        require_once "php/general_page.php";
+        require_once "../php/general_page.php";
         echo getHeader();
     ?>
 
@@ -40,7 +40,7 @@
     </div>
 
     <?php
-        require_once "php/general_page.php";
+        require_once "../php/general_page.php";
         echo getFooter();
     ?>
 </body>
