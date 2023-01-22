@@ -6,6 +6,7 @@
             <!-- Gray-Nav-Row -->
             <div class="gray-box">
                 <div class="container">
+
                     <div class="nav">
                         <div class="nav-left">
                             <a href="about_us.php">О компании</a>
@@ -16,10 +17,13 @@
                         </div>
                         
                         <div class="nav-right">
+                            <div class="edit-box"></div>
+                            <a href="add_advertisment.php">Добавить объявление</a>
                             <div class="auth-box"></div>
                             <a href="authorization_page.php">Авторизироваться</a>
                         </div>
                     </div>
+
                 </div>
             </div>
 

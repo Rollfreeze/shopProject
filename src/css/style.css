@@ -59,6 +59,15 @@
     /* background-position: center; */
 }
 
+.edit-box {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    background-image: url("../assets/edit.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
 .nav-left > a:hover, .nav-right > a:hover {
     color: #43b02a;
     text-decoration: none;
@@ -809,7 +818,12 @@ td {
     margin: 0 auto;
 }
 
-.auth_form_input {
+.authorization-form-2 {
+    width: 500px;
+    margin: 0 auto;
+}
+
+.auth_form_input, .form-select {
     padding: 12px;
     border: 1px solid #E0E0E0;
     outline: 0;
@@ -817,6 +831,11 @@ td {
     display: block;
     margin: 0 auto;
     margin-bottom: 25px;
+    width: 100%;
+}
+
+.form-select {
+    width: 100%;
 }
 
 .auth_form_button {
