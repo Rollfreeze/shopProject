@@ -12,6 +12,7 @@
     <script type="text/javascript" src="../js/counter.js"></script>
 
     <?php
+        session_start();
         require_once "../php/general_page.php";
         echo getHeader();
     ?>

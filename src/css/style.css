@@ -972,7 +972,7 @@ td {
     margin: 14px auto;
 }
 
-.red_alert {
+.red_alert, .green_alert {
     font-family: sans-serif;
     font-size: 24px;
     display: block;
@@ -981,4 +981,14 @@ td {
     text-align: center;
     padding: 12px 0px;
     border-radius: 4px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.green_alert {
+    background-color: #379122;
+}
+
+.logout {
+    background-color:brown;
 }

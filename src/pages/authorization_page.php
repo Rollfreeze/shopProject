@@ -34,7 +34,16 @@
             $connection = new SQLConnection();
             $result = $connection->authorize($_GET['username'], $_GET['password']);
             if (!$result) $drawException = true;
-            else $drawSuccess = true;
+            else {
+                $drawSuccess = true;
+
+                /// Помещение авторизированного пользователя
+                /// В сессию через объект
+                $_SESSION['current_user'] = [
+                    'user_name' => $result[0]['login'],
+                    'is_root' => ($result[0]['isRoot'] == '1') ? true : false
+                ];
+            }
         }
     ?>
 
@@ -42,19 +51,28 @@
         <div class="personal-data-law-box">
             <?php
                 if ($drawException) echo '<h2 class="red_alert">Пользователь не найден</h2>';
-                // if ($drawSuccess) {
-
-                // }
+                if ($drawSuccess) {
+                    $username = $_GET['username'];
+                    echo '<h2 class="green_alert">Авторизация прошла успешно!</h2>';
+                    echo "<h1 class='h1' style='text-align: center; margin-top: 0px;'>Добро пожаловать, $username!</h1>";
+                    $LOGOUT = <<< LOGOUT
+                    <form class="authorization-form" method="post">
+                        <button class="auth_form_button logout" type="submit">Выйти из учетной записи</button>
+                    </form>
+LOGOUT;
+                    echo $LOGOUT;
+                } else {
+                    $AUTH_FORM = <<< AUTH_FORM
+                    <h1 class="h1" style="text-align: center; margin-top: 0px;">Авторизация</h1>
+                    <form class="authorization-form" method="get">
+                        <input class="auth_form_input" type="text" name="username" maxlength="15" minlength="1" pattern="^[a-zA-Z0-9_.-]*$" id="username" placeholder="Логин" required>
+                        <input class="auth_form_input" type="text" name="password" maxlength="15" minlength="1" pattern="^[a-zA-Z0-9_.-]*$" id="password" placeholder="Пароль" required>
+                        <button class="auth_form_button" type="submit">Вход в аккаунт</button>
+                    </form>
+AUTH_FORM;
+                    echo $AUTH_FORM;
+                }
             ?>
-
-            
-            
-            <h1 class="h1" style="text-align: center; margin-top: 0px;">Авторизация</h1>
-            <form class="authorization-form" method="get">
-                <input class="auth_form_input" type="text" name="username" maxlength="15" minlength="1" pattern="^[a-zA-Z0-9_.-]*$" id="username" placeholder="Логин" required>
-                <input class="auth_form_input" type="text" name="password" maxlength="15" minlength="1" pattern="^[a-zA-Z0-9_.-]*$" id="password" placeholder="Пароль" required>
-                <button class="auth_form_button" type="submit">Вход в аккаунт</button>
-            </form>
         </div>
     </div>
 
