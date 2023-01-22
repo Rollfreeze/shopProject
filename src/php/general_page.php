@@ -125,3 +125,14 @@ FOOTER;
 
         return $FOOTER;
     }
+
+    function get_log_out_button() {
+        $LOGOUT = <<< LOGOUT
+        <form class="authorization-form" method="post">
+            <input type="hidden" name="go_logout" id="go_logout" value="true">
+            <button class="auth_form_button logout" type="submit">Выйти из учетной записи</button>
+        </form>
+LOGOUT;
+
+        return $LOGOUT;
+    }

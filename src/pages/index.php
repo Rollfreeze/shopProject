@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +16,7 @@
     <script type="text/javascript" src="../js/counter.js"></script>
 
     <?php
-        session_start();
+        // session_start();
         require_once "../php/general_page.php";
         echo getHeader();
     ?>

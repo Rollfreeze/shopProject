@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,6 +14,7 @@
 </head>
 <body>
     <?php
+        // session_start();
         require_once "../php/general_page.php";
         echo getHeader();
     ?>
@@ -44,6 +49,9 @@
                     'is_root' => ($result[0]['isRoot'] == '1') ? true : false
                 ];
             }
+        } else if (isset($_POST['go_logout'])) {
+            var_dump($_POST['go_logout']);
+            $_SESSION['current_user'] = null;
         }
     ?>
 
@@ -55,13 +63,8 @@
                     $username = $_GET['username'];
                     echo '<h2 class="green_alert">Авторизация прошла успешно!</h2>';
                     echo "<h1 class='h1' style='text-align: center; margin-top: 0px;'>Добро пожаловать, $username!</h1>";
-                    $LOGOUT = <<< LOGOUT
-                    <form class="authorization-form" method="post">
-                        <button class="auth_form_button logout" type="submit">Выйти из учетной записи</button>
-                    </form>
-LOGOUT;
-                    echo $LOGOUT;
-                } else {
+                    echo get_log_out_button();
+                } else if (!isset($_SESSION['current_user']) || $_SESSION['current_user'] == null) {
                     $AUTH_FORM = <<< AUTH_FORM
                     <h1 class="h1" style="text-align: center; margin-top: 0px;">Авторизация</h1>
                     <form class="authorization-form" method="get">
@@ -71,6 +74,10 @@ LOGOUT;
                     </form>
 AUTH_FORM;
                     echo $AUTH_FORM;
+                } else {
+                    $user_name = $_SESSION['current_user']['user_name'];
+                    echo "<h1 class='h1' style='text-align: center; margin-top: 0px;'>Вы авторизированы как $user_name!</h1>";
+                    echo get_log_out_button();
                 }
             ?>
         </div>
