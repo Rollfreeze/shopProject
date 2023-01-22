@@ -1,7 +1,4 @@
-<?php
-    session_start();
-?>
-
+<?php session_start();?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +11,6 @@
 </head>
 <body>
     <?php
-        // session_start();
         require_once "../php/general_page.php";
         echo getHeader();
     ?>
@@ -32,7 +28,6 @@
 
     <?php
         require_once "../php/sql_connection.php";
-
         $drawException = false;
         $drawSuccess = false;
         if (isset($_GET['username']) && isset($_GET['password'])) {
@@ -41,9 +36,6 @@
             if (!$result) $drawException = true;
             else {
                 $drawSuccess = true;
-
-                /// Помещение авторизированного пользователя
-                /// В сессию через объект
                 $_SESSION['current_user'] = [
                     'user_name' => $result[0]['login'],
                     'is_root' => ($result[0]['isRoot'] == '1') ? true : false
