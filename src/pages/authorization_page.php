@@ -11,22 +11,6 @@
 </head>
 <body>
     <?php
-        require_once "../php/general_page.php";
-        echo getHeader();
-    ?>
-
-    <!-- bread bar -->
-    <div class="container">
-        <main class="main">
-           <div class="bread-bar">
-                <a class="bread-bar-item" href="index.php" style="margin-left: 0px">Главная</a>
-                <span class="bread-slesh">/</span>
-                <a class="bread-bar-item" href="authorization_page.php">Авторизация</a>
-           </div>
-        </main>
-    </div>
-
-    <?php
         require_once "../php/sql_connection.php";
         $drawException = false;
         $drawSuccess = false;
@@ -45,7 +29,21 @@
             var_dump($_POST['go_logout']);
             $_SESSION['current_user'] = null;
         }
+
+        require_once "../php/general_page.php";
+        echo getHeader();
     ?>
+
+    <!-- bread bar -->
+    <div class="container">
+        <main class="main">
+           <div class="bread-bar">
+                <a class="bread-bar-item" href="index.php" style="margin-left: 0px">Главная</a>
+                <span class="bread-slesh">/</span>
+                <a class="bread-bar-item" href="authorization_page.php">Авторизация</a>
+           </div>
+        </main>
+    </div>
 
     <div class="container">
         <div class="personal-data-law-box">
@@ -59,7 +57,7 @@
                 } else if (!isset($_SESSION['current_user']) || $_SESSION['current_user'] == null) {
                     $AUTH_FORM = <<< AUTH_FORM
                     <h1 class="h1" style="text-align: center; margin-top: 0px;">Авторизация</h1>
-                    <form class="authorization-form" method="get">
+                    <form action="authorization_page.php" class="authorization-form" method="get">
                         <input class="auth_form_input" type="text" name="username" maxlength="15" minlength="1" pattern="^[a-zA-Z0-9_.-]*$" id="username" placeholder="Логин" required>
                         <input class="auth_form_input" type="text" name="password" maxlength="15" minlength="1" pattern="^[a-zA-Z0-9_.-]*$" id="password" placeholder="Пароль" required>
                         <button class="auth_form_button" type="submit">Вход в аккаунт</button>
