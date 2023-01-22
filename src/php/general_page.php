@@ -1,6 +1,45 @@
 <?php
 
     function getHeader() {
+        $isAuth = isset($_SESSION['current_user']) && $_SESSION['current_user'] != null;
+        $user = $_SESSION['current_user'];
+        
+        $isRoot = false;
+        if ($isAuth) {
+            $isRoot = $isRoot = $user['is_root'];
+        }
+
+        if ($isAuth && $isRoot) {
+            $user_name = $_SESSION['current_user']['user_name'];
+            $RIGHT_NAV = <<< RIGHT_NAV
+            <div class="nav-right">
+                <div class="picture-box"></div>
+                <a href="">Изменить логотип</a>
+                <div class="advert-box"></div>
+                <a href="add_advert.php">Добавить рекламу</a>
+                <div class="edit-box"></div>
+                <a href="add_advertisment.php">Добавить объявление</a>
+                <div class="auth-box"></div>
+                <a href="authorization_page.php">$user_name</a>
+            </div>
+RIGHT_NAV;
+        } elseif ($isAuth) {
+            $user_name = $_SESSION['current_user']['user_name'];
+            $RIGHT_NAV = <<< RIGHT_NAV
+            <div class="nav-right">
+                <div class="auth-box"></div>
+                <a href="authorization_page.php">$user_name</a>
+            </div>
+RIGHT_NAV; 
+        } else {
+            $RIGHT_NAV = <<< RIGHT_NAV
+            <div class="nav-right">
+                <div class="auth-box"></div>
+                <a href="authorization_page.php">Авторизироваться</a>
+            </div>
+RIGHT_NAV;
+        }
+
         $HEADER = <<<HEADER
         <header class="header">
             <!-- Gray-Nav-Row -->
@@ -16,16 +55,7 @@
                             <a href="contacts.php">Контакты</a>
                         </div>
                         
-                        <div class="nav-right">
-                            <div class="picture-box"></div>
-                            <a href="">Изменить логотип</a>
-                            <div class="advert-box"></div>
-                            <a href="add_advert.php">Добавить рекламу</a>
-                            <div class="edit-box"></div>
-                            <a href="add_advertisment.php">Добавить объявление</a>
-                            <div class="auth-box"></div>
-                            <a href="authorization_page.php">Авторизироваться</a>
-                        </div>
+                        $RIGHT_NAV
                     </div>
 
                 </div>

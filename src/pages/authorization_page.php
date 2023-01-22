@@ -38,7 +38,7 @@
                 $drawSuccess = true;
                 $_SESSION['current_user'] = [
                     'user_name' => $result[0]['login'],
-                    'is_root' => ($result[0]['isRoot'] == '1') ? true : false
+                    'is_root' => ($result[0]['isRoot'] == "0") ? false : true
                 ];
             }
         } else if (isset($_POST['go_logout'])) {
