@@ -40,8 +40,23 @@
                     <option value="Фрукты">Фрукты</option>
                     <option value="Овощи">Овощи</option>
                 </select>
+                <div class="radio-box">
+                    <p class="radio-text" style="margin-right: 20px;">Товар уже кончается?</p>
+                    <input type="radio" value="true" name="is_running_out_soon" id="running_out_soon_ture">
+                    <label for="running_out_soon_ture" class="radio-text">Да</label>
+                    <input type="radio" value="false" name="is_running_out_soon" id="running_out_soon_false">
+                    <label for="running_out_soon_false" class="radio-text">Нет</label>
+                </div>
 
-                <button class="auth_form_button" type="submit">Добавить карточку товара на сайт</button>
+                <div class="radio-box">
+                    <p class="radio-text" style="margin-right: 20px;">Товар является новинкой?</p>
+                    <input type="radio" value="true" name="is_new" id="new_true">
+                    <label for="new_true" class="radio-text">Да</label>
+                    <input type="radio" value="false" name="is_new" id="new_false">
+                    <label for="new_false" class="radio-text">Нет</label>
+                </div>
+
+                <button class="auth_form_button-2" type="submit">Добавить карточку товара на сайт</button>
                 <!-- <button class="product-button">Купить продукт</button> -->
             </form>
         </div>
