@@ -25,13 +25,34 @@
         </main>
     </div>
 
+    <?php
+        require_once "../php/sql_connection.php";
+
+        $drawException = false;
+        $drawSuccess = false;
+        if (isset($_GET['username']) && isset($_GET['password'])) {
+            $connection = new SQLConnection();
+            $result = $connection->authorize($_GET['username'], $_GET['password']);
+            if (!$result) $drawException = true;
+            else $drawSuccess = true;
+        }
+    ?>
+
     <div class="container">
         <div class="personal-data-law-box">
-            <h1 class="h1" style="text-align: center; margin-top: 0px;">Авторизация</h1>
+            <?php
+                if ($drawException) echo '<h2 class="red_alert">Пользователь не найден</h2>';
+                // if ($drawSuccess) {
+
+                // }
+            ?>
+
             
-            <form class="authorization-form">
-                <input class="auth_form_input" type="text" name="username" maxlength="15" minlength="4" pattern="^[a-zA-Z0-9_.-]*$" id="username" placeholder="Логин" required>
-                <input class="auth_form_input" type="text" name="password" maxlength="15" minlength="4" pattern="^[a-zA-Z0-9_.-]*$" id="password" placeholder="Пароль" required>
+            
+            <h1 class="h1" style="text-align: center; margin-top: 0px;">Авторизация</h1>
+            <form class="authorization-form" method="get">
+                <input class="auth_form_input" type="text" name="username" maxlength="15" minlength="1" pattern="^[a-zA-Z0-9_.-]*$" id="username" placeholder="Логин" required>
+                <input class="auth_form_input" type="text" name="password" maxlength="15" minlength="1" pattern="^[a-zA-Z0-9_.-]*$" id="password" placeholder="Пароль" required>
                 <button class="auth_form_button" type="submit">Вход в аккаунт</button>
             </form>
         </div>
