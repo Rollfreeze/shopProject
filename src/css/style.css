@@ -68,6 +68,24 @@
     background-repeat: no-repeat;
 }
 
+.advert-box {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    background-image: url("../assets/advert.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+.picture-box {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    background-image: url("../assets/picture.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
 .nav-left > a:hover, .nav-right > a:hover {
     color: #43b02a;
     text-decoration: none;
