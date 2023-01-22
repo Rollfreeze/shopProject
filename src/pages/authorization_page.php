@@ -33,15 +33,7 @@
                 <input class="auth_form_input" type="text" name="username" maxlength="15" minlength="4" pattern="^[a-zA-Z0-9_.-]*$" id="username" placeholder="Логин" required>
                 <input class="auth_form_input" type="text" name="password" maxlength="15" minlength="4" pattern="^[a-zA-Z0-9_.-]*$" id="password" placeholder="Пароль" required>
                 <button class="auth_form_button" type="submit">Вход в аккаунт</button>
-                <!-- <button class="product-button">Купить продукт</button> -->
             </form>
-
-            <!-- <p class="normal-text" style="margin-bottom: 0px;">Интернет-магазин Агро лавка Фрктов</p>
-            <p class="normal-text" style="margin-bottom: 0px;">(ООО Алиберция).</p>
-            <p class="normal-text" style="margin-bottom: 0px;">Телефон: +7 (495) 720-32-07</p>
-            <p class="normal-text" style="margin-bottom: 0px; display: inline;">Электронная почта: </p>
-            <a href="mailto:info@fruktov.pro" class="link" style="display: inline; font-size: 16px;">info@fruktov.pro</a>
-            <p class="normal-text" style="margin-bottom: 110px;">ИНН 9703001558.</p> -->
         </div>
     </div>
 
