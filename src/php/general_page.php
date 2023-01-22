@@ -20,7 +20,7 @@
                             <div class="picture-box"></div>
                             <a href="">Изменить логотип</a>
                             <div class="advert-box"></div>
-                            <a href="">Добавить рекламу</a>
+                            <a href="add_advert.php">Добавить рекламу</a>
                             <div class="edit-box"></div>
                             <a href="add_advertisment.php">Добавить объявление</a>
                             <div class="auth-box"></div>

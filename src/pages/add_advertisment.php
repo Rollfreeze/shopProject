@@ -30,8 +30,8 @@
             <h1 class="h1" style="text-align: center; margin-top: 0px;">Добавить новое объявление на сайт</h1>
             
             <form class="authorization-form-2">
-                <input class="auth_form_input" type="text" name="username" maxlength="100" minlength="4" pattern="^[a-zA-Z0-9_.-]*$" id="username" placeholder="Название" required>
-                <input class="auth_form_input" type="text" name="password" maxlength="100" minlength="4" pattern="^[a-zA-Z0-9_.-]*$" id="password" placeholder="Описание" required>
+                <input class="auth_form_input" type="text" name="advertisment_name" maxlength="100" minlength="4" pattern="^[a-zA-Z0-9_.-]*$" id="advertisment_name" placeholder="Название" required>
+                <input class="auth_form_input" type="text" name="advertisment_description" maxlength="100" minlength="4" pattern="^[a-zA-Z0-9_.-]*$" id="advertisment_description" placeholder="Описание" required>
                 <input class="auth_form_input" type="text" name="price" maxlength="100" minlength="4" pattern="^[a-zA-Z0-9_.-]*$" id="price" placeholder="Стоимость" required>
                 <select class="form-select" name="category" id="category" required>
                     <option value="Экзотика">Экзотика</option>

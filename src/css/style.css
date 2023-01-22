@@ -965,3 +965,9 @@ td {
     font-weight: 400;
     text-align: center;
 }
+
+.img_upload_input {
+    font-size: 16px;
+    font-family: sans-serif;
+    margin: 14px auto;
+}
