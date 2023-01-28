@@ -31,31 +31,52 @@
             <h1 class="h1" style="text-align: center; margin-top: 0px;">Добавить новое объявление на сайт</h1>
             
             <form class="authorization-form-2">
-                <input class="auth_form_input" type="text" name="advertisment_name" maxlength="100" minlength="4" pattern="^[a-zA-Z0-9_.-]*$" id="advertisment_name" placeholder="Название" required>
-                <input class="auth_form_input" type="text" name="advertisment_description" maxlength="100" minlength="4" pattern="^[a-zA-Z0-9_.-]*$" id="advertisment_description" placeholder="Описание" required>
-                <input class="auth_form_input" type="text" name="price" maxlength="100" minlength="4" pattern="^[a-zA-Z0-9_.-]*$" id="price" placeholder="Стоимость" required>
-                <select class="form-select" name="category" id="category" required>
+                <!-- title -->
+                <input class="auth_form_input" type="text" name="good_title" maxlength="100" minlength="4" pattern="^[a-zA-Z0-9_.-]*$" id="good_title" placeholder="Название" required>
+                <!-- subtitle -->
+                <input class="auth_form_input" type="text" name="good_subtitle" maxlength="100" minlength="4" pattern="^[a-zA-Z0-9_.-]*$" id="good_subtitle" placeholder="Описание" required>
+                <!-- img-1 -->
+                <input class="img_upload_input" type="file" name="good_image_path_1" id="good_image_path_1" required>
+                <!-- img-2 -->
+                <input class="img_upload_input" type="file" name="good_image_path_2" id="good_image_path_2" required>
+                <!-- category -->
+                <select class="form-select" name="good_category_id" id="good_category_id" required>
                     <option value="1">Экзотика</option>
                     <option value="2">Грибы</option>
                     <option value="3">Ягоды</option>
                     <option value="4">Фрукты</option>
                     <option value="5">Овощи</option>
                 </select>
-                <div class="radio-box">
-                    <p class="radio-text" style="margin-right: 20px;">Товар уже кончается?</p>
-                    <input type="radio" value="true" name="is_running_out_soon" id="running_out_soon_ture">
-                    <label for="running_out_soon_ture" class="radio-text">Да</label>
-                    <input type="radio" value="false" name="is_running_out_soon" id="running_out_soon_false">
-                    <label for="running_out_soon_false" class="radio-text">Нет</label>
-                </div>
-
-                <div class="radio-box">
+                <!-- isNew? -->
+                <div>
                     <p class="radio-text" style="margin-right: 20px;">Товар является новинкой?</p>
-                    <input type="radio" value="true" name="is_new" id="new_true">
-                    <label for="new_true" class="radio-text">Да</label>
-                    <input type="radio" value="false" name="is_new" id="new_false">
-                    <label for="new_false" class="radio-text">Нет</label>
+                    <input type="checkbox" name="good_is_new" id="good_is_new">
                 </div>
+                <!-- isLeader? -->
+                <div>
+                    <p class="radio-text" style="margin-right: 20px;">Товар является лидером продаж?</p>
+                    <input type="checkbox" name="good_is_leader" id="good_is_leader">
+                </div>
+                <!-- price -->
+                <input class="auth_form_input" type="text" name="good_price" maxlength="100" minlength="4" pattern="^[a-zA-Z0-9_.-]*$" id="good_price" placeholder="Стоимость" required>
+
+                <!-- country -->
+                <select class="form-select" name="good_country_id" id="good_country_id" required>
+                    <option value="1">Россия</option>
+                    <option value="2">Беларусь</option>
+                    <option value="3">Китай</option>
+                    <option value="4">Таджикистан</option>
+                    <option value="5">Италия</option>
+                </select>
+                
+                <!-- popularity -->
+                <select class="form-select" name="good_popularity" id="good_popularity" required>
+                    <option value="5">5</option>
+                    <option value="4">4</option>
+                    <option value="3">3</option>
+                    <option value="2">2</option>
+                    <option value="1">1</option>
+                </select>
 
                 <button class="auth_form_button-2" type="submit">Добавить карточку товара на сайт</button>
                 <!-- <button class="product-button">Купить продукт</button> -->
