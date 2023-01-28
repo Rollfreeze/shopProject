@@ -1,13 +1,29 @@
 <?php
     function advert_card() {
+        $isAuth = isset($_SESSION['current_user']) && $_SESSION['current_user'] != null;
+        $user = $_SESSION['current_user'];
+        
+        $isRoot = false;
+        if ($isAuth) {
+            $isRoot = $user['is_root'];
+        }
+
+        $rootTools = '';
+        if ($isRoot) {
+            $rootTools = <<< ROOT_TOOLS
+            <form class="delete-advert-form ">
+                <input type="submit" class="advert_delete_button"></input>
+            </form>
+            <form class="edit-advert-form">
+                <input type="submit" class="advert_edit_button"></input>
+            </form>
+ROOT_TOOLS;
+        }
+
+
         $ADVERT_CARD = <<< ADVERT_CARD
         <div class="product-item">
-        <form class="delete-advert-form">
-            <input type="submit" class="advert_delete_button"></input>
-        </form>
-        <form class="edit-advert-form">
-            <input type="submit" class="advert_edit_button"></input>
-        </form>
+        $rootTools
         
         <div class="product-logo"></div>
 

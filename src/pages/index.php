@@ -14,6 +14,8 @@
 
     <?php
         // session_start();
+        require_once "../php/advert_card.php";
+        require_once "../php/advertisment_card.php";
         require_once "../php/general_page.php";
         echo getHeader();
     ?>
@@ -32,259 +34,28 @@
             </div>
 
             <div class="products-container">
-
-                <div class="product-item">
-                    <form class="delete-advert-form">
-                        <input type="submit" class="advert_delete_button"></input>
-                    </form>
-                    <form class="edit-advert-form">
-                        <input type="submit" class="advert_edit_button"></input>
-                    </form>
-                    
-                    <div class="product-logo"></div>
-
-                    <a href="good_item_page.php" class="product-title">Персики</a>
-
-                    <div class="product-price">
-                        <p class="product-money">570</p>руб.
-                    </div>
-
-                    <button class="product-button">Купить продукт</button>
-
-                    <div class="product-item-kg-counter">
-                        <span class="down" onclick="deacreaseCount(event, this)">-</span>
-                        <input type="text" value="1"></input>
-                        <span class="up" onclick="increaseCount(event, this)">+</span>
-                    </div>
-
-                    <p class="product-description">Персики. Сладкие и сочные фрукты с цветочным ароматом.</p>
-                </div>
-
-                <form class="product-item">
-                    <div class="product-logo"></div>
-
-                    <a href="good_item_page.php" class="product-title">Персики</a>
-
-                    <div class="product-price">
-                        <p class="product-money">570</p>руб.
-                    </div>
-
-                    <button class="product-button">Купить продукт</button>
-
-                    <div class="product-item-kg-counter">
-                        <span class="down" onclick="deacreaseCount(event, this)">-</span>
-                        <input type="text" value="1"></input>
-                        <span class="up" onclick="increaseCount(event, this)">+</span>
-                    </div>
-
-                    <p class="product-description">Персики. Сладкие и сочные фрукты с цветочным ароматом.</p>
-                </form>
-
-                <form class="product-item">
-                    <div class="product-logo"></div>
-
-                    <a href="good_item_page.php" class="product-title">Персики</a>
-
-                    <div class="product-price">
-                        <p class="product-money">570</p>руб.
-                    </div>
-
-                    <button class="product-button">Купить продукт</button>
-
-                    <div class="product-item-kg-counter">
-                        <span class="down" onclick="deacreaseCount(event, this)">-</span>
-                        <input type="text" value="1"></input>
-                        <span class="up" onclick="increaseCount(event, this)">+</span>
-                    </div>
-
-                    <p class="product-description">Персики. Сладкие и сочные фрукты с цветочным ароматом.</p>
-                </form>
-
-                <form class="product-item">
-                    <div class="product-logo"></div>
-
-                    <a href="good_item_page.php" class="product-title">Персики</a>
-
-                    <div class="product-price">
-                        <p class="product-money">570</p>руб.
-                    </div>
-
-                    <button class="product-button">Купить продукт</button>
-
-                    <div class="product-item-kg-counter">
-                        <span class="down" onclick="deacreaseCount(event, this)">-</span>
-                        <input type="text" value="1"></input>
-                        <span class="up" onclick="increaseCount(event, this)">+</span>
-                    </div>
-
-                    <p class="product-description">Персики. Сладкие и сочные фрукты с цветочным ароматом.</p>
-                </form>
+                <?php
+                    echo advert_card();
+                    echo advert_card();
+                    echo advert_card();
+                    echo advert_card();
+                ?>
             </div>
-
-
             <div class="products-container">
-                <form class="product-item">
-                    <div class="product-logo"></div>
-
-                    <a href="good_item_page.php" class="product-title">Персики</a>
-
-                    <div class="product-price">
-                        <p class="product-money">570</p>руб.
-                    </div>
-
-                    <button class="product-button">Купить продукт</button>
-
-                    <div class="product-item-kg-counter">
-                        <span class="down" onclick="deacreaseCount(event, this)">-</span>
-                        <input type="text" value="1"></input>
-                        <span class="up" onclick="increaseCount(event, this)">+</span>
-                    </div>
-
-                    <p class="product-description">Персики. Сладкие и сочные фрукты с цветочным ароматом.</p>
-                </form>
-
-                <form class="product-item">
-                    <div class="product-logo"></div>
-
-                    <a href="good_item_page.php" class="product-title">Персики</a>
-
-                    <div class="product-price">
-                        <p class="product-money">570</p>руб.
-                    </div>
-
-                    <button class="product-button">Купить продукт</button>
-
-                    <div class="product-item-kg-counter">
-                        <span class="down" onclick="deacreaseCount(event, this)">-</span>
-                        <input type="text" value="1"></input>
-                        <span class="up" onclick="increaseCount(event, this)">+</span>
-                    </div>
-
-                    <p class="product-description">Персики. Сладкие и сочные фрукты с цветочным ароматом.</p>
-                </form>
-
-                <form class="product-item">
-                    <div class="product-logo"></div>
-
-                    <a href="good_item_page.php" class="product-title">Персики</a>
-
-                    <div class="product-price">
-                        <p class="product-money">570</p>руб.
-                    </div>
-
-                    <button class="product-button">Купить продукт</button>
-
-                    <div class="product-item-kg-counter">
-                        <span class="down" onclick="deacreaseCount(event, this)">-</span>
-                        <input type="text" value="1"></input>
-                        <span class="up" onclick="increaseCount(event, this)">+</span>
-                    </div>
-
-                    <p class="product-description">Персики. Сладкие и сочные фрукты с цветочным ароматом.</p>
-                </form>
-
-                <form class="product-item">
-                    <div class="product-logo"></div>
-
-                    <a href="good_item_page.php" class="product-title">Персики</a>
-
-                    <div class="product-price">
-                        <p class="product-money">570</p>руб.
-                    </div>
-
-                    <button class="product-button">Купить продукт</button>
-
-                    <div class="product-item-kg-counter">
-                        <span class="down" onclick="deacreaseCount(event, this)">-</span>
-                        <input type="text" value="1"></input>
-                        <span class="up" onclick="increaseCount(event, this)">+</span>
-                    </div>
-
-                    <p class="product-description">Персики. Сладкие и сочные фрукты с цветочным ароматом.</p>
-                </form>
+                <?php
+                    echo advert_card();
+                    echo advert_card();
+                    echo advert_card();
+                    echo advert_card();
+                ?>
             </div>
-
-
             <div class="products-container">
-                <form class="product-item">
-                    <div class="product-logo"></div>
-
-                    <a href="good_item_page.php" class="product-title">Персики</a>
-
-                    <div class="product-price">
-                        <p class="product-money">570</p>руб.
-                    </div>
-
-                    <button class="product-button">Купить продукт</button>
-
-                    <div class="product-item-kg-counter">
-                        <span class="down" onclick="deacreaseCount(event, this)">-</span>
-                        <input type="text" value="1"></input>
-                        <span class="up" onclick="increaseCount(event, this)">+</span>
-                    </div>
-
-                    <p class="product-description">Персики. Сладкие и сочные фрукты с цветочным ароматом.</p>
-                </form>
-
-                <form class="product-item">
-                    <div class="product-logo"></div>
-
-                    <a href="good_item_page.php" class="product-title">Персики</a>
-
-                    <div class="product-price">
-                        <p class="product-money">570</p>руб.
-                    </div>
-
-                    <button class="product-button">Купить продукт</button>
-
-                    <div class="product-item-kg-counter">
-                        <span class="down" onclick="deacreaseCount(event, this)">-</span>
-                        <input type="text" value="1"></input>
-                        <span class="up" onclick="increaseCount(event, this)">+</span>
-                    </div>
-
-                    <p class="product-description">Персики. Сладкие и сочные фрукты с цветочным ароматом.</p>
-                </form>
-
-                <!-- <form class="product-item">
-                    <div class="product-logo"></div>
-
-                    <a href="good_item_page.php" class="product-title">Персики</a>
-
-                    <div class="product-price">
-                        <p class="product-money">570</p>руб.
-                    </div>
-
-                    <button class="product-button">Купить продукт</button>
-
-                    <div class="product-item-kg-counter">
-                        <span class="down" onclick="deacreaseCount(event, this)">-</span>
-                        <input type="text" value="1"></input>
-                        <span class="up" onclick="increaseCount(event, this)">+</span>
-                    </div>
-
-                    <p class="product-description">Персики. Сладкие и сочные фрукты с цветочным ароматом.</p>
-                </form>
-
-                <form class="product-item">
-                    <div class="product-logo"></div>
-
-                    <a href="good_item_page.php" class="product-title">Персики</a>
-
-                    <div class="product-price">
-                        <p class="product-money">570</p>руб.
-                    </div>
-
-                    <button class="product-button">Купить продукт</button>
-
-                    <div class="product-item-kg-counter">
-                        <span class="down" onclick="deacreaseCount(event, this)">-</span>
-                        <input type="text" value="1"></input>
-                        <span class="up" onclick="increaseCount(event, this)">+</span>
-                    </div>
-
-                    <p class="product-description">Персики. Сладкие и сочные фрукты с цветочным ароматом.</p>
-                </form> -->
+                <?php
+                    echo advert_card();
+                    echo advert_card();
+                    echo advert_card();
+                    echo advert_card();
+                ?>
             </div>
         </main>
     
@@ -292,50 +63,14 @@
             <!-- <div class="red-row"></div> -->
 
             <div class="advertisments-container">
-
-                <div class="advertisment-item">
-                    <div class="advertisment-logo"></div>
-                    <div class="advertisment-title">Счастливого нового года!</div>
-                    <div class="advertisment-subtitle">Пусть новый год принесет еще больше счастья!</div>
-                    <form class="delete-advertisment-form">
-                        <!-- <input type="hidden" name="advertisment_id" id="advertisment_id" value="$id"> -->
-                        <input type="submit" class="advertisment_delete_button"></input>
-                    </form>
-                    <form class="edit-advertisment-form">
-                        <!-- <input type="hidden" name="advertisment_id" id="advertisment_id" value="$id"> -->
-                        <input type="submit" class="advertisment_edit_button"></input>
-                    </form>
-                </div>
-
-                <div class="advertisment-item">
-                    <div class="advertisment-logo a2"></div>
-                    <div class="advertisment-title">Мед - это полезно!</div>
-                    <div class="advertisment-subtitle">Ученые доказали, что чтобы быть здоровым необходимо принимать по две чайные ложки меда в день</div>
-                </div>
-
-                <div class="advertisment-item">
-                    <div class="advertisment-logo a3"></div>
-                    <div class="advertisment-title">Томаты на зиму</div>
-                    <div class="advertisment-subtitle">Закажите у нас томаты на зиму, будете сыты :)</div>
-                </div>
-
-                <div class="advertisment-item">
-                    <div class="advertisment-logo a4"></div>
-                    <div class="advertisment-title">Авакадо и его польза</div>
-                    <div class="advertisment-subtitle">Авакадо имеет самую полезную жирность продукта</div>
-                </div>
-                
-                <div class="advertisment-item">
-                    <div class="advertisment-logo a2"></div>
-                    <div class="advertisment-title">Мед - это полезно!</div>
-                    <div class="advertisment-subtitle">Ученые доказали, что чтобы быть здоровым необходимо принимать по две чайные ложки меда в день</div>
-                </div>
-
-                <div class="advertisment-item">
-                    <div class="advertisment-logo a3"></div>
-                    <div class="advertisment-title">Томаты на зиму</div>
-                    <div class="advertisment-subtitle">Закажите у нас томаты на зиму, будете сыты :)</div>
-                </div>
+                <?php
+                    echo advertisment_card();
+                    echo advertisment_card();
+                    echo advertisment_card();
+                    echo advertisment_card();
+                    echo advertisment_card();
+                    echo advertisment_card();
+                ?>
             </div>
         </aside>
 

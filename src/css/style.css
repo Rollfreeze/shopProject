@@ -1016,6 +1016,7 @@ td {
     position: absolute;
     top: -14px;
     right: -12px;
+    cursor: pointer;
 }
 
 .advertisment_edit_button {
@@ -1031,6 +1032,7 @@ td {
     position: absolute;
     top: -14px;
     right: 32px;
+    cursor: pointer;
 }
 
 .advert_delete_button {
@@ -1046,6 +1048,7 @@ td {
     position: absolute;
     top: 4px;
     right: 8px;
+    cursor: pointer;
 }
 
 .advert_edit_button {
@@ -1061,4 +1064,5 @@ td {
     position: absolute;
     top: 4px;
     right: 50px;
+    cursor: pointer;
 }
