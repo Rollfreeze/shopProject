@@ -13,8 +13,6 @@
             $user_name = $_SESSION['current_user']['user_name'];
             $RIGHT_NAV = <<< RIGHT_NAV
             <div class="nav-right">
-                <div class="picture-box"></div>
-                <a class="admin-hover" href="">Изменить логотип</a>
                 <div class="advert-box"></div>
                 <a class="admin-hover" href="add_advert.php">Добавить рекламу</a>
                 <div class="edit-box"></div>
