@@ -284,10 +284,19 @@
             <!-- <div class="red-row"></div> -->
 
             <div class="advertisments-container">
+
                 <div class="advertisment-item">
                     <div class="advertisment-logo"></div>
                     <div class="advertisment-title">Счастливого нового года!</div>
                     <div class="advertisment-subtitle">Пусть новый год принесет еще больше счастья!</div>
+                    <form class="delete-advertisment-form">
+                        <!-- <input type="hidden" name="advertisment_id" id="advertisment_id" value="$id"> -->
+                        <input type="submit" class="advertisment_delete_button"></input>
+                    </form>
+                    <form class="edit-advertisment-form">
+                        <!-- <input type="hidden" name="advertisment_id" id="advertisment_id" value="$id"> -->
+                        <input type="submit" class="advertisment_edit_button"></input>
+                    </form>
                 </div>
 
                 <div class="advertisment-item">
