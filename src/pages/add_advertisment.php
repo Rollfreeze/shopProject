@@ -50,7 +50,8 @@
     <div class="container">
         <div class="personal-data-law-box">
             <?php
-                if ($result) echo '<h2 class="green_alert">Объявление успешно добавлено!</h2>';
+                if ($_POST && $result) echo '<h2 class="green_alert">Объявление успешно добавлено!</h2>';
+                else if ($_POST && $result == false) echo '<h2 class="red_alert">Ой, что-то пошло не так... Попробуйте еще раз</h2>';
             ?>    
 
             <h1 class="h1" style="text-align: center; margin-top: 0px;">Добавить новое объявление на сайт</h1>
