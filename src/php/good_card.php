@@ -1,5 +1,5 @@
 <?php
-    function advert_card() {
+    function good_card() {
         $isAuth = isset($_SESSION['current_user']) && $_SESSION['current_user'] != null;
         $user = $_SESSION['current_user'];
         
@@ -21,7 +21,7 @@ ROOT_TOOLS;
         }
 
 
-        $ADVERT_CARD = <<< ADVERT_CARD
+        $good_card = <<< good_card
         <div class="product-item">
         $rootTools
         
@@ -43,8 +43,8 @@ ROOT_TOOLS;
 
         <p class="product-description">Персики. Сладкие и сочные фрукты с цветочным ароматом.</p>
     </div>
-ADVERT_CARD;
+good_card;
 
-        return $ADVERT_CARD;
+        return $good_card;
     }
 ?>

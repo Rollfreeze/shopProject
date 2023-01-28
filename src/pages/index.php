@@ -14,7 +14,7 @@
 
     <?php
         // session_start();
-        require_once "../php/advert_card.php";
+        require_once "../php/good_card.php";
         require_once "../php/advertisment_card.php";
         require_once "../php/general_page.php";
         echo getHeader();
@@ -36,26 +36,26 @@
 
             <div class="products-container">
                 <?php
-                    echo advert_card();
-                    echo advert_card();
-                    echo advert_card();
-                    echo advert_card();
+                    echo good_card();
+                    echo good_card();
+                    echo good_card();
+                    echo good_card();
                 ?>
             </div>
             <div class="products-container">
                 <?php
-                    echo advert_card();
-                    echo advert_card();
-                    echo advert_card();
-                    echo advert_card();
+                    echo good_card();
+                    echo good_card();
+                    echo good_card();
+                    echo good_card();
                 ?>
             </div>
             <div class="products-container">
                 <?php
-                    echo advert_card();
-                    echo advert_card();
-                    echo advert_card();
-                    echo advert_card();
+                    echo good_card();
+                    echo good_card();
+                    echo good_card();
+                    echo good_card();
                 ?>
             </div>
         </main>
