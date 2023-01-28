@@ -21,7 +21,7 @@
 
         if (isset($_POST['good_category_id_delete'])) {
             $connection = new SQLConnection();
-            $connection->delete_good($_POST['good_category_id_delete']);
+            $res = $connection->delete_good($_POST['good_category_id_delete']);
         }
     ?>
 
@@ -29,8 +29,6 @@
 
     <div class="container flex-row">
         <main class="main">
-            <!-- <div class="blue-row"></div> -->
-
             <div class="filter-row">
                 <button class="filter-item-active">Все</button>
                 <button class="filter-item">Вы смотрели</button>
@@ -38,13 +36,15 @@
                 <button class="filter-item">Лидеры продаж</button>
                 <button class="filter-item">Новинки</button>
             </div>
-
-          <?php draw_goods(); ?>
+            
+          <?php
+            if (isset($_POST['good_category_id_delete']) && $res) echo '<h2 class="green_alert">Объявление успешно снято с публикации!</h2>';
+            else if (isset($_POST['good_category_id_delete']) && !$res) echo '<h2 class="red_alert">Не удалось снять объявление с публикации!</h2>';
+            draw_goods(); 
+          ?>
         </main>
     
         <aside class="aside">
-            <!-- <div class="red-row"></div> -->
-
             <div class="advertisments-container">
                 <?php
                     echo advertisment_card();
@@ -56,8 +56,6 @@
                 ?>
             </div>
         </aside>
-
-        
     </div>
 
     <div class="container">
