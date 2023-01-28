@@ -49,6 +49,10 @@
 
     <div class="container">
         <div class="personal-data-law-box">
+            <?php
+                if ($result) echo '<h2 class="green_alert">Объявление успешно добавлено!</h2>';
+            ?>    
+
             <h1 class="h1" style="text-align: center; margin-top: 0px;">Добавить новое объявление на сайт</h1>
             
             <form class="authorization-form-2" method="post">

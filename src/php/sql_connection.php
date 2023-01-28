@@ -44,13 +44,7 @@ class SQLConnection {
 
         $result = mysqli_query($connection, $sql_request);
         $connection->close();
-
-        // $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
-        // if (empty($rows)) return false;
-        // return $rows;
-
-        // return $result;
-        var_dump($result);
+        return $result;
     }
 
     // // Авторизация
