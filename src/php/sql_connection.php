@@ -56,43 +56,41 @@ class SQLConnection {
 
     }
 
-    // Авторизация
+    // Получить все товары
     function get_all_goods() {
-        $connection = mysqli_connect($this->host, $this->user, $this->password, $this->db);
-        if (!$connection) {
-            die("Connection failed: " .mysqli_connect_error());
+        try {
+            $connection = mysqli_connect($this->host, $this->user, $this->password, $this->db);
+            if (!$connection) {
+                die("Connection failed: " .mysqli_connect_error());
+            }
+            $sql_request = "SELECT * FROM `goods`";
+            $result = mysqli_query($connection, $sql_request);
+            $connection->close();
+    
+            $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
+            if (empty($rows)) return false;
+            return $rows;
+        } catch (Exception $_) {
+            return false;
         }
-        $sql_request = "SELECT * FROM `goods`";
-        $result = mysqli_query($connection, $sql_request);
-        $connection->close();
 
-        $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
-        if (empty($rows)) return false;
-        return $rows;
     }
 
-    // // Авторизация
-    // function authorize($login, $password) {
-    //     $mysql = new mysqli($this->host, $this->user, $this->password, $this->db);
-    //     if ($mysql->connect_errno) exit(mysqli_connect_error());
-    //     $mysql->set_charset($this->charset);
-    //     // $sql_request = 'SELECT * FROM `users` WHERE `login` = $login AND `password` = $password';
-    //     $sql_request = 'SELECT * FROM `users`';
-    //     $result = mysqli_query($mysql, $sql_request);
-    //     $mysql->close();
+    /// Удалить товар
+    function delete_good($id) {
+        try {
+            $connection = mysqli_connect($this->host, $this->user, $this->password, $this->db);
+            if (!$connection) {
+                die("Connection failed: " .mysqli_connect_error());
+            }
+            $sql_request = "DELETE FROM `goods` WHERE `goods`.`id` = $id;";
+            $result = mysqli_query($connection, $sql_request);
+            $connection->close();
+    
+            return $result;
+        } catch (Exception $_) {
+            return false;
+        }
 
-    //     return $result;
-    // }
-
-    /// Получение всех комментариев
-    // public static function getAdvertisments() {
-    //     $mysql = new mysqli(self::$host, self::$user, self::$password, self::$db);
-    //     if ($mysql->connect_errno) exit(mysqli_connect_error());
-    //     $mysql->set_charset(self::$charset);
-    //     $sql_request = 'SELECT * FROM `feed_back`';
-    //     $result = mysqli_query($mysql, $sql_request);
-    //     $mysql->close();
-
-    //     return $result;
-    // }
+    }
 }

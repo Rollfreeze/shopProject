@@ -2,6 +2,7 @@
     require_once "../php/advertisment_card.php";
     require_once "../php/general_page.php";
     require_once "../php/draw_cards.php";
+    require_once "../php/sql_connection.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,13 +12,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/styleBase.css">
     <link rel="stylesheet" href="../css/style.css">
+    <script type="text/javascript" src="../js/counter.js"></script>
     <title>Фрукты и овощи купить</title>
 </head>
 <body>
-    <script type="text/javascript" src="../js/counter.js"></script>
-
     <?php
         echo getHeader();
+
+        if (isset($_POST['good_category_id_delete'])) {
+            $connection = new SQLConnection();
+            $connection->delete_good($_POST['good_category_id_delete']);
+        }
     ?>
 
     <hr>

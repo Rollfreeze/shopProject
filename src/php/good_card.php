@@ -1,7 +1,7 @@
 <?php
 
     function good_card(
-        $good_title, $good_subtitle, $good_image_path_1,
+        $good_id, $good_title, $good_subtitle, $good_image_path_1,
         $good_image_path_2, $good_category_id, $good_is_new,
         $good_is_leader, $good_price, $good_country_id, $good_popularity
     ) {
@@ -16,10 +16,11 @@
         $rootTools = '';
         if ($isRoot) {
             $rootTools = <<< ROOT_TOOLS
-            <form class="delete-advert-form ">
-                <input type="submit" class="advert_delete_button"></input>
+            <form class="delete-advert-form" method="post">
+            <input type="hidden" name="good_category_id_delete" id="good_category_id_delete" value="$good_id"></input>
+            <input type="submit" class="advert_delete_button"></input>
             </form>
-            <form class="edit-advert-form">
+            <form action="" class="edit-advert-form">
                 <input type="submit" class="advert_edit_button"></input>
             </form>
 ROOT_TOOLS;
