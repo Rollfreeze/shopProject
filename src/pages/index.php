@@ -28,8 +28,9 @@
 
             <div class="filter-row">
                 <button class="filter-item-active">Все</button>
+                <button class="filter-item">Вы смотрели</button>
                 <button class="filter-item">Избранное</button>
-                <button class="filter-item">Скоро заканчивается</button>
+                <button class="filter-item">Лидеры продаж</button>
                 <button class="filter-item">Новинки</button>
             </div>
 
