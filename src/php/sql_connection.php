@@ -26,7 +26,7 @@ class SQLConnection {
     }
 
     // Добавить товар
-    function add_good($title, $subtitle, $good_image_path_1,
+    function add_good($good_title, $good_subtitle, $good_image_path_1,
         $good_image_path_2, $good_category_id, $good_is_new,
         $good_is_leader, $good_price, $good_country_id, $good_popularity) {
             
@@ -38,7 +38,7 @@ class SQLConnection {
             (`id`, `title`, `subtitle`, `image_path_1`, `image_path_2`, 
                 `category_id`, `is_new`, `is_leader`, `price`,
                     `country_id`, `popularity`)
-            VALUES (NULL, '$title', '$subtitle', '$good_image_path_1', '$good_image_path_2',
+            VALUES (NULL, '$good_title', '$good_subtitle', '$good_image_path_1', '$good_image_path_2',
                 '$good_category_id', '$good_is_new', '$good_is_leader', '$good_price', 
                     '$good_country_id', '$good_popularity');";
 

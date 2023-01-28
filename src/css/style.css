@@ -369,7 +369,7 @@ td {
     display: block;
     width: 220px;
     height: 180px;
-    background-image: url("../assets/product-logo-1.jpg");
+    /* background-image: url("../assets/product-logo-1.jpg"); */
     background-size: contain;
     background-repeat: no-repeat;
     
