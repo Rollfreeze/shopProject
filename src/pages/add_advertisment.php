@@ -35,11 +35,11 @@
                 <input class="auth_form_input" type="text" name="advertisment_description" maxlength="100" minlength="4" pattern="^[a-zA-Z0-9_.-]*$" id="advertisment_description" placeholder="Описание" required>
                 <input class="auth_form_input" type="text" name="price" maxlength="100" minlength="4" pattern="^[a-zA-Z0-9_.-]*$" id="price" placeholder="Стоимость" required>
                 <select class="form-select" name="category" id="category" required>
-                    <option value="Экзотика">Экзотика</option>
-                    <option value="Грибы">Грибы</option>
-                    <option value="Ягоды">Ягоды</option>
-                    <option value="Фрукты">Фрукты</option>
-                    <option value="Овощи">Овощи</option>
+                    <option value="1">Экзотика</option>
+                    <option value="2">Грибы</option>
+                    <option value="3">Ягоды</option>
+                    <option value="4">Фрукты</option>
+                    <option value="5">Овощи</option>
                 </select>
                 <div class="radio-box">
                     <p class="radio-text" style="margin-right: 20px;">Товар уже кончается?</p>
