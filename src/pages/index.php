@@ -1,4 +1,8 @@
-<?php session_start();?>
+<?php session_start();
+    require_once "../php/advertisment_card.php";
+    require_once "../php/general_page.php";
+    require_once "../php/draw_cards.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,10 +17,6 @@
     <script type="text/javascript" src="../js/counter.js"></script>
 
     <?php
-        // session_start();
-        require_once "../php/good_card.php";
-        require_once "../php/advertisment_card.php";
-        require_once "../php/general_page.php";
         echo getHeader();
     ?>
 
@@ -34,30 +34,7 @@
                 <button class="filter-item">Новинки</button>
             </div>
 
-            <div class="products-container">
-                <?php
-                    echo good_card();
-                    echo good_card();
-                    echo good_card();
-                    echo good_card();
-                ?>
-            </div>
-            <div class="products-container">
-                <?php
-                    echo good_card();
-                    echo good_card();
-                    echo good_card();
-                    echo good_card();
-                ?>
-            </div>
-            <div class="products-container">
-                <?php
-                    echo good_card();
-                    echo good_card();
-                    echo good_card();
-                    echo good_card();
-                ?>
-            </div>
+          <?php draw_goods(); ?>
         </main>
     
         <aside class="aside">

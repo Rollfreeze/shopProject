@@ -47,6 +47,21 @@ class SQLConnection {
         return $result;
     }
 
+    // Авторизация
+    function get_all_goods() {
+        $connection = mysqli_connect($this->host, $this->user, $this->password, $this->db);
+        if (!$connection) {
+            die("Connection failed: " .mysqli_connect_error());
+        }
+        $sql_request = "SELECT * FROM `goods`";
+        $result = mysqli_query($connection, $sql_request);
+        $connection->close();
+
+        $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
+        if (empty($rows)) return false;
+        return $rows;
+    }
+
     // // Авторизация
     // function authorize($login, $password) {
     //     $mysql = new mysqli($this->host, $this->user, $this->password, $this->db);
