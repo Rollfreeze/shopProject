@@ -32,7 +32,15 @@
             </div>
 
             <div class="products-container">
-                <form class="product-item">
+
+                <div class="product-item">
+                    <form class="delete-advert-form">
+                        <input type="submit" class="advert_delete_button"></input>
+                    </form>
+                    <form class="edit-advert-form">
+                        <input type="submit" class="advert_edit_button"></input>
+                    </form>
+                    
                     <div class="product-logo"></div>
 
                     <a href="good_item_page.php" class="product-title">Персики</a>
@@ -50,7 +58,7 @@
                     </div>
 
                     <p class="product-description">Персики. Сладкие и сочные фрукты с цветочным ароматом.</p>
-                </form>
+                </div>
 
                 <form class="product-item">
                     <div class="product-logo"></div>

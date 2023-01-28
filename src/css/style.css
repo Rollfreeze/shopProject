@@ -362,6 +362,7 @@ td {
     padding-left: 14px;
     padding-right: 14px;
     width: 245px;
+    position: relative;
 }
 
 .product-logo {
@@ -1030,4 +1031,34 @@ td {
     position: absolute;
     top: -14px;
     right: 32px;
+}
+
+.advert_delete_button {
+    background-image: url("../assets/remove_icon.png");
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-size: 0;
+    width: 40px;
+    height: 40px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 4px;
+    right: 8px;
+}
+
+.advert_edit_button {
+    background-image: url("../assets/edit3.png");
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-size: 0;
+    width: 40px;
+    height: 40px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 4px;
+    right: 50px;
 }
