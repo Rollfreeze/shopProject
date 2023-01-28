@@ -40,7 +40,7 @@
                 <!-- img-2 -->
                 <input class="img_upload_input" type="file" name="good_image_path_2" id="good_image_path_2" required>
                 <!-- category -->
-                <select class="form-select" name="good_category_id" id="good_category_id" required>
+                <select class="form-select" name="good_category_id" id="good_category_id" style="margin-top: 15px;" required>
                     <option value="1">Экзотика</option>
                     <option value="2">Грибы</option>
                     <option value="3">Ягоды</option>
@@ -50,12 +50,12 @@
                 <!-- isNew? -->
                 <div>
                     <p class="radio-text" style="margin-right: 20px;">Товар является новинкой?</p>
-                    <input type="checkbox" name="good_is_new" id="good_is_new">
+                    <input type="checkbox" name="good_is_new" id="good_is_new" style="vertical-align: top; margin-top: 4px;">
                 </div>
                 <!-- isLeader? -->
-                <div>
+                <div style="margin-bottom: 15px;">
                     <p class="radio-text" style="margin-right: 20px;">Товар является лидером продаж?</p>
-                    <input type="checkbox" name="good_is_leader" id="good_is_leader">
+                    <input type="checkbox" name="good_is_leader" id="good_is_leader" style="vertical-align: top; margin-top: 4px;">
                 </div>
                 <!-- price -->
                 <input class="auth_form_input" type="text" name="good_price" maxlength="100" minlength="4" pattern="^[a-zA-Z0-9_.-]*$" id="good_price" placeholder="Стоимость" required>
