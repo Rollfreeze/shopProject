@@ -6,7 +6,7 @@
         
         $isRoot = false;
         if ($isAuth) {
-            $isRoot = $isRoot = $user['is_root'];
+            $isRoot = $user['is_root'];
         }
 
         if ($isAuth && $isRoot) {
@@ -14,11 +14,11 @@
             $RIGHT_NAV = <<< RIGHT_NAV
             <div class="nav-right">
                 <div class="picture-box"></div>
-                <a href="">Изменить логотип</a>
+                <a class="admin-hover" href="">Изменить логотип</a>
                 <div class="advert-box"></div>
-                <a href="add_advert.php">Добавить рекламу</a>
+                <a class="admin-hover" href="add_advert.php">Добавить рекламу</a>
                 <div class="edit-box"></div>
-                <a href="add_advertisment.php">Добавить объявление</a>
+                <a class="admin-hover" href="add_advertisment.php">Добавить объявление</a>
                 <div class="auth-box"></div>
                 <a href="authorization_page.php">$user_name</a>
             </div>

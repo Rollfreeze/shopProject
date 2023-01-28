@@ -49,6 +49,10 @@
     padding-left: 12px;
 }
 
+.nav-right > a.admin-hover:hover {
+color: #ff8000;
+}
+
 .auth-box {
     display: inline-block;
     width: 20px;
@@ -991,4 +995,8 @@ td {
 
 .logout {
     background-color:brown;
+}
+
+.admin-hover:hover {
+    color:#e47a10;
 }
