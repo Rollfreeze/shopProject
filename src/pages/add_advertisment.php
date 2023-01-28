@@ -12,7 +12,28 @@
 <body>
     <?php
         require_once "../php/general_page.php";
+        require_once "../php/sql_connection.php";
+
         echo getHeader();
+
+        if ($_POST) {
+            $isNew = (isset($_POST['good_is_new'])) ? 1 : 0;
+            $isLeder = (isset($_POST['good_is_leader'])) ? 1 : 0;
+
+            // var_dump($_POST);
+            $connection = new SQLConnection();
+            $result = $connection->add_good(
+                $_POST['good_title'], $_POST['good_subtitle'],
+                $_POST['good_image_path_1'], $_POST['good_image_path_2'],
+                $_POST['good_category_id'], $isNew, $isLeder,
+                $_POST['good_price'], $_POST['good_country_id'], $_POST['good_popularity']
+            );
+
+            if ($result) {
+                var_dump($result);
+            }
+        }
+
     ?>
 
     <!-- bread bar -->
@@ -30,11 +51,11 @@
         <div class="personal-data-law-box">
             <h1 class="h1" style="text-align: center; margin-top: 0px;">Добавить новое объявление на сайт</h1>
             
-            <form class="authorization-form-2">
+            <form class="authorization-form-2" method="post">
                 <!-- title -->
-                <input class="auth_form_input" type="text" name="good_title" maxlength="100" minlength="4" pattern="^[a-zA-Z0-9_.-]*$" id="good_title" placeholder="Название" required>
+                <input class="auth_form_input" type="text" name="good_title" maxlength="100" minlength="4" id="good_title" placeholder="Название" required>
                 <!-- subtitle -->
-                <input class="auth_form_input" type="text" name="good_subtitle" maxlength="100" minlength="4" pattern="^[a-zA-Z0-9_.-]*$" id="good_subtitle" placeholder="Описание" required>
+                <input class="auth_form_input" type="text" name="good_subtitle" maxlength="100" minlength="4" id="good_subtitle" placeholder="Описание" required>
                 <!-- img-1 -->
                 <input class="img_upload_input" type="file" name="good_image_path_1" id="good_image_path_1" required>
                 <!-- img-2 -->
@@ -58,7 +79,7 @@
                     <input type="checkbox" name="good_is_leader" id="good_is_leader" style="vertical-align: top; margin-top: 4px;">
                 </div>
                 <!-- price -->
-                <input class="auth_form_input" type="text" name="good_price" maxlength="100" minlength="4" pattern="^[a-zA-Z0-9_.-]*$" id="good_price" placeholder="Стоимость" required>
+                <input class="auth_form_input" type="text" name="good_price" maxlength="100" minlength="1" id="good_price" placeholder="Стоимость" required>
 
                 <!-- country -->
                 <select class="form-select" name="good_country_id" id="good_country_id" required>
