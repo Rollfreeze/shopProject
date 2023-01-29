@@ -88,6 +88,16 @@ color: #ff8000;
     background-repeat: no-repeat;
 }
 
+.promo-box {
+    display: block;
+    margin: 0 auto;
+    width: 500px;
+    height: 250px;
+    background-image: url("../assets/promo-logo.jpeg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
 .picture-box {
     display: inline-block;
     width: 25px;
@@ -1135,4 +1145,10 @@ td {
 
 .country-c {
     color:rgb(199, 198, 138);
+}
+
+.promo-form {
+    width: 500px;
+    display: block;
+    margin: 0 auto;
 }

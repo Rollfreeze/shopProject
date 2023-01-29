@@ -63,7 +63,7 @@ RIGHT_NAV;
             <!-- Logo-Row -->
             <div class="container">
                 <div class="logo-row">
-                    <a href="catalog.php" class="logo"></a>
+                    <a href="index.php" class="logo"></a>
 
                     <div class="call-numbers-box">
                         <div class="call-number">
