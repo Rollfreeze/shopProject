@@ -89,8 +89,11 @@ RIGHT_NAV;
 
             </div>
 
-            <hr>
-
+            <div class='container'>
+                <div class='header-line-3'></div>
+            </div>
+            
+            <!-- <hr> -->
             <!-- Logo-Row -->
             <!--
             <div class="container">
@@ -103,6 +106,7 @@ RIGHT_NAV;
                 </div>
             </div>
             -->
+            
         </header>
 HEADER;
 
