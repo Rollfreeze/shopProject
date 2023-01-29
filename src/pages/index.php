@@ -23,6 +23,9 @@
         if (isset($_POST['good_id_delete'])) {
             $connection = new SQLConnection();
             $res = $connection->delete_good($_POST['good_id_delete']);
+        } elseif (isset($_POST['advert_id_delete'])) {
+            $connection = new SQLConnection();
+            $res = $connection->delete_advert($_POST['advert_id_delete']);
         }
     ?>
 
@@ -41,6 +44,9 @@
           <?php
             if (isset($_POST['good_id_delete']) && $res) echo '<h2 class="green_alert">Объявление успешно снято с публикации!</h2>';
             else if (isset($_POST['good_id_delete']) && !$res) echo '<h2 class="red_alert">Не удалось снять объявление с публикации!</h2>';
+
+            if (isset($_POST['advert_id_delete']) && $res) echo '<h2 class="green_alert">Реклама успешно снято с публикации!</h2>';
+            else if (isset($_POST['advert_id_delete']) && !$res) echo '<h2 class="red_alert">Не удалось снять рекламу с публикации!</h2>';
             draw_goods(); 
           ?>
         </main>
