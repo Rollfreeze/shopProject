@@ -208,6 +208,9 @@ color: #ff8000;
     justify-content: space-around;
     margin-bottom: 25px;
     padding: 15px 25px;
+
+    padding-bottom: 0px;
+    margin-bottom: 0px;
 }
 
 .categories-row a {
@@ -611,27 +614,6 @@ td {
     font-size: 12px;
     font-family: sans-serif;
     padding-top: 2px;
-}
-
-.filter-item, .filter-item-active {
-    padding: 7px 9px;
-    border: 1px dashed #E0E0E0 ;
-    border-radius: 12px;
-
-    margin-right: 16px;
-    background-color: white;
-    color: gray;
-
-    cursor: pointer;
-}
-
-.filter-item:hover {
-    color: #95C148;
-}
-
-.filter-item-active {
-    border: 1px solid #95C148 ;
-    color: #95C148;
 }
 
 .h1 {
@@ -1212,4 +1194,38 @@ td {
     display: block;
     margin: 0 auto;
     margin-top: 15px;
+}
+
+.filters-buttons {
+    max-width: 55%;
+    margin: 0 auto;
+}
+
+.filter-col {
+    text-align: center;
+}
+
+.filter-item, .filter-item-active {
+    margin-top: 15px;
+}
+    
+.filter-item, .filter-item-active {
+    padding: 7px 9px;
+    border: 1px dashed #E0E0E0 ;
+    border-radius: 12px;
+
+    margin-right: 16px;
+    background-color: white;
+    color: gray;
+
+    cursor: pointer;
+}
+
+.filter-item:hover {
+    color: #95C148;
+}
+
+.filter-item-active {
+    border: 1px solid #95C148 ;
+    color: #95C148;
 }

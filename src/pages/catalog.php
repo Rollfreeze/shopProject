@@ -44,45 +44,65 @@
     <div class="container bg-box-c border-round">
         <form class="categories-form">
             <div class="categories-box categories-row bg-box-c">
-                <div>
-                    <input type="checkbox" name="ekzotic" id="ekzotic">
-                    <label class='unselectable' for='ekzotic'>Экзотика</д>
+                <div class="filter-col">
+                    <div>
+                        <input type="checkbox" name="ekzotic" id="ekzotic">
+                        <label class='unselectable' for='ekzotic'>Экзотика</д>
+                    </div>
+
+                    <button class="filter-item-active">Все</button>
                 </div>
 
-                <div>
-                    <input type="checkbox" name="gribs" id="gribs">
-                    <label class='unselectable' for='gribs'>Грибы</label>
+                <div class="filter-col">
+                    <div>
+                        <input type="checkbox" name="gribs" id="gribs">
+                        <label class='unselectable' for='gribs'>Грибы</label>
+                    </div>
+
+                    <button class="filter-item">Вы смотрели</button>
                 </div>
 
-                <div>
-                    <input type="checkbox" name="yagods" id="yagods">
-                    <label class='unselectable' for='yagods'>Ягоды</label>
+                <div class="filter-col">
+                    <div>
+                        <input type="checkbox" name="yagods" id="yagods">
+                        <label class='unselectable' for='yagods'>Ягоды</label>
+                    </div>
+
+                    <button class="filter-item">Избранное</button>
                 </div>
 
-                <div>
-                    <input type="checkbox" name="fruits" id="fruits">
-                    <label class='unselectable' for='fruits'>Фрукты</label>
+                <div class="filter-col">
+                    <div>
+                        <input type="checkbox" name="fruits" id="fruits">
+                        <label class='unselectable' for='fruits'>Фрукты</label>
+                    </div>
+
+                    <button class="filter-item">Лидеры продаж</button>
                 </div>
 
-                <div>
-                    <input type="checkbox" name="vegetables" id="vegetables">
-                    <label class='unselectable' for='vegetables'>Овощи</label>
+                <div class="filter-col">
+                    <div>
+                        <input type="checkbox" name="vegetables" id="vegetables">
+                        <label class='unselectable' for='vegetables'>Овощи</label>
+                    </div>
+
+                    <button class="filter-item">Новинки</button>
                 </div>
             </div>
-
-            <button class="filter-button" style="margin-bottom: 20px;" type="submit">Применить</button>;
+            
+            <button class="filter-button" style="margin-bottom: 15px; margin-top: 15px;" type="submit">Применить</button>;
         </form>
     </div>
 
     <div class="container flex-row">
         <main class="main">
-            <div class="filter-row">
+            <!-- <div class="filter-row">
                 <button class="filter-item-active">Все</button>
                 <button class="filter-item">Вы смотрели</button>
                 <button class="filter-item">Избранное</button>
                 <button class="filter-item">Лидеры продаж</button>
                 <button class="filter-item">Новинки</button>
-            </div>
+            </div> -->
             
           <?php
             if (isset($_POST['good_id_delete']) && $res) echo '<h2 class="green_alert">Объявление успешно снято с публикации!</h2>';
