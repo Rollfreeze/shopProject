@@ -1,6 +1,7 @@
 <?php
     session_start();
     require_once "../php/general_page.php";
+    require_once "../php/edit_helper.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -56,18 +57,37 @@
 
         <div class="show-up-container">
             <div class="good-item-page-avatar">
-                <div class="good-item-page-avatar-logo"></div>
+                <!-- <div class="good-item-page-avatar-logo"></div> -->
+                <?php
+                    $productLogo = '<div class="good-item-page-avatar-logo" style="' . 'background-image: url(' . '..' . "/assets/" . $good_image_path_1 . '")' . '"></div>';
+                    echo $productLogo;
+                ?>
             </div>
             
             <div class="second-col">
-                <h1 class="h1" style="text-align: left; margin-bottom: 5px; margin-top: 15px;">Персики</h1>
+                <?php
+                echo "<h1 class='h1' style='text-align: left; margin-bottom: 5px; margin-top: 15px; font-size: 34px;'>$good_title</h1>";
+                ?>
                 <div class="gray-hr"></div>
 
                 <div class="under-hr-description flex-row">
-                    <p class="show-up-description">Персики. Сладкие и сочные фрукты с цветочным ароматом.</p>
+                    <div class="description-good-box">
+                        <!-- <p class='good-raiting'>Рейтинг товара: </p> -->
+                        <!-- <p class='good-country'>Страна производитель: </p> -->
+
+                        <?php
+                        $country = good_country_name($good_country_id);
+                        $scoreColor = score_color($good_popularity);
+                        echo "<p class='good-raiting'>Рейтинг товара: <span class='span-raiting $scoreColor'>$good_popularity</span></p>";
+                        echo "<p class='good-country'>Страна: <span class='span-raiting country-c'>$country</span></p>";
+                        echo "<p class='show-up-description'>$good_subtitle</p>";
+                        ?>
+                    </div>
 
                     <div class="counter-box">
-                        <p class="counter-box-money">573 руб.</p>
+                        <?php
+                        echo "<p class='counter-box-money'>$good_price руб. за кг.</p>";
+                        ?>
 
                         <div class="product-item-kg-counter">
                             <span class="down" onclick="deacreaseCount(event, this)">-</span>

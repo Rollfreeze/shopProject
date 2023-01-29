@@ -61,4 +61,15 @@
             else echo "<option value='$i'>$good_popularity_name</option>";
         }
     }
+
+    function score_color($item) {
+        switch($item) {
+            case 5: return 'green-c';
+            case 4: return 'blue-c';
+            case 3: return 'yellow-c';
+            case 2: return 'brown-c';
+            case 1: return 'red-c';
+            default: return '';
+        }
+    }
 ?>

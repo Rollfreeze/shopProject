@@ -912,8 +912,12 @@ td {
 }
 
 .good-item-page-avatar-logo {
-    width: 500px;
-    height: 450px;
+    /* width: 500px;
+    height: 450px; */
+
+    width: 450px;
+    height: 420px;
+
     /* height: max-content; */
     background-image: url("../assets/big-persik.jpg");
     background-size: contain;
@@ -923,6 +927,9 @@ td {
     outline: 0px;
     cursor: pointer;
     margin: 0 auto;
+    
+    text-align: center;
+    vertical-align: middle;
 }
 
 .show-up-container {
@@ -947,12 +954,39 @@ td {
 }
 
 .show-up-description {
+    /* max-width: 425px; */
     font-size: 16px;
     font-family: Georgia, 'Times New Roman', Times, serif;
     line-height: 1.5;
     color: black;
     
     margin-top: 25px;
+}
+
+.good-country {
+    font-size: 24px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    line-height: 1.5;
+    /* color: rgb(155, 121, 121); */
+}
+
+.good-raiting {
+    font-size: 24px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    line-height: 1.5;
+    /* color: rgb(187, 142, 20); */
+
+    margin-top: 18px;
+}
+
+.span-raiting {
+    font-size: 24px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    line-height: 1.5;
+}
+
+.description-good-box {
+    max-width: 425px;
 }
 
 .counter-box {
@@ -1077,4 +1111,28 @@ td {
 .form-now-image {
     max-width: 210px;
     max-height: 210px;
+}
+
+.green-c {
+    color:#379122;
+}
+
+.blue-c {
+    color:#11bde4;
+}
+
+.yellow-c {
+    color:rgb(255, 179, 0);
+}
+
+.brown-c {
+    color: brown;
+}
+
+.red-c {
+    color: gray;
+}
+
+.country-c {
+    color:rgb(199, 198, 138);
 }
