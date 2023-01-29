@@ -19,7 +19,7 @@
                 <input type="submit" class="advertisment_delete_button"></input>
             </form>
 
-            <form method="get" class="edit-advertisment-form">
+            <form method="get" class="edit-advertisment-form" action="edit_advert.php">
                 <input type="hidden" name="advert_id" id="advert_id" value="$advert_id"></input>
                 <input type="hidden" name="advert_title" id="advert_title" value="$advert_title"></input>
                 <input type="hidden" name="advert_subtitle" id="advert_subtitle" value="$advert_subtitle"></input>

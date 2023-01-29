@@ -116,8 +116,6 @@ class SQLConnection {
             $result = mysqli_query($connection, $sql_request);
             $connection->close();
 
-            var_dump($result);
-            
             return $result;
         } catch (Exception $_) {
             return false;
@@ -172,6 +170,27 @@ class SQLConnection {
             $result = mysqli_query($connection, $sql_request);
             $connection->close();
     
+            return $result;
+        } catch (Exception $_) {
+            return false;
+        }
+    }
+
+    // Редактировать рекламу
+    function edit_advert($advert_id, $advert_title, $advert_subtitle, $advert_image) {
+        try {
+            $connection = mysqli_connect($this->host, $this->user, $this->password, $this->db);
+            if (!$connection) {
+                die("Connection failed: " .mysqli_connect_error());
+            }
+            $sql_request = "UPDATE `advert` SET 
+                `title` = '$advert_title',
+                `subtitle` = '$advert_subtitle',
+                `image` = '$advert_image'
+                WHERE `advert`.`id` = $advert_id;";
+            $result = mysqli_query($connection, $sql_request);
+            $connection->close();
+
             return $result;
         } catch (Exception $_) {
             return false;
