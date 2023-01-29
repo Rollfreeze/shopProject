@@ -2,6 +2,7 @@
     require_once "../php/advertisment_card.php";
     require_once "../php/general_page.php";
     require_once "../php/draw_cards.php";
+    require_once "../php/draw_adverts.php";
     require_once "../php/sql_connection.php";
 ?>
 <!DOCTYPE html>
@@ -45,16 +46,9 @@
         </main>
     
         <aside class="aside">
-            <div class="advertisments-container">
-                <?php
-                    echo advertisment_card();
-                    echo advertisment_card();
-                    echo advertisment_card();
-                    echo advertisment_card();
-                    echo advertisment_card();
-                    echo advertisment_card();
-                ?>
-            </div>
+            <?php
+                draw_adverts();
+            ?>
         </aside>
     </div>
 

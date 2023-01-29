@@ -1,5 +1,8 @@
 <?php
-    function advertisment_card() {
+    function advertisment_card(
+        $advert_id, $advert_title,
+        $advert_subtitle, $advert_image
+    ) {
         $isAuth = isset($_SESSION['current_user']) && $_SESSION['current_user'] != null;
         $user = $_SESSION['current_user'];
         
@@ -11,21 +14,30 @@
         $rootTools = '';
         if ($isRoot) {
             $rootTools = <<< ROOT_TOOLS
-            <form class="delete-advertisment-form">
+            <form method="post" class="delete-advertisment-form">
+                <input type="hidden" name="advert_id_delete" id="advert_id_delete" value="$advert_id"></input>
                 <input type="submit" class="advertisment_delete_button"></input>
             </form>
-            <form class="edit-advertisment-form">
+
+            <form method="get" class="edit-advertisment-form">
+                <input type="hidden" name="advert_id" id="advert_id" value="$advert_id"></input>
+                <input type="hidden" name="advert_title" id="advert_title" value="$advert_title"></input>
+                <input type="hidden" name="advert_subtitle" id="advert_subtitle" value="$advert_subtitle"></input>
+                <input type="hidden" name="advert_image" id="advert_image" value="$advert_image"></input>
                 <input type="submit" class="advertisment_edit_button"></input>
             </form>
 ROOT_TOOLS;
         }
 
+        $advertLogo = '<div class="advertisment-logo" style="' . 'background-image: url(' . '..' . "/assets/" . $advert_image . '")' . '"></div>';
+
         $advertisment_card = <<< ADVERTISMENT_CARD
         <div class="advertisment-item">
             $rootTools
-            <div class="advertisment-logo a4"></div>
-            <div class="advertisment-title">Авакадо и его польза</div>
-            <div class="advertisment-subtitle">Авакадо имеет самую полезную жирность продукта</div>
+
+            $advertLogo
+            <div class="advertisment-title">$advert_title</div>
+            <div class="advertisment-subtitle">$advert_subtitle</div>
         </div>
 ADVERTISMENT_CARD;
 

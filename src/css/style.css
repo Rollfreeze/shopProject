@@ -530,13 +530,13 @@ td {
     width: 200px;
     height: 160px;
     display: inline-block;
-    background-image: url("../assets/advertisment-logo-1.jpg");
+    /* background-image: url("../assets/advertisment-logo-1.jpg"); */
     background-size: contain;
     background-repeat: no-repeat;
     /* background-color:#11BDE4; */
 }
 
-.a2 {
+/* .a2 {
     background-image: url("../assets/advertisment-logo-2.jpg");
 }
 
@@ -546,7 +546,7 @@ td {
 
 .a4 {
     background-image: url("../assets/advertisment-logo-4.jpg");
-}
+} */
 
 .advertisment-title {
     color: #43b02a;
