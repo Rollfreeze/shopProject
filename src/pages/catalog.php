@@ -41,14 +41,37 @@
         </main>
     </div>
 
-    <div class="container">
-        <div class="categories-row">
-            <a href="">Экзотика</a>
-            <a href="">Грибы</a>
-            <a href="">Ягоды</a>
-            <a href="">Фрукты</a>
-            <a href="">Овощи</a>
-        </div>
+    <div class="container bg-box-c border-round">
+        <form class="categories-form">
+            <div class="categories-box categories-row bg-box-c">
+                <div>
+                    <input type="checkbox" name="ekzotic" id="ekzotic">
+                    <label class='unselectable' for='ekzotic'>Экзотика</д>
+                </div>
+
+                <div>
+                    <input type="checkbox" name="gribs" id="gribs">
+                    <label class='unselectable' for='gribs'>Грибы</label>
+                </div>
+
+                <div>
+                    <input type="checkbox" name="yagods" id="yagods">
+                    <label class='unselectable' for='yagods'>Ягоды</label>
+                </div>
+
+                <div>
+                    <input type="checkbox" name="fruits" id="fruits">
+                    <label class='unselectable' for='fruits'>Фрукты</label>
+                </div>
+
+                <div>
+                    <input type="checkbox" name="vegetables" id="vegetables">
+                    <label class='unselectable' for='vegetables'>Овощи</label>
+                </div>
+            </div>
+
+            <button class="filter-button" style="margin-bottom: 20px;" type="submit">Применить</button>;
+        </form>
     </div>
 
     <div class="container flex-row">

@@ -207,6 +207,7 @@ color: #ff8000;
     flex-direction: row;
     justify-content: space-around;
     margin-bottom: 25px;
+    padding: 15px 25px;
 }
 
 .categories-row a {
@@ -217,6 +218,25 @@ color: #ff8000;
     text-decoration: none;
     padding: 12px 21px;
     font-weight: bold;
+}
+
+.categories-form label {
+    font-size: 16px;
+    font-family: sans-serif;
+    text-transform: uppercase;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 12px 21px;
+    font-weight: bold;
+}
+
+.unselectable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .categories-row a:hover {
@@ -903,7 +923,7 @@ td {
     width: 100%;
 }
 
-.auth_form_button, .auth_form_button-2 {
+.auth_form_button, .auth_form_button-2, .filter-button {
     background-color: #FE9730;
     color: #ffffff;
     width: 98%;
@@ -918,12 +938,16 @@ td {
     margin-bottom: 40px;
 }
 
-.auth_form_button:hover, .auth_form_button-2:hover {
+.auth_form_button:hover, .auth_form_button-2:hover, .filter-button:hover {
     background-color: #e47a10;
 }
 
 .auth_form_button-2 {
     width: 100%;
+}
+
+.filter-button {
+    width: 25%;
 }
 
 .radio-text {
@@ -1037,6 +1061,10 @@ td {
     box-shadow: 5px 5px 5px gray;
 }
 
+.border-round {
+    border-radius: 14px;
+}
+
 .counter-box-money {
     font-size: 32px;
     font-family: sans-serif;
@@ -1148,7 +1176,15 @@ td {
 }
 
 .green-c {
-    color:#379122;
+    color:#43b02a;
+}
+
+.bg-green-c {
+    background-color:#43b02a;
+}
+
+.bg-box-c {
+    background-color: rgb(189, 182, 182)
 }
 
 .blue-c {
