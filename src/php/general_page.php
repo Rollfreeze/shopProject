@@ -89,9 +89,13 @@ RIGHT_NAV;
 
             </div>
 
+            <!-- 
             <div class='container'>
                 <div class='header-line-3'></div>
             </div>
+            -->
+
+            <hr>
             
             <!-- <hr> -->
             <!-- Logo-Row -->
