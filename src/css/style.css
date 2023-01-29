@@ -475,10 +475,6 @@ td {
     user-select: none;
 }
 
-.product-item {
-    cursor: pointer;
-}
-
 .main {
     /* display: flex; */
     /* flex-grow: 4; */

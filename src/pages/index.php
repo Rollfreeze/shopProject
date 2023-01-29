@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="../css/styleBase.css">
     <link rel="stylesheet" href="../css/style.css">
     <script type="text/javascript" src="../js/counter.js"></script>
-    <title>Фрукты и овощи купить</title>
+    <title>Фруктов-лавка</title>
 </head>
 <body>
     <?php
@@ -65,7 +65,6 @@
     </div>
 
     <?php
-        require_once "../php/general_page.php";
         echo getFooter();
     ?>
 </body>
