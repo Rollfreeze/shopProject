@@ -44,7 +44,7 @@
     <div class="container">
         <main class="main">
            <div class="bread-bar">
-                <a class="bread-bar-item" href="catalog.php" style="margin-left: 0px">Главная</a>
+                <a class="bread-bar-item" href="index.php" style="margin-left: 0px">Главная</a>
                 <span class="bread-slesh">/</span>
                 <?php
                     echo "<a class='bread-bar-item' href='good_item_page.php?good_id=$good_id&good_title=$titlePlusiks&good_subtitle=$subtitlePlusiks&good_image_path_1=$good_image_path_1&good_image_path_2=$good_image_path_2&good_category_id=$good_category_id&good_is_new=$good_isNew_href&good_is_leader=$good_isLeder_href&good_price=$good_price&good_country_id=$good_country_id&good_popularity=$good_popularity'>$good_title</a>";

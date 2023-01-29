@@ -19,7 +19,7 @@
     <div class="container">
         <main class="main">
            <div class="bread-bar">
-                <a class="bread-bar-item" href="catalog.php" style="margin-left: 0px">Главная</a>
+                <a class="bread-bar-item" href="index.php" style="margin-left: 0px">Главная</a>
                 <span class="bread-slesh">/</span>
                 <a class="bread-bar-item" href="personal.php">Способы оплаты</a>
            </div>

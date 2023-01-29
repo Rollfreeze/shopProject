@@ -29,7 +29,27 @@
         }
     ?>
 
-    <hr>
+    <!-- <hr> -->
+    <!-- bread bar -->
+    <div class="container">
+        <main class="main">
+           <div class="bread-bar">
+                <a class="bread-bar-item" href="index.php" style="margin-left: 0px">Главная</a>
+                <span class="bread-slesh">/</span>
+                <a class="bread-bar-item" href="catalog.php">Каталог</a>
+           </div>
+        </main>
+    </div>
+
+    <div class="container">
+        <div class="categories-row">
+            <a href="">Экзотика</a>
+            <a href="">Грибы</a>
+            <a href="">Ягоды</a>
+            <a href="">Фрукты</a>
+            <a href="">Овощи</a>
+        </div>
+    </div>
 
     <div class="container flex-row">
         <main class="main">

@@ -85,9 +85,12 @@ RIGHT_NAV;
                         </div>
                     </div>
                 </div>
+
+                
             </div>
 
             <!-- Logo-Row -->
+            <!--
             <div class="container">
                 <div class="categories-row">
                     <a href="">Экзотика</a>
@@ -97,6 +100,7 @@ RIGHT_NAV;
                     <a href="">Овощи</a>
                 </div>
             </div>
+            -->
         </header>
 HEADER;
 
@@ -132,14 +136,8 @@ HEADER;
                         <a href="personal.php" class="link bottom20">Обработка персональных данных</a>
                     </div>
 
-                    <div class="second-footer">
-                        <p class="chapter">Каталог</p>
-                        <a href="">Экзотика</a>
-                        <a href="">Грибы</a>
-                        <a href="">Ягоды</a>
-                        <a href="">Фрукты</a>
-                        <a href="">Овощи</a>
-                    </div>
+                    
+                    
                 </div>
 
                 <div class="footer-hr"></div>
