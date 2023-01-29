@@ -67,11 +67,11 @@
                 
                 <!-- img-1 -->
                 <hr>
-                <p class="radio-text" style="font-size: 18px; margin-top: 35px;">Фотография товара №1:</p>
+                <p class="radio-text" style="font-size: 18px; margin-top: 35px;">Выберите фотографию товара №1:</p>
                 <input class="img_upload_input" type="file" name="good_image_path_1" id="good_image_path_1" required>
                 
                 <!-- img-2 -->
-                <p class="radio-text" style="font-size: 18px; margin-top: 15px;">Фотография товара №2:</p>
+                <p class="radio-text" style="font-size: 18px; margin-top: 15px;">Выберите фотографию товара №2:</p>
                 <input class="img_upload_input" style="margin-bottom: 40px;" type="file" name="good_image_path_2" id="good_image_path_2" required>
                 <hr>
                 

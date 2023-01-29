@@ -36,7 +36,7 @@
             //     var_dump($result);
             // }
         } else if ($_GET) {
-            var_dump($_GET);
+            // var_dump($_GET);
 
             $good_id = $_GET['good_id'];
             $good_title = $_GET['good_title'];
@@ -89,11 +89,33 @@
                 
                 // img1
                 echo '<hr>';
-                echo '<p class="radio-text" style="font-size: 18px; margin-top: 35px;">Фотография товара №1:</p>';
+                $nowImg1 = <<< NOW_IMG_1
+                <div class="flex-row" style="margin-top: 10px;">
+                    <div class="half-box">
+                        <p class="radio-text" style="font-size: 18px; margin-top: 35px;">Текущая фотография товара №1:</p>
+                    </div>
+                    <div class="half-box">
+                        <img class='form-now-image' src='../assets/$good_image_path_1' alt='no_img_1'>
+                    </div>
+                </div>
+NOW_IMG_1;
+                echo $nowImg1;
+                echo '<p class="radio-text" style="font-size: 18px; margin-top: 35px; margin-right: 50px;">Выберите фотографию товара №1:</p>';
                 echo "<input value='../assets/$good_image_path_1' class='img_upload_input' type='file' name='good_image_path_1' id='good_image_path_1' required>";
                 
                 // img2
-                echo '<p class="radio-text" style="font-size: 18px; margin-top: 15px;">Фотография товара №2:</p>';
+                $nowImg2 = <<< NOW_IMG_2
+                <div class="flex-row">
+                    <div class="half-box">
+                        <p class="radio-text" style="font-size: 18px; margin-top: 35px;">Текущая фотография товара №2:</p>
+                    </div>
+                    <div class="half-box">
+                        <img class='form-now-image' src='../assets/$good_image_path_2' alt='no_img_2'>
+                    </div>
+                </div>
+NOW_IMG_2;
+                echo $nowImg2;
+                echo '<p class="radio-text" style="font-size: 18px; margin-top: 15px; margin-right: 50px;">Выберите фотографию товара №2:</p>';
                 echo "<input value='../assets/$good_image_path_2' style='margin-bottom: 40px;' class='img_upload_input' type='file' name='good_image_path_2' id='good_image_path_2' required>";
                 echo '<hr>';
                 
@@ -134,6 +156,15 @@
                 echo '<button class="auth_form_button-2" type="submit">Редактировать карточку товара на сайт</button>';
             echo '</form>';
             ?>
+
+            <!-- <div class="flex-row">
+                <div class="half-box">
+                    <p class="radio-text" style="font-size: 18px; margin-top: 35px;">Текущая фотография товара №1:</p>
+                </div>
+                <div class="half-box">
+                    <img class='form-now-image' src='../assets/advert.png' alt='no_img_1'>
+                </div>
+            </div> -->
         </div>
     </div>
 
