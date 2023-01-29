@@ -53,8 +53,15 @@
             $good_price = $_GET['good_price'];
             $good_country_id = $_GET['good_country_id'];
             $good_popularity = $_GET['good_popularity'];
+
+            $good_isNew_href = ($_GET['good_is_new'] == '1') ? '1' : '0';
+            $good_isLeder_href = ($_GET['good_is_leader'] == '1') ? '1' : '0';
         }
 
+
+        $titlePlusiks = str_replace(" ", "+", $good_title);
+        $subtitlePlusiks = str_replace(" ", "+", $good_subtitle);
+        $pageHref = "edit_advertisment.php?good_id=$good_id&good_title=$titlePlusiks&good_subtitle=$subtitlePlusiks&good_image_path_1=$good_image_path_1&good_image_path_2=$good_image_path_2&good_category_id=$good_category_id&good_is_new=$good_isNew_href&good_is_leader=$good_isLeder_href&good_price=$good_price&good_country_id=$good_country_id&good_popularity=$good_popularity"
     ?>
 
     <!-- bread bar -->
@@ -63,7 +70,10 @@
            <div class="bread-bar">
                 <a class="bread-bar-item" href="index.php" style="margin-left: 0px">Главная</a>
                 <span class="bread-slesh">/</span>
-                <a class="bread-bar-item" href="authorization_page.php">Редактирование объявления</a>
+                <!-- <a class="bread-bar-item" href="authorization_page.php">Редактирование объявления</a> -->
+                <?php
+                    echo "<a class='bread-bar-item' href='$pageHref'>Редактирование объявления</a>";
+                ?>
            </div>
         </main>
     </div>
