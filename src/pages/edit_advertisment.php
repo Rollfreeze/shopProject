@@ -20,24 +20,28 @@
         echo getHeader();
 
         if ($_POST) {
-            // $isNew = (isset($_POST['good_is_new'])) ? 1 : 0;
-            // $isLeder = (isset($_POST['good_is_leader'])) ? 1 : 0;
+            $isNew = (isset($_POST['good_is_new'])) ? 1 : 0;
+            $isLeder = (isset($_POST['good_is_leader'])) ? 1 : 0;
 
-            // // var_dump($_POST);
-            // $connection = new SQLConnection();
-            // $result = $connection->add_good(
-            //     $_POST['good_title'], $_POST['good_subtitle'],
-            //     $_POST['good_image_path_1'], $_POST['good_image_path_2'],
-            //     $_POST['good_category_id'], $isNew, $isLeder,
-            //     $_POST['good_price'], $_POST['good_country_id'], $_POST['good_popularity']
-            // );
+            $img1 = $_POST['img_defalut_1'];
+            if (isset($_POST['good_image_path_1']) && $_POST['good_image_path_1'] != null) {
+                $img1 = $_POST['good_image_path_1'];
+            }
 
-            // if ($result) {
-            //     var_dump($result);
-            // }
+            $img2 = $_POST['img_defalut_2'];
+            if (isset($_POST['good_image_path_2']) && $_POST['good_image_path_2'] != null) {
+                $img2 = $_POST['good_image_path_2'];
+            }
+
+            $connection = new SQLConnection();
+            $result = $connection->edit_good($_POST['good_id'],
+                $_POST['good_title'], $_POST['good_subtitle'],
+                $img1, $img2,
+                $_POST['good_category_id'], $isNew, $isLeder,
+                $_POST['good_price'], $_POST['good_country_id'], $_POST['good_popularity']
+            );
         } else if ($_GET) {
             // var_dump($_GET);
-
             $good_id = $_GET['good_id'];
             $good_title = $_GET['good_title'];
             $good_subtitle = $_GET['good_subtitle'];
@@ -78,6 +82,10 @@
             echo '<form class="authorization-form-2" method="post">';
                 // id
                 echo "<input value='$good_id' type='hidden' name='good_id' id='good_id'></input>";
+                
+                // hidden images for default
+                echo "<input value='$good_image_path_1' type='hidden' name='img_defalut_1' id='img_defalut_1'></input>";
+                echo "<input value='$good_image_path_2' type='hidden' name='img_defalut_2' id='img_defalut_2'></input>";
 
                 // title
                 echo '<p class="radio-text" style="font-size: 18px;">Название товара:</p>';
@@ -101,7 +109,7 @@
 NOW_IMG_1;
                 echo $nowImg1;
                 echo '<p class="radio-text" style="font-size: 18px; margin-top: 35px; margin-right: 50px;">Выберите фотографию товара №1:</p>';
-                echo "<input value='../assets/$good_image_path_1' class='img_upload_input' type='file' name='good_image_path_1' id='good_image_path_1' required>";
+                echo "<input class='img_upload_input' type='file' name='good_image_path_1' id='good_image_path_1'>";
                 
                 // img2
                 $nowImg2 = <<< NOW_IMG_2
@@ -116,7 +124,7 @@ NOW_IMG_1;
 NOW_IMG_2;
                 echo $nowImg2;
                 echo '<p class="radio-text" style="font-size: 18px; margin-top: 15px; margin-right: 50px;">Выберите фотографию товара №2:</p>';
-                echo "<input value='../assets/$good_image_path_2' style='margin-bottom: 40px;' class='img_upload_input' type='file' name='good_image_path_2' id='good_image_path_2' required>";
+                echo "<input style='margin-bottom: 40px;' class='img_upload_input' type='file' name='good_image_path_2' id='good_image_path_2'>";
                 echo '<hr>';
                 
                 // category

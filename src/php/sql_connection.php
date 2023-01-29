@@ -73,7 +73,6 @@ class SQLConnection {
         } catch (Exception $_) {
             return false;
         }
-
     }
 
     /// Удалить товар
@@ -91,6 +90,39 @@ class SQLConnection {
         } catch (Exception $_) {
             return false;
         }
+    }
 
+    // UPDATE `goods` SET `title` = \'Керпич12\', `subtitle` = \'Красный12\', `image_path_1` = \'remove_icon12.png\', `image_path_2` = \'advertisment-logo-412.jpg\', `category_id` = \'5\', `is_new` = \'1\', `is_leader` = \'0\', `price` = \'1577\', `country_id` = \'3\', `popularity` = \'3\' WHERE `goods`.`id` = 21;
+
+    function edit_good($good_id,
+        $good_title, $good_subtitle, $good_image_path_1,
+        $good_image_path_2, $good_category_id, $good_is_new,
+        $good_is_leader, $good_price, $good_country_id, $good_popularity) {
+        try {
+            $connection = mysqli_connect($this->host, $this->user, $this->password, $this->db);
+            if (!$connection) {
+                die("Connection failed: " .mysqli_connect_error());
+            }
+            $sql_request = "UPDATE `goods` SET 
+                `title` = '$good_title',
+                `subtitle` = '$good_subtitle',
+                `image_path_1` = '$good_image_path_1',
+                `image_path_2` = '$good_image_path_2',
+                `category_id` = '$good_category_id',
+                `is_new` = '$good_is_new',
+                `is_leader` = '$good_is_leader',
+                `price` = '$good_price',
+                `country_id` = '$good_country_id',
+                `popularity` = '$good_popularity'
+                WHERE `goods`.`id` = $good_id;";
+            $result = mysqli_query($connection, $sql_request);
+            $connection->close();
+
+            var_dump($result);
+            
+            return $result;
+        } catch (Exception $_) {
+            return false;
+        }
     }
 }
