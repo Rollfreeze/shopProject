@@ -156,15 +156,6 @@ NOW_IMG_2;
                 echo '<button class="auth_form_button-2" type="submit">Редактировать карточку товара на сайт</button>';
             echo '</form>';
             ?>
-
-            <!-- <div class="flex-row">
-                <div class="half-box">
-                    <p class="radio-text" style="font-size: 18px; margin-top: 35px;">Текущая фотография товара №1:</p>
-                </div>
-                <div class="half-box">
-                    <img class='form-now-image' src='../assets/advert.png' alt='no_img_1'>
-                </div>
-            </div> -->
         </div>
     </div>
 
