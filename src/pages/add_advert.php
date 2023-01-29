@@ -1,4 +1,8 @@
-<?php session_start();?>
+<?php
+    session_start();
+    require_once "../php/general_page.php";
+    require_once "../php/sql_connection.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,10 +14,27 @@
     <title>Добавить рекламу</title>
 </head>
 <body>
-
     <?php
-        require_once "../php/general_page.php";
         echo getHeader();
+
+        // if ($_POST) {
+        //     $isNew = (isset($_POST['good_is_new'])) ? 1 : 0;
+        //     $isLeder = (isset($_POST['good_is_leader'])) ? 1 : 0;
+
+        //     // var_dump($_POST);
+        //     $connection = new SQLConnection();
+        //     $result = $connection->add_good(
+        //         $_POST['good_title'], $_POST['good_subtitle'],
+        //         $_POST['good_image_path_1'], $_POST['good_image_path_2'],
+        //         $_POST['good_category_id'], $isNew, $isLeder,
+        //         $_POST['good_price'], $_POST['good_country_id'], $_POST['good_popularity']
+        //     );
+
+        //     if ($result) {
+        //         var_dump($result);
+        //     }
+        // }
+
     ?>
 
     <!-- bread bar -->
@@ -22,42 +43,40 @@
            <div class="bread-bar">
                 <a class="bread-bar-item" href="index.php" style="margin-left: 0px">Главная</a>
                 <span class="bread-slesh">/</span>
-                <a class="bread-bar-item" href="authorization_page.php">Авторизация</a>
+                <a class="bread-bar-item" href="add_advert.php">Новая реклама</a>
            </div>
         </main>
     </div>
 
-    <?php
-        // if (isset($_POST['submit'])) {
-        //     $image_name = $_FILES['advert_picture_upload']['name'];
-        //     $tmp_image_name = $_FILES['advert_picture_upload']['tmp_name'];
-        //     // $folder = '../uploaded_images/';
-        //     move_uploaded_file($tmp_image_name, $image_name);
-        // }
-    ?>
-
-    <!-- <script type="text/javascript" src="../js/input-file.js"></script> -->
-
     <div class="container">
         <div class="personal-data-law-box">
+            <?php
+                if ($_POST && $result) echo '<h2 class="green_alert">Реклама успешно добавлена!</h2>';
+                else if ($_POST && $result == false) echo '<h2 class="red_alert">Ой, что-то пошло не так... Попробуйте еще раз</h2>';
+            ?>    
+
             <h1 class="h1" style="text-align: center; margin-top: 0px;">Добавить новую рекламу на сайт</h1>
             
-            <form class="authorization-form-2" enctype="multipart/form-data">
-                <input class="auth_form_input" type="text" name="advert_title" maxlength="100" minlength="1" pattern="^[a-zA-Z0-9_.-]*$" id="advert_title" placeholder="Заголовок рекламы" required>
-                <input class="auth_form_input" type="text" name="advert_description" maxlength="100" minlength="1" pattern="^[a-zA-Z0-9_.-]*$" id="advert_description" placeholder="Описание" required>
-                <input class="img_upload_input" type="file" name="advert_picture_upload" id="advert_picture_upload" required>
-
-                <!-- <input type="submit" name="advert_picture_submit" id="advert_picture_submit"> -->
-                <button class="auth_form_button-2" type="submit">Добавить рекламу на сайт</button>
-                <!-- <button class="product-button">Купить продукт</button> -->
+            <form class="authorization-form-2" method="post">
+                <!-- title -->
+                <p class="radio-text" style="font-size: 18px;">Название рекламы:</p>
+                <input class="auth_form_input" type="text" name="advert_title" maxlength="100" minlength="4" id="advert_title" placeholder="Название" required>
+                
+                <!-- subtitle -->
+                <p class="radio-text" style="font-size: 18px;">Описание рекламы:</p>
+                <input class="auth_form_input" type="text" name="advert_subtitle" maxlength="100" minlength="4" id="advert_subtitle" placeholder="Описание" required>
+                
+                <!-- img -->
+                <hr>
+                <p class="radio-text" style="font-size: 18px; margin-top: 35px;">Выберите фотографию для рекламы:</p>
+                <input class="img_upload_input" type="file" name="advert_image" id="advert_image" required>
+                
+                <button class="auth_form_button-2" style="margin-top: 20px; margin-bottom: 0px;" type="submit">Добавить рекламу на сайт</button>
             </form>
         </div>
     </div>
 
-
-
     <?php
-        require_once "../php/general_page.php";
         echo getFooter();
     ?>
 </body>

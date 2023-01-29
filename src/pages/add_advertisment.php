@@ -121,8 +121,7 @@
                     <input type="checkbox" name="good_is_leader" id="good_is_leader" style="vertical-align: top; margin-top: 7px;">
                 </div>
 
-                <button class="auth_form_button-2" type="submit">Добавить карточку товара на сайт</button>
-                <!-- <button class="product-button">Купить продукт</button> -->
+                <button class="auth_form_button-2" style="margin-top: 20px; margin-bottom: 0px;" type="submit">Добавить карточку товара на сайт</button>
             </form>
         </div>
     </div>
