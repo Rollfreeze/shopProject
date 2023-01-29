@@ -5,6 +5,9 @@
         $good_image_path_2, $good_category_id, $good_is_new,
         $good_is_leader, $good_price, $good_country_id, $good_popularity
     ) {
+        $titlePlusiks = str_replace(" ", "+", $good_title);
+        $subtitlePlusiks = str_replace(" ", "+", $good_subtitle);
+        
         $isAuth = isset($_SESSION['current_user']) && $_SESSION['current_user'] != null;
         $user = $_SESSION['current_user'];
         
@@ -49,7 +52,7 @@ ROOT_TOOLS;
 
         $productLogo
         
-        <a href="good_item_page.php" class="product-title">$good_title</a>
+        <a href="good_item_page.php?good_id=$good_id&good_title=$titlePlusiks&good_subtitle=$subtitlePlusiks&good_image_path_1=$good_image_path_1&good_image_path_2=$good_image_path_2&good_category_id=$good_category_id&good_is_new=$good_is_new&good_is_leader=$good_is_leader&good_price=$good_price&good_country_id=$good_country_id&good_popularity=$good_popularity" class="product-title">$good_title</a>
 
         <div class="product-price">
             <p class="product-money">$good_price</p>руб.

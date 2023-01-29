@@ -1,4 +1,7 @@
-<?php session_start();?>
+<?php
+    session_start();
+    require_once "../php/general_page.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,14 +10,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/styleBase.css">
     <link rel="stylesheet" href="../css/style.css">
+    <script type="text/javascript" src="../js/counter.js"></script>
     <title>Просмотр товара</title>
 </head>
 <body>
-    <script type="text/javascript" src="js/counter.js"></script>
-
     <?php
-        require_once "../php/general_page.php";
         echo getHeader();
+
+        if ($_GET) {
+            var_dump($_GET);
+        }
     ?>
 
     <!-- bread bar -->
@@ -73,7 +78,6 @@
     </div>
 
     <?php
-        require_once "../php/general_page.php";
         echo getFooter();
     ?>
 </body>
