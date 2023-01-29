@@ -42,7 +42,7 @@
            <div class="bread-bar">
                 <a class="bread-bar-item" href="index.php" style="margin-left: 0px">Главная</a>
                 <span class="bread-slesh">/</span>
-                <a class="bread-bar-item" href="authorization_page.php">Авторизация</a>
+                <a class="bread-bar-item" href="add_advertisment.php">Новое объявление</a>
            </div>
         </main>
     </div>
@@ -58,35 +58,35 @@
             
             <form class="authorization-form-2" method="post">
                 <!-- title -->
+                <p class="radio-text" style="font-size: 18px;">Название товара:</p>
                 <input class="auth_form_input" type="text" name="good_title" maxlength="100" minlength="4" id="good_title" placeholder="Название" required>
+                
                 <!-- subtitle -->
+                <p class="radio-text" style="font-size: 18px;">Описание товара:</p>
                 <input class="auth_form_input" type="text" name="good_subtitle" maxlength="100" minlength="4" id="good_subtitle" placeholder="Описание" required>
+                
                 <!-- img-1 -->
+                <hr>
+                <p class="radio-text" style="font-size: 18px; margin-top: 35px;">Фотография товара №1:</p>
                 <input class="img_upload_input" type="file" name="good_image_path_1" id="good_image_path_1" required>
+                
                 <!-- img-2 -->
-                <input class="img_upload_input" type="file" name="good_image_path_2" id="good_image_path_2" required>
+                <p class="radio-text" style="font-size: 18px; margin-top: 15px;">Фотография товара №2:</p>
+                <input class="img_upload_input" style="margin-bottom: 40px;" type="file" name="good_image_path_2" id="good_image_path_2" required>
+                <hr>
+                
                 <!-- category -->
-                <select class="form-select" name="good_category_id" id="good_category_id" style="margin-top: 15px;" required>
+                <p class="radio-text" style="font-size: 18px; margin-top: 20px;">Категория товара:</p>
+                <select class="form-select" name="good_category_id" id="good_category_id" required>
                     <option value="1">Экзотика</option>
                     <option value="2">Грибы</option>
                     <option value="3">Ягоды</option>
                     <option value="4">Фрукты</option>
                     <option value="5">Овощи</option>
                 </select>
-                <!-- isNew? -->
-                <div>
-                    <p class="radio-text" style="margin-right: 20px;">Товар является новинкой?</p>
-                    <input type="checkbox" name="good_is_new" id="good_is_new" style="vertical-align: top; margin-top: 4px;">
-                </div>
-                <!-- isLeader? -->
-                <div style="margin-bottom: 15px;">
-                    <p class="radio-text" style="margin-right: 20px;">Товар является лидером продаж?</p>
-                    <input type="checkbox" name="good_is_leader" id="good_is_leader" style="vertical-align: top; margin-top: 4px;">
-                </div>
-                <!-- price -->
-                <input class="auth_form_input" type="text" name="good_price" maxlength="100" minlength="1" id="good_price" placeholder="Стоимость" required>
 
                 <!-- country -->
+                <p class="radio-text" style="font-size: 18px;">Страна производитель:</p>
                 <select class="form-select" name="good_country_id" id="good_country_id" required>
                     <option value="1">Россия</option>
                     <option value="2">Беларусь</option>
@@ -96,6 +96,7 @@
                 </select>
                 
                 <!-- popularity -->
+                <p class="radio-text" style="font-size: 18px;">Оценка товара:</p>
                 <select class="form-select" name="good_popularity" id="good_popularity" required>
                     <option value="5">5</option>
                     <option value="4">4</option>
@@ -103,6 +104,22 @@
                     <option value="2">2</option>
                     <option value="1">1</option>
                 </select>
+
+                <!-- price -->
+                <p class="radio-text" style="font-size: 18px;">Стоимость товара:</p>
+                <input class="auth_form_input" type="text" name="good_price" maxlength="100" minlength="1" id="good_price" placeholder="Стоимость" required>
+
+                <!-- isNew? -->
+                <div>
+                    <p class="radio-text" style="font-size: 18px; margin-right: 20px;">Товар является новинкой?</p>
+                    <input type="checkbox" name="good_is_new" id="good_is_new" style="vertical-align: top; margin-top: 7px;">
+                </div>
+
+                <!-- isLeader? -->
+                <div style="margin-bottom: 15px;">
+                    <p class="radio-text" style="font-size: 18px; margin-right: 20px;">Товар является лидером продаж?</p>
+                    <input type="checkbox" name="good_is_leader" id="good_is_leader" style="vertical-align: top; margin-top: 7px;">
+                </div>
 
                 <button class="auth_form_button-2" type="submit">Добавить карточку товара на сайт</button>
                 <!-- <button class="product-button">Купить продукт</button> -->

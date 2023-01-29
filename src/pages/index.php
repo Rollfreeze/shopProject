@@ -19,9 +19,9 @@
     <?php
         echo getHeader();
 
-        if (isset($_POST['good_category_id_delete'])) {
+        if (isset($_POST['good_id_delete'])) {
             $connection = new SQLConnection();
-            $res = $connection->delete_good($_POST['good_category_id_delete']);
+            $res = $connection->delete_good($_POST['good_id_delete']);
         }
     ?>
 
