@@ -86,8 +86,10 @@ RIGHT_NAV;
                     </div>
                 </div>
 
-                
+
             </div>
+
+            <hr>
 
             <!-- Logo-Row -->
             <!--
