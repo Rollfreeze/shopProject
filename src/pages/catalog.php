@@ -89,6 +89,14 @@
                     <button class="filter-item">Новинки</button>
                 </div>
             </div>
+
+            <p class="price-title-input">Ценовой диапазон</з>
+
+            <div class="price-filter-row flex-row">
+                <input placeholder="Начальная цена" class="price-input" type="text" name="price_from" id="price_from">
+                <span class="price-span"> - </span>
+                <input placeholder="Конечная цена" class="price-input" type="text" name="price_to" id="price_to">
+            </div>
             
             <button class="filter-button" style="margin-bottom: 15px; margin-top: 15px;" type="submit">Применить</button>;
         </form>
