@@ -1,4 +1,8 @@
-<?php session_start();?>
+<?php
+    session_start();
+    require_once "../php/general_page.php";
+    require_once "../php/sql_connection.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,16 +15,12 @@
 </head>
 <body>
     <?php
-        require_once "../php/general_page.php";
-        require_once "../php/sql_connection.php";
-
         echo getHeader();
 
         if ($_POST) {
             $isNew = (isset($_POST['good_is_new'])) ? 1 : 0;
             $isLeder = (isset($_POST['good_is_leader'])) ? 1 : 0;
 
-            // var_dump($_POST);
             $connection = new SQLConnection();
             $result = $connection->add_good(
                 $_POST['good_title'], $_POST['good_subtitle'],
@@ -28,10 +28,6 @@
                 $_POST['good_category_id'], $isNew, $isLeder,
                 $_POST['good_price'], $_POST['good_country_id'], $_POST['good_popularity']
             );
-
-            if ($result) {
-                var_dump($result);
-            }
         }
 
     ?>
@@ -127,7 +123,6 @@
     </div>
 
     <?php
-        require_once "../php/general_page.php";
         echo getFooter();
     ?>
 </body>

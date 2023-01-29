@@ -17,23 +17,14 @@
     <?php
         echo getHeader();
 
-        // if ($_POST) {
-        //     $isNew = (isset($_POST['good_is_new'])) ? 1 : 0;
-        //     $isLeder = (isset($_POST['good_is_leader'])) ? 1 : 0;
-
-        //     // var_dump($_POST);
-        //     $connection = new SQLConnection();
-        //     $result = $connection->add_good(
-        //         $_POST['good_title'], $_POST['good_subtitle'],
-        //         $_POST['good_image_path_1'], $_POST['good_image_path_2'],
-        //         $_POST['good_category_id'], $isNew, $isLeder,
-        //         $_POST['good_price'], $_POST['good_country_id'], $_POST['good_popularity']
-        //     );
-
-        //     if ($result) {
-        //         var_dump($result);
-        //     }
-        // }
+        if ($_POST) {
+            $connection = new SQLConnection();
+            $result = $connection->add_advert(
+                $_POST['advert_title'],
+                $_POST['advert_subtitle'],
+                $_POST['advert_image']
+            );
+        }
 
     ?>
 
