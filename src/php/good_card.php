@@ -19,6 +19,15 @@
         $countryName = good_country_name($good_country_id);
         $score_color = score_color($good_popularity);
 
+        $isNew = '';
+        if ($good_is_new) {
+            $isNew = <<< NEW
+            <div class="new-good">
+                <p class="country-card"><span class="country-card yellow-bg">Новинка!<span></p>
+            </div>
+NEW;
+        }
+
         $rootTools = '';
         if ($isRoot) {
             $rootTools = <<< ROOT_TOOLS
@@ -70,6 +79,8 @@ ROOT_TOOLS;
         <div style="margin-bottom: 5px; margin-top: 5px;">
             <p class="country-card">Рейтинг: <span class="country-card $score_color">$good_popularity<span></p>руб.
         </div>
+
+        $isNew
 
         <button class="product-button">Купить продукт</button>
 

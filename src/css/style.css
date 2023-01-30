@@ -1195,6 +1195,10 @@ td {
     color:rgb(255, 179, 0);
 }
 
+.yellow-bg {
+    color:rgb(255, 149, 0);
+}
+
 .brown-c {
     color: brown;
 }
@@ -1313,4 +1317,10 @@ td {
     font-family: sans-serif;
     font-weight: 500;
     /* color:#e49e11; */
+}
+
+.new-good {
+    position: absolute;
+    top: 5px;
+    left: 15px;
 }
