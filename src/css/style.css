@@ -1263,3 +1263,9 @@ td {
     margin-top: 30px;
     font-weight: bold;
 }
+
+.country-box {
+    width: 400px;
+    margin: 0 auto;
+    margin-top: 15px;
+}

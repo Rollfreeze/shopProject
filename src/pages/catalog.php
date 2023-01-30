@@ -97,6 +97,19 @@
                 <span class="price-span"> - </span>
                 <input placeholder="Конечная цена" class="price-input" type="text" name="price_to" id="price_to">
             </div>
+
+            <!-- country -->
+            <div class="country-box">
+                <p class="price-title-input" style="margin-bottom: 10px;">Страна производитель:</p>
+                <select class="form-select" name="good_country_id" id="good_country_id" required>
+                    <option value="1">Россия</option>
+                    <option value="2">Беларусь</option>
+                    <option value="3">Китай</option>
+                    <option value="4">Таджикистан</option>
+                    <option value="5">Италия</option>
+                    <option value="6">Все</option>
+                </select>
+            </div>
             
             <button class="filter-button" style="margin-bottom: 15px; margin-top: 15px;" type="submit">Применить</button>;
         </form>
