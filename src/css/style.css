@@ -242,6 +242,10 @@ color: #ff8000;
     user-select: none;
 }
 
+.unselectable:hover {
+    color: rgb(2, 162, 2);
+}
+
 .categories-row a:hover {
     /* color: pink; */
     /* color: #FE9730; */
