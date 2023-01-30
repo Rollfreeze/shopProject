@@ -20,21 +20,33 @@
     <?php
         echo getHeader();
 
+        // Удаление объявления
         if (isset($_POST['good_id_delete'])) {
             $connection = new SQLConnection();
             $res = $connection->delete_good($_POST['good_id_delete']);
-        } elseif (isset($_POST['advert_id_delete'])) {
+        // Удаление рекламы
+        } else if (isset($_POST['advert_id_delete'])) {
             $connection = new SQLConnection();
             $res = $connection->delete_advert($_POST['advert_id_delete']);
-        }
-
-
-        if (isset($_GET)) {
-
+        // Сброс фильтров сессии
+        } else if (isset($_GET['drop']) && isset($_SESSION['current_filters'])) {
+            unset($_SESSION['current_filters']);
+        // Установка фильтров в сессию
+        } else if (isset($_GET['filter'])) {
+            $_SESSION['current_filters'] = [
+                'ekzotic' => isset($_GET['ekzotic']) ? true : false,
+                'gribs' => isset($_GET['gribs']) ? true : false,
+                'yagods' => isset($_GET['yagods']) ? true : false,
+                'fruits' => isset($_GET['fruits']) ? true : false,
+                'vegetables' => isset($_GET['vegetables']) ? true : false,
+                'price_from' => (isset($_GET['price_from']) && $_GET['price_from'] != '') ? $_GET['price_from'] : '0',
+                'price_to' => (isset($_GET['price_to']) && $_GET['price_to'] != '') ? $_GET['price_to'] : '1000000000',
+                'select_good_country_id' => isset($_GET['select_good_country_id']) ? $_GET['select_good_country_id'] : 'all',
+                'select_good_filter_id' => isset($_GET['select_good_filter_id']) ? $_GET['select_good_filter_id'] : 'all'
+            ];
         }
     ?>
 
-    <!-- <hr> -->
     <!-- bread bar -->
     <div class="container">
         <main class="main">
@@ -45,7 +57,8 @@
            </div>
         </main>
     </div>
-
+    
+    <!-- form -->
     <div class="container bg-box-c border-round">
         <form class="categories-form" method="get">
             <div class="categories-box categories-row bg-box-c">
@@ -87,7 +100,7 @@
                 <!-- country -->
                 <div class="country-box">
                     <p class="price-title-input" style="margin-bottom: 10px;">Страна производитель:</p>
-                    <select class="form-select" name="good_country_id" id="good_country_id" required>
+                    <select class="form-select" name="select_good_country_id" id="select_good_country_id" required>
                         <option value="0">Все страны</option>
                         <option value="1">Россия</option>
                         <option value="2">Беларусь</option>
@@ -100,7 +113,7 @@
                 <!-- фильтры -->
                 <div class="country-box">
                     <p class="price-title-input" style="margin-bottom: 10px;">Фильтрация товаров:</p>
-                    <select class="form-select" name="good_country_id" id="good_country_id" required>
+                    <select class="form-select" name="select_good_filter_id" id="select_good_filter_id" required>
                         <option value="0">Показать все</option>
                         <option value="1">Лидер продаж</option>
                         <option value="2">Новинки</option>
@@ -114,8 +127,8 @@
             </div>
 
             <div class="flex-row box1000">
-                <button class="filter-button" style="width: 30%; margin-bottom: 15px; margin-top: 15px;" type="submit" value="filter">Применить</button>;
-                <button class="filter-button-2" style="width: 30%; margin-bottom: 15px; margin-top: 15px;" type="submit" value="drop">Сбросить</button>;
+                <button class="filter-button" style="width: 30%; margin-bottom: 15px; margin-top: 15px;" type="submit" name="filter" id="filter" value="filter">Применить</button>;
+                <button class="filter-button-2" style="width: 30%; margin-bottom: 15px; margin-top: 15px;" type="submit" name="drop" id="drop" value="drop">Сбросить</button>;
             </div>
         </form>
     </div>

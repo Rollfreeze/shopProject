@@ -85,32 +85,8 @@ RIGHT_NAV;
                         </div>
                     </div>
                 </div>
-
-
             </div>
-
-            <!-- 
-            <div class='container'>
-                <div class='header-line-3'></div>
-            </div>
-            -->
-
-            <hr>
-            
-            <!-- <hr> -->
-            <!-- Logo-Row -->
-            <!--
-            <div class="container">
-                <div class="categories-row">
-                    <a href="">Экзотика</a>
-                    <a href="">Грибы</a>
-                    <a href="">Ягоды</a>
-                    <a href="">Фрукты</a>
-                    <a href="">Овощи</a>
-                </div>
-            </div>
-            -->
-            
+        <hr>            
         </header>
 HEADER;
 
