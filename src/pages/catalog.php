@@ -1,5 +1,6 @@
 <?php session_start();
     require_once "../php/advertisment_card.php";
+    require_once "../php/edit_helper.php";
     require_once "../php/general_page.php";
     require_once "../php/draw_cards.php";
     require_once "../php/draw_adverts.php";
@@ -24,15 +25,21 @@
         if (isset($_POST['good_id_delete'])) {
             $connection = new SQLConnection();
             $res = $connection->delete_good($_POST['good_id_delete']);
+        } 
+
         // Удаление рекламы
-        } else if (isset($_POST['advert_id_delete'])) {
+        if (isset($_POST['advert_id_delete'])) {
             $connection = new SQLConnection();
             $res = $connection->delete_advert($_POST['advert_id_delete']);
+        }
+
         // Сброс фильтров сессии
-        } else if (isset($_GET['drop']) && isset($_SESSION['current_filters'])) {
+        if (isset($_GET['drop']) && isset($_SESSION['current_filters'])) {
             unset($_SESSION['current_filters']);
+        }
+
         // Установка фильтров в сессию
-        } else if (isset($_GET['filter'])) {
+        if (isset($_GET['filter'])) {
             $_SESSION['current_filters'] = [
                 'ekzotic' => isset($_GET['ekzotic']) ? true : false,
                 'gribs' => isset($_GET['gribs']) ? true : false,
@@ -44,6 +51,23 @@
                 'select_good_country_id' => isset($_GET['select_good_country_id']) ? $_GET['select_good_country_id'] : 'all',
                 'select_good_filter_id' => isset($_GET['select_good_filter_id']) ? $_GET['select_good_filter_id'] : 'all'
             ];
+        }
+
+        // Если фильтры установлены => получим подстановки
+        if (isset($_SESSION['current_filters'])) {
+            $filters = $_SESSION['current_filters'];
+
+            $isEkzotic = $filters['ekzotic'] ? 'checked' : '';
+            $isGribs = $filters['gribs'] ? 'checked' : '';
+            $isYagods = $filters['yagods'] ? 'checked' : '';
+            $isFruits = $filters['fruits'] ? 'checked' : '';
+            $isVegetables = $filters['vegetables'] ? 'checked' : '';
+
+            $defaultMin = $filters['price_from'] == '0' ? '' : $filters['price_from'];
+            $defaultMax = $filters['price_to'] == '1000000000' ? '' : $filters['price_to'];
+
+            $defaultCountryId = $filters['select_good_country_id'] == 'all' ? '0' : $filters['select_good_country_id'];
+            $defaultFilterId = $filters['select_good_filter_id'] == 'all' ? '0' : $filters['select_good_filter_id'];
         }
     ?>
 
@@ -63,27 +87,37 @@
         <form class="categories-form" method="get">
             <div class="categories-box categories-row bg-box-c">
                 <div class="filter-col">
-                    <input type="checkbox" name="ekzotic" id="ekzotic">
+                    <?php
+                        echo "<input type='checkbox' $isEkzotic name='ekzotic' id='ekzotic'>";
+                    ?>
                     <label class='unselectable' for='ekzotic'>Экзотика</label>
                 </div>
 
                 <div class="filter-col">
-                    <input type="checkbox" name="gribs" id="gribs">
+                    <?php
+                        echo "<input type='checkbox' $isGribs name='gribs' id='gribs'>";
+                    ?>
                     <label class='unselectable' for='gribs'>Грибы</label>
                 </div>
 
                 <div class="filter-col">
-                    <input type="checkbox" name="yagods" id="yagods">
+                    <?php
+                        echo "<input type='checkbox' $isYagods name='yagods' id='yagods'>";
+                    ?>
                     <label class='unselectable' for='yagods'>Ягоды</label>
                 </div>
 
                 <div class="filter-col">
-                    <input type="checkbox" name="fruits" id="fruits">
+                    <?php
+                        echo "<input type='checkbox' $isFruits name='fruits' id='fruits'>";
+                    ?>
                     <label class='unselectable' for='fruits'>Фрукты</label>
                 </div>
 
                 <div class="filter-col">
-                    <input type="checkbox" name="vegetables" id="vegetables">
+                    <?php
+                        echo "<input type='checkbox' $isVegetables name='vegetables' id='vegetables'>";
+                    ?>
                     <label class='unselectable' for='vegetables'>Овощи</label>
                 </div>
             </div>
@@ -91,9 +125,15 @@
             <p class="price-title-input">Ценовой диапазон</з>
 
             <div class="price-filter-row flex-row">
-                <input placeholder="Начальная цена" class="price-input" type="text" name="price_from" id="price_from">
-                <span class="price-span"> - </span>
-                <input placeholder="Конечная цена" class="price-input" type="text" name="price_to" id="price_to">
+                <?php
+                    $defaultMin = $defaultMin ?? '';
+                    echo "<input placeholder='Начальная цена' class='price-input' type='text' name='price_from' id='price_from' value='$defaultMin'>";
+                ?>
+                    <span class="price-span"> - </span>
+                <?php
+                    $defaultMax = $defaultMax ?? '';
+                    echo "<input placeholder='Конечная цена' class='price-input' type='text' name='price_to' id='price_to' value='$defaultMax'>";
+                ?>
             </div>
 
             <div class="flex-row box1000">
@@ -101,12 +141,10 @@
                 <div class="country-box">
                     <p class="price-title-input" style="margin-bottom: 10px;">Страна производитель:</p>
                     <select class="form-select" name="select_good_country_id" id="select_good_country_id" required>
-                        <option value="0">Все страны</option>
-                        <option value="1">Россия</option>
-                        <option value="2">Беларусь</option>
-                        <option value="3">Китай</option>
-                        <option value="4">Таджикистан</option>
-                        <option value="5">Италия</option>
+                        <?php
+                            $defaultCountryId = $defaultCountryId ?? 0;
+                            filter_country_selected($defaultCountryId);
+                        ?>
                     </select>
                 </div>
 
@@ -114,14 +152,10 @@
                 <div class="country-box">
                     <p class="price-title-input" style="margin-bottom: 10px;">Фильтрация товаров:</p>
                     <select class="form-select" name="select_good_filter_id" id="select_good_filter_id" required>
-                        <option value="0">Показать все</option>
-                        <option value="1">Лидер продаж</option>
-                        <option value="2">Новинки</option>
-                        <option value="3">По имени (а-я)</option>
-                        <option value="4">По имени (я-а)</option>
-                        <option value="5">По цене (min-max)</option>
-                        <option value="6">По цене (max-min)</option>
-                        <option value="6">По полуярности</option>
+                        <?php
+                            $defaultFilterId = $defaultFilterId ?? 0;
+                            filter_sort_selected($defaultFilterId);
+                        ?>
                     </select>
                 </div>
             </div>

@@ -72,4 +72,52 @@
             default: return '';
         }
     }
+
+
+
+
+
+
+
+    function filter_country_name($item) {
+        switch($item) {
+            case 0: return 'Все страны';
+            case 1: return 'Россия';
+            case 2: return 'Беларусь';
+            case 3: return 'Китай';
+            case 4: return 'Таджикистан';
+            case 5: return 'Италия';
+        }
+    }
+
+    function filter_country_selected($id) {
+        for ($i = 0; $i < 6; $i++) {
+            $country_name = filter_country_name($i);
+            if ($id == $i) echo "<option value='$i' selected>$country_name</option>";
+            else echo "<option value='$i'>$country_name</option>";
+        }
+    }
+
+    
+
+    function filter_sort_name($item) {
+        switch($item) {
+            case 0: return 'Показать все';
+            case 1: return 'Лидер продаж';
+            case 2: return 'Новинки';
+            case 3: return 'По имени (а-я)';
+            case 4: return 'По имени (я-а)';
+            case 5: return 'По цене (min-max)';
+            case 6: return 'По цене (max-min)';
+            case 7: return 'По полуярности';
+        }
+    }
+
+    function filter_sort_selected($id) {
+        for ($i = 0; $i < 7; $i++) {
+            $sort_name = filter_sort_name($i);
+            if ($id == $i) echo "<option value='$i' selected>$sort_name</option>";
+            else echo "<option value='$i'>$sort_name</option>";
+        }
+    }
 ?>

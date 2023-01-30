@@ -1283,3 +1283,12 @@ td {
     margin: 0 auto;
     margin-top: 0px;
 }
+
+.empty_goods {
+    font-size: 24px;
+    font-family: sans-serif;
+    color: gray;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 60px;
+}
