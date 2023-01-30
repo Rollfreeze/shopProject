@@ -81,11 +81,11 @@
 
                 // title
                 echo '<p class="radio-text" style="font-size: 18px;">Название рекламы:</p>';
-                echo "<input value='$advert_title' class='auth_form_input' type='text' name='advert_title' maxlength='100' minlength='4' id='advert_title' placeholder='Название' required>";
+                echo "<input value='$advert_title' class='auth_form_input' type='text' name='advert_title' minlength='1' id='advert_title' placeholder='Название' required>";
                 
                 // subtitle
                 echo '<p class="radio-text" style="font-size: 18px;">Описание рекламы:</p>';
-                echo "<input value='$advert_subtitle' class='auth_form_input' type='text' name='advert_subtitle' maxlength='100' minlength='4' id='advert_subtitle' placeholder='Описание' required>";
+                echo "<input value='$advert_subtitle' class='auth_form_input' type='text' name='advert_subtitle' minlength='1' id='advert_subtitle' placeholder='Описание' required>";
                 
                 // img
                 echo '<hr>';

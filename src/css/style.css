@@ -905,7 +905,7 @@ td {
     width: 100%;
 }
 
-.auth_form_button, .auth_form_button-2, .filter-button {
+.auth_form_button, .auth_form_button-2, .filter-button, .filter-button-2 {
     background-color: #FE9730;
     color: #ffffff;
     width: 98%;
@@ -924,12 +924,26 @@ td {
     background-color: #e47a10;
 }
 
+.filter-button-2 {
+    background-color: gray;
+}
+
+.filter-button-2:hover {
+    background-color: rgb(165, 165, 165);
+}
+
+
 .auth_form_button-2 {
     width: 100%;
 }
 
 .filter-button {
     width: 25%;
+}
+
+.box1000 {
+    width: 1000px;
+    margin: 0 auto;
 }
 
 .radio-text {
@@ -1267,5 +1281,5 @@ td {
 .country-box {
     width: 400px;
     margin: 0 auto;
-    margin-top: 15px;
+    margin-top: 0px;
 }

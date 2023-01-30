@@ -27,6 +27,11 @@
             $connection = new SQLConnection();
             $res = $connection->delete_advert($_POST['advert_id_delete']);
         }
+
+
+        if (isset($_GET)) {
+
+        }
     ?>
 
     <!-- <hr> -->
@@ -78,54 +83,52 @@
                 <input placeholder="Конечная цена" class="price-input" type="text" name="price_to" id="price_to">
             </div>
 
-            <!-- country -->
-            <div class="country-box">
-                <p class="price-title-input" style="margin-bottom: 10px;">Страна производитель:</p>
-                <select class="form-select" name="good_country_id" id="good_country_id" required>
-                    <option value="0">Все страны</option>
-                    <option value="1">Россия</option>
-                    <option value="2">Беларусь</option>
-                    <option value="3">Китай</option>
-                    <option value="4">Таджикистан</option>
-                    <option value="5">Италия</option>
-                </select>
+            <div class="flex-row box1000">
+                <!-- country -->
+                <div class="country-box">
+                    <p class="price-title-input" style="margin-bottom: 10px;">Страна производитель:</p>
+                    <select class="form-select" name="good_country_id" id="good_country_id" required>
+                        <option value="0">Все страны</option>
+                        <option value="1">Россия</option>
+                        <option value="2">Беларусь</option>
+                        <option value="3">Китай</option>
+                        <option value="4">Таджикистан</option>
+                        <option value="5">Италия</option>
+                    </select>
+                </div>
+
+                <!-- фильтры -->
+                <div class="country-box">
+                    <p class="price-title-input" style="margin-bottom: 10px;">Фильтрация товаров:</p>
+                    <select class="form-select" name="good_country_id" id="good_country_id" required>
+                        <option value="0">Показать все</option>
+                        <option value="1">Лидер продаж</option>
+                        <option value="2">Новинки</option>
+                        <option value="3">По имени (а-я)</option>
+                        <option value="4">По имени (я-а)</option>
+                        <option value="5">По цене (min-max)</option>
+                        <option value="6">По цене (max-min)</option>
+                        <option value="6">По полуярности</option>
+                    </select>
+                </div>
             </div>
 
-            <!-- фильтры -->
-            <div class="country-box">
-                <p class="price-title-input" style="margin-bottom: 10px;">Фильтрация товаров:</p>
-                <select class="form-select" name="good_country_id" id="good_country_id" required>
-                    <option value="0">Показать все</option>
-                    <option value="1">Лидер продаж</option>
-                    <option value="2">Новинки</option>
-                    <option value="3">По имени (а-я)</option>
-                    <option value="4">По имени (я-а)</option>
-                    <option value="5">По цене (min-max)</option>
-                    <option value="6">По цене (max-min)</option>
-                    <option value="6">По полуярности</option>
-                </select>
+            <div class="flex-row box1000">
+                <button class="filter-button" style="width: 30%; margin-bottom: 15px; margin-top: 15px;" type="submit" value="filter">Применить</button>;
+                <button class="filter-button-2" style="width: 30%; margin-bottom: 15px; margin-top: 15px;" type="submit" value="drop">Сбросить</button>;
             </div>
-            
-            <button class="filter-button" style="margin-bottom: 15px; margin-top: 15px;" type="submit">Применить</button>;
         </form>
     </div>
 
     <div class="container flex-row">
         <main class="main">
-            <!-- <div class="filter-row">
-                <button class="filter-item-active">Все</button>
-                <button class="filter-item">Вы смотрели</button>
-                <button class="filter-item">Избранное</button>
-                <button class="filter-item">Лидеры продаж</button>
-                <button class="filter-item">Новинки</button>
-            </div> -->
-            
           <?php
             if (isset($_POST['good_id_delete']) && $res) echo '<h2 class="green_alert">Объявление успешно снято с публикации!</h2>';
             else if (isset($_POST['good_id_delete']) && !$res) echo '<h2 class="red_alert">Не удалось снять объявление с публикации!</h2>';
 
             if (isset($_POST['advert_id_delete']) && $res) echo '<h2 class="green_alert">Реклама успешно снято с публикации!</h2>';
             else if (isset($_POST['advert_id_delete']) && !$res) echo '<h2 class="red_alert">Не удалось снять рекламу с публикации!</h2>';
+            
             draw_goods(); 
           ?>
         </main>

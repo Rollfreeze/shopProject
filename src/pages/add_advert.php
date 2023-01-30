@@ -51,11 +51,11 @@
             <form class="authorization-form-2" method="post">
                 <!-- title -->
                 <p class="radio-text" style="font-size: 18px;">Название рекламы:</p>
-                <input class="auth_form_input" type="text" name="advert_title" maxlength="100" minlength="4" id="advert_title" placeholder="Название" required>
+                <input class="auth_form_input" type="text" name="advert_title" minlength="1" id="advert_title" placeholder="Название" required>
                 
                 <!-- subtitle -->
                 <p class="radio-text" style="font-size: 18px;">Описание рекламы:</p>
-                <input class="auth_form_input" type="text" name="advert_subtitle" maxlength="100" minlength="4" id="advert_subtitle" placeholder="Описание" required>
+                <input class="auth_form_input" type="text" name="advert_subtitle" minlength="1" id="advert_subtitle" placeholder="Описание" required>
                 
                 <!-- img -->
                 <hr>

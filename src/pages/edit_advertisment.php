@@ -99,11 +99,11 @@
 
                 // title
                 echo '<p class="radio-text" style="font-size: 18px;">Название товара:</p>';
-                echo "<input value='$good_title' class='auth_form_input' type='text' name='good_title' maxlength='100' minlength='4' id='good_title' placeholder='Название' required>";
+                echo "<input value='$good_title' class='auth_form_input' type='text' name='good_title' minlength='1' id='good_title' placeholder='Название' required>";
                 
                 // subtitle
                 echo '<p class="radio-text" style="font-size: 18px;">Описание товара:</p>';
-                echo "<input value='$good_subtitle' class='auth_form_input' type='text' name='good_subtitle' maxlength='100' minlength='4' id='good_subtitle' placeholder='Описание' required>";
+                echo "<input value='$good_subtitle' class='auth_form_input' type='text' name='good_subtitle' minlength='1' id='good_subtitle' placeholder='Описание' required>";
                 
                 // img1
                 echo '<hr>';
@@ -157,7 +157,7 @@ NOW_IMG_2;
 
                 // price
                 echo '<p class="radio-text" style="font-size: 18px;">Стоимость товара:</p>';
-                echo "<input value='$good_price' class='auth_form_input' type='text' name='good_price' maxlength='100' minlength='1' id='good_price' placeholder='Стоимость' required>";
+                echo "<input value='$good_price' class='auth_form_input' type='text' name='good_price' minlength='1' id='good_price' placeholder='Стоимость' required>";
 
                 // isNew?
                 echo '<div>';

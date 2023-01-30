@@ -55,11 +55,11 @@
             <form class="authorization-form-2" method="post">
                 <!-- title -->
                 <p class="radio-text" style="font-size: 18px;">Название товара:</p>
-                <input class="auth_form_input" type="text" name="good_title" maxlength="100" minlength="4" id="good_title" placeholder="Название" required>
+                <input class="auth_form_input" type="text" name="good_title" minlength="1" id="good_title" placeholder="Название" required>
                 
                 <!-- subtitle -->
                 <p class="radio-text" style="font-size: 18px;">Описание товара:</p>
-                <input class="auth_form_input" type="text" name="good_subtitle" maxlength="100" minlength="4" id="good_subtitle" placeholder="Описание" required>
+                <input class="auth_form_input" type="text" name="good_subtitle" minlength="1" id="good_subtitle" placeholder="Описание" required>
                 
                 <!-- img-1 -->
                 <hr>
@@ -103,7 +103,7 @@
 
                 <!-- price -->
                 <p class="radio-text" style="font-size: 18px;">Стоимость товара:</p>
-                <input class="auth_form_input" type="text" name="good_price" maxlength="100" minlength="1" id="good_price" placeholder="Стоимость" required>
+                <input class="auth_form_input" type="text" name="good_price" minlength="1" id="good_price" placeholder="Стоимость" required>
 
                 <!-- isNew? -->
                 <div>
