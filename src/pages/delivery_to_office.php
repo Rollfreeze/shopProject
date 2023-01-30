@@ -21,7 +21,7 @@
            <div class="bread-bar">
                 <a class="bread-bar-item" href="index.php" style="margin-left: 0px">Главная</a>
                 <span class="bread-slesh">/</span>
-                <a class="bread-bar-item" href="personal.php">Доставка фруктов в офис</a>
+                <a class="bread-bar-item" href="delivery_to_office.php">Доставка фруктов в офис</a>
            </div>
         </main>
     </div>

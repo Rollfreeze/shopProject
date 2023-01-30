@@ -129,7 +129,7 @@ HEADER;
 
                 <div class="footer-hr"></div>
 
-                <div class="container flex-row padding-vertical-35">
+                <div class="container flex-row padding-vertical-35" style="margin-top: 80px;">
                     <p class="gray-footer">© Компания Алиберция - Доставка продуктов на дом по Москве и МО.</p>
                     <p class="gray-footer">Powered by ALFA Systems</p>
                 </div>

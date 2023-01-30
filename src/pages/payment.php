@@ -21,7 +21,7 @@
            <div class="bread-bar">
                 <a class="bread-bar-item" href="index.php" style="margin-left: 0px">Главная</a>
                 <span class="bread-slesh">/</span>
-                <a class="bread-bar-item" href="personal.php">Способы оплаты</a>
+                <a class="bread-bar-item" href="payment.php">Способы оплаты</a>
            </div>
         </main>
     </div>
