@@ -42,51 +42,31 @@
     </div>
 
     <div class="container bg-box-c border-round">
-        <form class="categories-form">
+        <form class="categories-form" method="get">
             <div class="categories-box categories-row bg-box-c">
                 <div class="filter-col">
-                    <div>
-                        <input type="checkbox" name="ekzotic" id="ekzotic">
-                        <label class='unselectable' for='ekzotic'>Экзотика</д>
-                    </div>
-
-                    <button class="filter-item-active">Все</button>
+                    <input type="checkbox" name="ekzotic" id="ekzotic">
+                    <label class='unselectable' for='ekzotic'>Экзотика</label>
                 </div>
 
                 <div class="filter-col">
-                    <div>
-                        <input type="checkbox" name="gribs" id="gribs">
-                        <label class='unselectable' for='gribs'>Грибы</label>
-                    </div>
-
-                    <button class="filter-item">Вы смотрели</button>
+                    <input type="checkbox" name="gribs" id="gribs">
+                    <label class='unselectable' for='gribs'>Грибы</label>
                 </div>
 
                 <div class="filter-col">
-                    <div>
-                        <input type="checkbox" name="yagods" id="yagods">
-                        <label class='unselectable' for='yagods'>Ягоды</label>
-                    </div>
-
-                    <button class="filter-item">Избранное</button>
+                    <input type="checkbox" name="yagods" id="yagods">
+                    <label class='unselectable' for='yagods'>Ягоды</label>
                 </div>
 
                 <div class="filter-col">
-                    <div>
-                        <input type="checkbox" name="fruits" id="fruits">
-                        <label class='unselectable' for='fruits'>Фрукты</label>
-                    </div>
-
-                    <button class="filter-item">Лидеры продаж</button>
+                    <input type="checkbox" name="fruits" id="fruits">
+                    <label class='unselectable' for='fruits'>Фрукты</label>
                 </div>
 
                 <div class="filter-col">
-                    <div>
-                        <input type="checkbox" name="vegetables" id="vegetables">
-                        <label class='unselectable' for='vegetables'>Овощи</label>
-                    </div>
-
-                    <button class="filter-item">Новинки</button>
+                    <input type="checkbox" name="vegetables" id="vegetables">
+                    <label class='unselectable' for='vegetables'>Овощи</label>
                 </div>
             </div>
 
@@ -102,12 +82,27 @@
             <div class="country-box">
                 <p class="price-title-input" style="margin-bottom: 10px;">Страна производитель:</p>
                 <select class="form-select" name="good_country_id" id="good_country_id" required>
+                    <option value="0">Все страны</option>
                     <option value="1">Россия</option>
                     <option value="2">Беларусь</option>
                     <option value="3">Китай</option>
                     <option value="4">Таджикистан</option>
                     <option value="5">Италия</option>
-                    <option value="6">Все</option>
+                </select>
+            </div>
+
+            <!-- фильтры -->
+            <div class="country-box">
+                <p class="price-title-input" style="margin-bottom: 10px;">Фильтрация товаров:</p>
+                <select class="form-select" name="good_country_id" id="good_country_id" required>
+                    <option value="0">Показать все</option>
+                    <option value="1">Лидер продаж</option>
+                    <option value="2">Новинки</option>
+                    <option value="3">По имени (а-я)</option>
+                    <option value="4">По имени (я-а)</option>
+                    <option value="5">По цене (min-max)</option>
+                    <option value="6">По цене (max-min)</option>
+                    <option value="6">По полуярности</option>
                 </select>
             </div>
             
