@@ -109,12 +109,13 @@
             case 4: return 'По имени (я-а)';
             case 5: return 'По цене (min-max)';
             case 6: return 'По цене (max-min)';
-            case 7: return 'По полуярности';
+            case 7: return 'По полуярности (худш.-лучш.)';
+            case 8: return 'По полуярности (лучш.-худш)';
         }
     }
 
     function filter_sort_selected($id) {
-        for ($i = 0; $i < 7; $i++) {
+        for ($i = 0; $i < 9; $i++) {
             $sort_name = filter_sort_name($i);
             if ($id == $i) echo "<option value='$i' selected>$sort_name</option>";
             else echo "<option value='$i'>$sort_name</option>";

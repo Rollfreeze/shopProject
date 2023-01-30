@@ -29,7 +29,47 @@
                 $country = "(`country_id` = $select_good_country_id)";
             }
 
-            $querry = "SELECT * FROM `goods` WHERE $price AND $category AND $country;";
+            // $filters_sort = '';
+            if ($current_filters['select_good_filter_id'] == 'all' || $current_filters['select_good_filter_id'] == '0') {
+                $filters_sort = '';
+            } else {
+                switch($current_filters['select_good_filter_id']) {
+                    case '1': {
+                        $filters_sort = 'AND (`is_leader` = true)';
+                        break;
+                    }
+                    case '2': {
+                        $filters_sort = 'AND (`is_new` = true)';
+                        break;
+                    }
+                    case '3': {
+                        $filters_sort = 'ORDER BY `title` ASC';
+                        break;
+                    }
+                    case '4': {
+                        $filters_sort = 'ORDER BY `title` DESC';
+                        break;
+                    }
+                    case '5': {
+                        $filters_sort = 'ORDER BY `price` ASC';
+                        break;
+                    }
+                    case '6': {
+                        $filters_sort = 'ORDER BY `price` DESC';
+                        break;
+                    }
+                    case '7': {
+                        $filters_sort = 'ORDER BY `popularity` ASC';
+                        break;
+                    }
+                    case '8': {
+                        $filters_sort = 'ORDER BY `popularity` DESC';
+                        break;
+                    }
+                }
+            }
+
+            $querry = "SELECT * FROM `goods` WHERE $price AND $category AND $country $filters_sort;";
 
             var_dump($querry);
 
