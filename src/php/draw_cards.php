@@ -12,11 +12,11 @@
             $price = "(`price` BETWEEN $min AND $max)";
 
 
-            $isEkzotic = $current_filters['ekzotic'] ? '(`category_id` = 1)' : '';
-            $isGribs = $current_filters['gribs'] ? '(`category_id` = 2)' : '';
-            $isYagods = $current_filters['yagods'] ? '(`category_id` = 3)' : '';
-            $isFruits = $current_filters['fruits'] ? '(`category_id` = 4)' : '';
-            $isVegetables = $current_filters['vegetables'] ? '(`category_id` = 5)' : '';
+            $isEkzotic = $current_filters['ekzotic'] ? '(`category_id` = 1)' : '""';
+            $isGribs = $current_filters['gribs'] ? '(`category_id` = 2)' : '""';
+            $isYagods = $current_filters['yagods'] ? '(`category_id` = 3)' : '""';
+            $isFruits = $current_filters['fruits'] ? '(`category_id` = 4)' : '""';
+            $isVegetables = $current_filters['vegetables'] ? '(`category_id` = 5)' : '""';
 
             if (($isEkzotic == '') && ($isGribs == '') && ($isYagods == '') && ($isFruits == '') && ($isVegetables == '')) $category = '';
             else $category = "($isEkzotic or $isGribs or $isYagods or $isFruits or $isVegetables)";

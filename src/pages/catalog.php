@@ -68,6 +68,12 @@
 
             $defaultCountryId = $filters['select_good_country_id'] == 'all' ? '0' : $filters['select_good_country_id'];
             $defaultFilterId = $filters['select_good_filter_id'] == 'all' ? '0' : $filters['select_good_filter_id'];
+        } else {
+            $isEkzotic = 'checked';
+            $isGribs = 'checked';
+            $isYagods = 'checked';
+            $isFruits = 'checked';
+            $isVegetables = 'checked';
         }
     ?>
 
