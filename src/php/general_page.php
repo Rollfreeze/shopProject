@@ -46,6 +46,7 @@ RIGHT_NAV;
 
                     <div class="nav">
                         <div class="nav-left">
+                            <a href="index.php">Главная</a>
                             <a href="catalog.php">Каталог</a>
                             <a href="about_us.php">О компании</a>
                             <a href="delivery.php">Условия доставки</a>
@@ -63,7 +64,7 @@ RIGHT_NAV;
             <!-- Logo-Row -->
             <div class="container">
                 <div class="logo-row">
-                    <a href="index.php" class="logo"></a>
+                    <a href="catalog.php" class="logo"></a>
 
                     <div class="call-numbers-box">
                         <div class="call-number">
