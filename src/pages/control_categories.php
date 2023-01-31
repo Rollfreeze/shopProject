@@ -2,6 +2,7 @@
     session_start();
     require_once "../php/general_page.php";
     require_once "../php/sql_connection.php";
+    require_once "../php/category_helper.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,15 +18,23 @@
     <?php
         echo getHeader();
 
-        // if ($_POST) {
-        //     $connection = new SQLConnection();
-        //     $result = $connection->add_advert(
-        //         $_POST['advert_title'],
-        //         $_POST['advert_subtitle'],
-        //         $_POST['advert_image']
-        //     );
-        // }
-
+        if ($_POST['add_category']) {
+            $connection = new SQLConnection();
+            $result = $connection->add_category(
+                $_POST['category_name'],
+            );
+        } else if ($_POST['change_category_name']) {
+            $connection = new SQLConnection();
+            $result = $connection->update_category(
+                $_POST['id_category'],
+                $_POST['category_new_name'],
+            );
+        } else if ($_GET) {
+            $connection = new SQLConnection();
+            $result = $connection->delete_category(
+                $_GET['delete_id'],
+            );
+        }
     ?>
 
     <!-- bread bar -->
@@ -44,12 +53,20 @@
             <?php
                 // if ($_POST && $result) echo '<h2 class="green_alert">Реклама успешно добавлена!</h2>';
                 // else if ($_POST && $result == false) echo '<h2 class="red_alert">Ой, что-то пошло не так... Попробуйте еще раз</h2>';
+
+                if ($_POST['add_category'] && $result) echo '<h2 class="green_alert">Новая категория успешно добавлена!</h2>';
+                else if ($_POST['add_category'] && !$result) echo '<h2 class="red_alert">Ой, что-то пошло не так... Попробуйте еще раз</h2>';
+                else if ($_POST['change_category_name'] && $result) echo '<h2 class="green_alert">Категория успешно обновлена!</h2>';
+                else if ($_POST['change_category_name'] && !$result) echo '<h2 class="red_alert">Ой, что-то пошло не так... Попробуйте еще раз</h2>';
+                else if ($_GET && $result) echo '<h2 class="green_alert">Категория успешно удалена!</h2>';
+                else if ($_GET && !$result) echo '<h2 class="red_alert">Ой, что-то пошло не так... Попробуйте еще раз</h2>';
             ?>
 
             <h1 class="h1" style="text-align: center; margin-top: 0px;">Управление категориями товаров</h1>
             
             <div class="flex-row categories-forms-box">
                 <form class="categories-control-form" method="post">
+                    <input type="hidden" name="change_category_name" id="change_category_name" value="true"></input>
                     <p class="form-title">Изменить название категории</p>
 
                     <div class="flex-row" style="width: 350px; margin: 0 auto;">
@@ -68,6 +85,7 @@
                 </form>
 
                 <form class="categories-control-form" method="post">
+                    <input type="hidden" name="add_category" id="add_category" value="true"></input>
                     <p class="form-title">Добавить категорию</p>
                     <p class="form-subtitle">Название категории:</p>
                     <input class="auth_form_input" style="width: 200px;" type="text" name="category_name" minlength="1" id="category_name" placeholder="Название" required>
@@ -84,11 +102,9 @@
                         <td class="td-2">Категория</td>
                         <td class="td-2 center-text">Действие</td>
                     </tr>
-                    <tr>
-                        <td class="td-1">1</td>
-                        <td class="td-2">Категория-moc</td>
-                        <td class="td-2 center-text"><a class="delete-a" href="">Удалить<a></td>
-                    </tr>
+                    <?php
+                        draw_categories_table();
+                    ?>
                 </tbody>
             </table>
         </div>

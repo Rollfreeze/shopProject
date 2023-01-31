@@ -215,4 +215,72 @@ class SQLConnection {
             return false;
         }
     }
+
+    // Добавить Категорию
+    function add_category($category_name) {
+        try {
+            $connection = mysqli_connect($this->host, $this->user, $this->password, $this->db);
+            if (!$connection) {
+                die("Connection failed: " .mysqli_connect_error());
+            }
+            $sql_request = "INSERT INTO `categories` (`id`, `name`) VALUES (NULL, '$category_name');";
+            $result = mysqli_query($connection, $sql_request);
+            $connection->close();
+            return $result;
+        } catch (Exception $_) {
+            return false;
+        }
+    }
+
+    // Получить все категории
+    function get_all_categories() {
+        try {
+            $connection = mysqli_connect($this->host, $this->user, $this->password, $this->db);
+            if (!$connection) {
+                die("Connection failed: " .mysqli_connect_error());
+            }
+            $sql_request = "SELECT * FROM `categories`";
+            $result = mysqli_query($connection, $sql_request);
+            $connection->close();
+    
+            $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
+            if (empty($rows)) return false;
+            return $rows;
+        } catch (Exception $_) {
+            return false;
+        }
+    }
+
+    // Удалить Категорию
+    function delete_category($id) {
+        try {
+            $connection = mysqli_connect($this->host, $this->user, $this->password, $this->db);
+            if (!$connection) {
+                die("Connection failed: " .mysqli_connect_error());
+            }
+            $sql_request = "DELETE FROM `categories` WHERE `categories`.`id` = $id;";
+            $result = mysqli_query($connection, $sql_request);
+            $connection->close();
+            return $result;
+        } catch (Exception $_) {
+            return false;
+        }
+    }
+
+    // Изменить имя категории
+    // UPDATE `categories` SET `name` = 'Изменил имя' WHERE `categories`.`id` = 11;
+    function update_category($id, $name) {
+        try {
+            $connection = mysqli_connect($this->host, $this->user, $this->password, $this->db);
+            if (!$connection) {
+                die("Connection failed: " .mysqli_connect_error());
+            }
+            $sql_request = "UPDATE `categories` SET `name` = '$name' WHERE `categories`.`id` = $id;";
+            $result = mysqli_query($connection, $sql_request);
+            $connection->close();
+            return $result;
+        } catch (Exception $_) {
+            return false;
+        }
+    }
 }
