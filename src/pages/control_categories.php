@@ -51,9 +51,6 @@
     <div class="container">
         <div class="personal-data-law-box">
             <?php
-                // if ($_POST && $result) echo '<h2 class="green_alert">Реклама успешно добавлена!</h2>';
-                // else if ($_POST && $result == false) echo '<h2 class="red_alert">Ой, что-то пошло не так... Попробуйте еще раз</h2>';
-
                 if ($_POST['add_category'] && $result) echo '<h2 class="green_alert">Новая категория успешно добавлена!</h2>';
                 else if ($_POST['add_category'] && !$result) echo '<h2 class="red_alert">Ой, что-то пошло не так... Попробуйте еще раз</h2>';
                 else if ($_POST['change_category_name'] && $result) echo '<h2 class="green_alert">Категория успешно обновлена!</h2>';
