@@ -87,7 +87,7 @@
                     <tr>
                         <td class="td-1">1</td>
                         <td class="td-2">Категория-moc</td>
-                        <td class="td-2 center-text">Удалить</td>
+                        <td class="td-2 center-text"><a class="delete-a" href="">Удалить<a></td>
                     </tr>
                 </tbody>
             </table>

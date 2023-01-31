@@ -252,7 +252,7 @@ color: #ff8000;
     font-weight: bold;
 }
 
-.unselectable {
+.unselectable, .unselectable-2 {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
@@ -1273,11 +1273,21 @@ td {
     text-align: center;
 }
 
-.td-1, .td-2 {
+.td-1, .td-2, .delete-a {
     font-size: 18px;
     font-family: sans-serif;
     color: white;
     background-color:#e47a10;
+}
+
+.delete-a {
+    text-decoration: underline;
+    background-color: transparent;
+}
+
+.underline {
+    text-decoration: underline;
+    cursor: pointer;
 }
 
 .td-2 {
