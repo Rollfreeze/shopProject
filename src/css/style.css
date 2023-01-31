@@ -98,6 +98,16 @@ color: #ff8000;
     background-repeat: no-repeat;
 }
 
+.promo-box-2 {
+    display: block;
+    margin: 0 auto;
+    width: 500px;
+    height: 250px;
+    background-image: url("../assets/promo2.jpeg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
 .picture-box {
     display: inline-block;
     width: 25px;
