@@ -13,10 +13,12 @@
             $user_name = $_SESSION['current_user']['user_name'];
             $RIGHT_NAV = <<< RIGHT_NAV
             <div class="nav-right">
+                <div class="categories-control-box"></div>
+                <a class="admin-hover" href="control_categories.php">Управление категориями</a>
                 <div class="advert-box"></div>
                 <a class="admin-hover" href="add_advert.php">Добавить рекламу</a>
                 <div class="edit-box"></div>
-                <a class="admin-hover" href="add_advertisment.php">Добавить объявление</a>
+                <a class="admin-hover" href="add_advertisment.php">Добавить товар</a>
                 <div class="auth-box"></div>
                 <a href="authorization_page.php">$user_name</a>
             </div>
@@ -49,9 +51,9 @@ RIGHT_NAV;
                             <a href="index.php">Главная</a>
                             <a href="catalog.php">Каталог</a>
                             <!-- <a href="about_us.php">О компании</a> -->
-                            <a href="delivery.php">Условия доставки</a>
+                            <a href="delivery.php">Доставка</a>
                             <a href="payment.php">Оплата</a>
-                            <a href="delivery_to_office.php">Фрукты в офис</a>
+                            <!-- <a href="delivery_to_office.php">Фрукты в офис</a> -->
                             <a href="contacts.php">Контакты</a>
                         </div>
                         

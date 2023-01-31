@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/styleBase.css">
     <link rel="stylesheet" href="../css/style.css">
-    <title>Добавить объявление</title>
+    <title>Добавить товар</title>
 </head>
 <body>
     <?php
@@ -38,7 +38,7 @@
            <div class="bread-bar">
                 <a class="bread-bar-item" href="index.php" style="margin-left: 0px">Главная</a>
                 <span class="bread-slesh">/</span>
-                <a class="bread-bar-item" href="add_advertisment.php">Новое объявление</a>
+                <a class="bread-bar-item" href="add_advertisment.php">Новый товар</a>
            </div>
         </main>
     </div>
@@ -50,7 +50,7 @@
                 else if ($_POST && $result == false) echo '<h2 class="red_alert">Ой, что-то пошло не так... Попробуйте еще раз</h2>';
             ?>    
 
-            <h1 class="h1" style="text-align: center; margin-top: 0px;">Добавить новое объявление на сайт</h1>
+            <h1 class="h1" style="text-align: center; margin-top: 0px;">Добавить новый товар на сайт</h1>
             
             <form class="authorization-form-2" method="post">
                 <!-- title -->
