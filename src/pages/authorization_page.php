@@ -26,7 +26,7 @@
                 ];
             }
         } else if (isset($_POST['go_logout'])) {
-            var_dump($_POST['go_logout']);
+            // var_dump($_POST['go_logout']);
             $_SESSION['current_user'] = null;
         }
 
