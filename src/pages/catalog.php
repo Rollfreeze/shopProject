@@ -91,7 +91,7 @@
             // $isVegetables = 'checked';
         }
 
-        var_dump($_SESSION['current_checkbox_filters']);
+        // var_dump($_SESSION['current_checkbox_filters']);
     ?>
 
     <!-- bread bar -->

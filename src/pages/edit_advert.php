@@ -34,7 +34,7 @@
                 $img
             );
         } else if ($_GET) {
-            var_dump($_GET);
+            // var_dump($_GET);
             $advert_id = $_GET['advert_id'];
             $advert_title = $_GET['advert_title'];
             $advert_subtitle = $_GET['advert_subtitle'];

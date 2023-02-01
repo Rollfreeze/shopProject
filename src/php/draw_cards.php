@@ -21,9 +21,27 @@
             // if (($isEkzotic == '') && ($isGribs == '') && ($isYagods == '') && ($isFruits == '') && ($isVegetables == '')) $category = '';
             // else $category = "($isEkzotic or $isGribs or $isYagods or $isFruits or $isVegetables)";
             
+            $category = '';
             $checkboxFiltersExist = isset($_SESSION['current_checkbox_filters']) && !empty($_SESSION['current_checkbox_filters']);
-            if (!$checkboxFiltersExist) {
-                $category = ''
+            if ($checkboxFiltersExist) {
+                // foreach($_SESSION['current_checkbox_filters'] as $category_id) {
+                //     if ($category_id === array_key_last($_SESSION['current_checkbox_filters'])) {
+                //         $category = $category . "(`category_id` = $category_id)";
+                //     } else {
+                //         $category = $category . "(`category_id` = $category_id) or ";
+                //     }
+                // }
+
+                for ($k = 0; $k < count($_SESSION['current_checkbox_filters']); $k++) {
+                    $id = $_SESSION['current_checkbox_filters'][$k];
+                    if ($k == count($_SESSION['current_checkbox_filters']) - 1) {
+                        $category = $category . "(`category_id` = $id)";
+                    } else {
+                        $category = $category . "(`category_id` = $id) or ";
+                    }
+                }
+
+                // var_dump($category);
             }
 
 
@@ -76,7 +94,7 @@
 
             $querry = "SELECT * FROM `goods` WHERE $price AND $category AND $country $filters_sort;";
 
-            var_dump($querry);
+            // var_dump($querry);
 
             $good_cards = $connection->get_filter_goods($querry);
         } else {
