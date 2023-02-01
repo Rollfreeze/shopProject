@@ -34,6 +34,7 @@
 
                 for ($k = 0; $k < count($_SESSION['current_checkbox_filters']); $k++) {
                     $id = $_SESSION['current_checkbox_filters'][$k];
+                    if ($k == 0) $category = " AND ";
                     if ($k == count($_SESSION['current_checkbox_filters']) - 1) {
                         $category = $category . "(`category_id` = $id)";
                     } else {
@@ -92,7 +93,7 @@
                 }
             }
 
-            $querry = "SELECT * FROM `goods` WHERE $price AND $category AND $country $filters_sort;";
+            $querry = "SELECT * FROM `goods` WHERE $price $category AND $country $filters_sort;";
 
             // var_dump($querry);
 

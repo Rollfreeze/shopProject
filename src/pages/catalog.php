@@ -43,6 +43,8 @@
 
         // Установка фильтров в сессию
         if (isset($_GET['filter'])) {
+
+            // $GLOBALS['filter_been_set'] = true;
             
             // отдельный объект под динамические чекбоксы
             $_SESSION['current_checkbox_filters'] = array();
