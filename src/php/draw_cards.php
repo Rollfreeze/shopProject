@@ -100,6 +100,7 @@
             $querry = "SELECT * FROM `goods` WHERE $price $category AND $country $filters_sort;";
 
             // var_dump($querry);
+            
 
             $good_cards = $connection->get_filter_goods($querry);
         } else {
