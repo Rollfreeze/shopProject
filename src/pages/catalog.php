@@ -5,6 +5,8 @@
     require_once "../php/draw_cards.php";
     require_once "../php/draw_adverts.php";
     require_once "../php/sql_connection.php";
+    require_once "../php/category_helper.php";
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -91,42 +93,22 @@
     <!-- form -->
     <div class="container bg-box-c border-round">
         <form class="categories-form" method="get">
-            <div class="categories-box categories-row bg-box-c">
-                <div class="filter-col">
-                    <?php
-                        echo "<input type='checkbox' $isEkzotic name='ekzotic' id='ekzotic'>";
-                    ?>
-                    <label class='unselectable' for='ekzotic'>Экзотика</label>
-                </div>
+            <?php
+                category_checkbox_list();
+            ?>
 
-                <div class="filter-col">
-                    <?php
-                        echo "<input type='checkbox' $isGribs name='gribs' id='gribs'>";
-                    ?>
-                    <label class='unselectable' for='gribs'>Грибы</label>
-                </div>
+            <!-- <table class="filter-table">
+                <tbody>
+                    <tr class="filter-tr">
+                        <td class="filter-td">Экзотика</td>
+                        <td class="filter-td">Грибы</td>
+                        <td class="filter-td">Ягоды</td>
+                        <td class="filter-td">Фрукты</td>
+                        <td class="filter-td">Овощи</td>
+                    </tr>
+                </tbody>
+            </table> -->
 
-                <div class="filter-col">
-                    <?php
-                        echo "<input type='checkbox' $isYagods name='yagods' id='yagods'>";
-                    ?>
-                    <label class='unselectable' for='yagods'>Ягоды</label>
-                </div>
-
-                <div class="filter-col">
-                    <?php
-                        echo "<input type='checkbox' $isFruits name='fruits' id='fruits'>";
-                    ?>
-                    <label class='unselectable' for='fruits'>Фрукты</label>
-                </div>
-
-                <div class="filter-col">
-                    <?php
-                        echo "<input type='checkbox' $isVegetables name='vegetables' id='vegetables'>";
-                    ?>
-                    <label class='unselectable' for='vegetables'>Овощи</label>
-                </div>
-            </div>
 
             <p class="price-title-input">Ценовой диапазон</з>
 

@@ -18,4 +18,65 @@
             }
         }
     }
+
+    // function category_checkbox_list() {
+    //     $connection = new SQLConnection();
+    //     $categories = $connection->get_all_categories();
+    //     if ($categories) {
+    //         // строка
+    //         for ($i = 0; $i < ceil(count($categories) / 5); $i++) {
+    //             echo "<div class='categories-box categories-row bg-box-c'>";
+                
+    //             // элементы строки
+    //             for ($j = $i * 5; $j < $i * 5 + 5; $j++) {
+    //                 if ($j == count($categories)) break;
+
+    //                 $categoryID = $categories[$j]['id'];
+    //                 $categoryName = $categories[$j]['name'];
+
+    //                 // echo "<div class='filter-col'>";
+    //                 //     echo "<input type='checkbox' $isEkzotic name='category-$categoryID' id='category-$categoryID'>";
+    //                 //     echo "<label class='unselectable' for='category-$categoryID'>$categoryName</label>";
+    //                 // echo "</div>";
+
+    //                 echo "<div class='filter-col'>";
+    //                     echo "<input type='checkbox' name='category-$categoryID' id='category-$categoryID'>";
+    //                     echo "<label class='unselectable' for='category-$categoryID'>$categoryName</label>";
+    //                 echo "</div>";
+    //             }
+
+    //             echo "</div>";
+    //         }
+    //     }
+    // }
+
+
+    function category_checkbox_list() {
+        $connection = new SQLConnection();
+        $categories = $connection->get_all_categories();
+        if ($categories) {
+            echo "<table class='filter-table'>";
+                echo "<tbody>";
+                    // строка
+                    for ($i = 0; $i < ceil(count($categories) / 5); $i++) {
+                        echo "<tr class='filter-tr'>";
+
+                        // элементы строки
+                        for ($j = $i * 5; $j < $i * 5 + 5; $j++) {
+                            if ($j == count($categories)) break;
+                            $categoryID = $categories[$j]['id'];
+                            $categoryName = $categories[$j]['name'];
+
+                            echo "<td class='filter-td'>";
+                                echo "<input type='checkbox' name='category-$categoryID' id='category-$categoryID'>";
+                                echo "<label class='unselectable' for='category-$categoryID'>$categoryName</label>"; 
+                            echo "</td>";
+                        }
+
+                        echo "</tr>";
+                    }
+                echo "</tbody>";
+            echo "</table>";
+        }
+    }
 ?>
