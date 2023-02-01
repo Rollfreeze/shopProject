@@ -13,8 +13,10 @@
             $user_name = $_SESSION['current_user']['user_name'];
             $RIGHT_NAV = <<< RIGHT_NAV
             <div class="nav-right">
+                <div class="globus-control-box"></div>
+                <a class="admin-hover" href="control_countries.php">Менеджер стран</a>
                 <div class="categories-control-box"></div>
-                <a class="admin-hover" href="control_categories.php">Управление категориями</a>
+                <a class="admin-hover" href="control_categories.php">Контроль категорий</a>
                 <div class="advert-box"></div>
                 <a class="admin-hover" href="add_advert.php">Добавить рекламу</a>
                 <div class="edit-box"></div>

@@ -122,19 +122,19 @@ NOW_IMG_1;
                 echo "<input class='img_upload_input' type='file' name='good_image_path_1' id='good_image_path_1'>";
                 
                 // img2
-                $nowImg2 = <<< NOW_IMG_2
-                <div class="flex-row">
-                    <div class="half-box">
-                        <p class="radio-text" style="font-size: 18px; margin-top: 35px;">Текущая фотография товара №2:</p>
-                    </div>
-                    <div class="half-box">
-                        <img class='form-now-image' src='../assets/$good_image_path_2' alt='no_img_2'>
-                    </div>
-                </div>
-NOW_IMG_2;
-                echo $nowImg2;
-                echo '<p class="radio-text" style="font-size: 18px; margin-top: 15px; margin-right: 50px;">Выберите фотографию товара №2:</p>';
-                echo "<input style='margin-bottom: 40px;' class='img_upload_input' type='file' name='good_image_path_2' id='good_image_path_2'>";
+//                 $nowImg2 = <<< NOW_IMG_2
+//                 <div class="flex-row">
+//                     <div class="half-box">
+//                         <p class="radio-text" style="font-size: 18px; margin-top: 35px;">Текущая фотография товара №2:</p>
+//                     </div>
+//                     <div class="half-box">
+//                         <img class='form-now-image' src='../assets/$good_image_path_2' alt='no_img_2'>
+//                     </div>
+//                 </div>
+// NOW_IMG_2;
+                // echo $nowImg2;
+                // echo '<p class="radio-text" style="font-size: 18px; margin-top: 15px; margin-right: 50px;">Выберите фотографию товара №2:</p>';
+                // echo "<input style='margin-bottom: 40px;' class='img_upload_input' type='file' name='good_image_path_2' id='good_image_path_2'>";
                 echo '<hr>';
                 
                 // category

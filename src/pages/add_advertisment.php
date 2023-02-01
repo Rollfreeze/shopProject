@@ -3,6 +3,7 @@
     require_once "../php/general_page.php";
     require_once "../php/sql_connection.php";
     require_once "../php/category_helper.php";
+    require_once "../php/country_helper.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -83,11 +84,14 @@
                 <!-- country -->
                 <p class="radio-text" style="font-size: 18px;">Страна производитель:</p>
                 <select class="form-select" name="good_country_id" id="good_country_id" required>
-                    <option value="1">Россия</option>
+                    <!-- <option value="1">Россия</option>
                     <option value="2">Беларусь</option>
                     <option value="3">Китай</option>
                     <option value="4">Таджикистан</option>
-                    <option value="5">Италия</option>
+                    <option value="5">Италия</option> -->
+                    <?php
+                        draw_countries_options();
+                    ?>
                 </select>
                 
                 <!-- popularity -->

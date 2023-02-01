@@ -1,42 +1,65 @@
 <?php
-    function good_category_name($item) {
-        switch($item) {
-            case 1: return 'Экзотика';
-            case 2: return 'Грибы';
-            case 3: return 'Ягоды';
-            case 4: return 'Фрукты';
-            case 5: return 'Овощи';
-            default: return 'Выберите';
-        }
-    }
+    // function good_category_name($item) {
+    //     switch($item) {
+    //         case 1: return 'Экзотика';
+    //         case 2: return 'Грибы';
+    //         case 3: return 'Ягоды';
+    //         case 4: return 'Фрукты';
+    //         case 5: return 'Овощи';
+    //         default: return 'Выберите';
+    //     }
+    // }
+
+    // function good_category_selected($good_category_id) {
+    //     for ($i = 1; $i < 6; $i++) {
+    //         $good_category_item_name = good_category_name($i);
+    //         if ($good_category_id == $i) echo "<option value='$i' selected>$good_category_item_name</option>";
+    //         else echo "<option value='$i'>$good_category_item_name</option>";
+    //     }
+    // }
 
     function good_category_selected($good_category_id) {
-        for ($i = 1; $i < 6; $i++) {
-            $good_category_item_name = good_category_name($i);
-            if ($good_category_id == $i) echo "<option value='$i' selected>$good_category_item_name</option>";
-            else echo "<option value='$i'>$good_category_item_name</option>";
+        $connection = new SQLConnection();
+        $categories = $connection->get_all_categories();
+        var_dump($categories);
+        for ($i = 0; $i < count($categories); $i++) {
+            $current_id = $categories[$i]['id'];
+            $current_name = $categories[$i]['name'];
+            if ($good_category_id == $current_id) echo "<option value='$current_id' selected>$current_name</option>";
+            else echo "<option value='$current_id'>$current_name</option>";
         }
     }
 
 
 
 
-    function good_country_name($item) {
-        switch($item) {
-            case 1: return 'Россия';
-            case 2: return 'Беларусь';
-            case 3: return 'Китай';
-            case 4: return 'Таджикистан';
-            case 5: return 'Италия';
-            default: return 'Россия';
-        }
-    }
+    // function good_country_name($item) {
+    //     switch($item) {
+    //         case 1: return 'Россия';
+    //         case 2: return 'Беларусь';
+    //         case 3: return 'Китай';
+    //         case 4: return 'Таджикистан';
+    //         case 5: return 'Италия';
+    //         default: return 'Россия';
+    //     }
+    // }
+
+    // function good_country_selected($country_id) {
+    //     for ($i = 1; $i < 6; $i++) {
+    //         $good_country_name = good_country_name($i);
+    //         if ($country_id == $i) echo "<option selected value='$i'>$good_country_name</option>";
+    //         else echo "<option value='$i'>$good_country_name</option>";
+    //     }
+    // }
 
     function good_country_selected($country_id) {
-        for ($i = 1; $i < 6; $i++) {
-            $good_country_name = good_country_name($i);
-            if ($country_id == $i) echo "<option selected value='$i'>$good_country_name</option>";
-            else echo "<option value='$i'>$good_country_name</option>";
+        $connection = new SQLConnection();
+        $countries = $connection->get_all_countries();
+        for ($i = 0; $i < count($countries); $i++) {
+            $current_id = $countries[$i]['id'];
+            $current_name = $countries[$i]['country_name'];
+            if ($country_id == $current_id) echo "<option value='$current_id' selected>$current_name</option>";
+            else echo "<option value='$current_id'>$current_name</option>";
         }
     }
 

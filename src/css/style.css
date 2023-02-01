@@ -97,6 +97,15 @@ color: #ff8000;
     background-repeat: no-repeat;
 }
 
+.globus-control-box {
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    background-image: url("../assets/globus.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
 .promo-box {
     display: block;
     margin: 0 auto;

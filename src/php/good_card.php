@@ -16,7 +16,9 @@
             $isRoot = $user['is_root'];
         }
 
-        $countryName = good_country_name($good_country_id);
+        $connection = new SQLConnection();
+        $countryName = $connection->get_country_name($good_country_id);
+        // $countryName = good_country_name($good_country_id);
         $score_color = score_color($good_popularity);
 
         $isNew = '';
@@ -73,7 +75,7 @@ ROOT_TOOLS;
         </div>
 
         <div>
-            <p class="country-card"><span class="country-card purple-c">$countryName<span></p>руб.
+            <p class="country-card"><span class="country-card country-c">$countryName<span></p>руб.
         </div>
 
         <div style="margin-bottom: 5px; margin-top: 5px;">

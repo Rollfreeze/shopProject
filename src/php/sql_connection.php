@@ -251,6 +251,25 @@ class SQLConnection {
         }
     }
 
+    // Получить имя категории по id
+    function get_category_name($id) {
+        try {
+            $connection = mysqli_connect($this->host, $this->user, $this->password, $this->db);
+            if (!$connection) {
+                die("Connection failed: " .mysqli_connect_error());
+            }
+            $sql_request = "SELECT `name` FROM `categories` WHERE `id` = 3;";
+            $result = mysqli_query($connection, $sql_request);
+            $connection->close();
+    
+            $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
+            if (empty($rows)) return false;
+            return $rows[0]['name'];
+        } catch (Exception $_) {
+            return false;
+        }
+    }
+
     // Удалить Категорию
     function delete_category($id) {
         try {
@@ -279,6 +298,93 @@ class SQLConnection {
             $result = mysqli_query($connection, $sql_request);
             $connection->close();
             return $result;
+        } catch (Exception $_) {
+            return false;
+        }
+    }
+
+    // Добавить страну-партнера
+    function add_country($country_name) {
+        try {
+            $connection = mysqli_connect($this->host, $this->user, $this->password, $this->db);
+            if (!$connection) {
+                die("Connection failed: " .mysqli_connect_error());
+            }
+            $sql_request = "INSERT INTO `countries` (`id`, `country_name`) VALUES (NULL, '$country_name');";
+            $result = mysqli_query($connection, $sql_request);
+            $connection->close();
+            return $result;
+        } catch (Exception $_) {
+            return false;
+        }
+    }
+
+    // Получить все страны-партнеры
+    function get_all_countries() {
+        try {
+            $connection = mysqli_connect($this->host, $this->user, $this->password, $this->db);
+            if (!$connection) {
+                die("Connection failed: " .mysqli_connect_error());
+            }
+            $sql_request = "SELECT * FROM `countries`";
+            $result = mysqli_query($connection, $sql_request);
+            $connection->close();
+    
+            $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
+            if (empty($rows)) return false;
+            return $rows;
+        } catch (Exception $_) {
+            return false;
+        }
+    }
+
+    // Удалить страну-партнера
+    function delete_country($id) {
+        try {
+            $connection = mysqli_connect($this->host, $this->user, $this->password, $this->db);
+            if (!$connection) {
+                die("Connection failed: " .mysqli_connect_error());
+            }
+            $sql_request = "DELETE FROM `countries` WHERE `countries`.`id` = $id;";
+            $result = mysqli_query($connection, $sql_request);
+            $connection->close();
+            return $result;
+        } catch (Exception $_) {
+            return false;
+        }
+    }
+
+    // Изменить имя страны-партнера
+    function update_country($id, $name) {
+        try {
+            $connection = mysqli_connect($this->host, $this->user, $this->password, $this->db);
+            if (!$connection) {
+                die("Connection failed: " .mysqli_connect_error());
+            }
+            $sql_request = "UPDATE `countries` SET `country_name` = '$name' WHERE `countries`.`id` = $id;";
+            $result = mysqli_query($connection, $sql_request);
+            $connection->close();
+            return $result;
+        } catch (Exception $_) {
+            return false;
+        }
+    }
+
+    // Получить имя категории по id
+    function get_country_name($id) {
+        try {
+            $connection = mysqli_connect($this->host, $this->user, $this->password, $this->db);
+            if (!$connection) {
+                die("Connection failed: " .mysqli_connect_error());
+            }
+            $sql_request = "SELECT `country_name` FROM `countries` WHERE `id` = $id;";
+            $result = mysqli_query($connection, $sql_request);
+            $connection->close();
+    
+            $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
+            var_dump($rows);
+            if (empty($rows)) return false;
+            return $rows[0]['country_name'];
         } catch (Exception $_) {
             return false;
         }
