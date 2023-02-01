@@ -12,14 +12,19 @@
             $price = "(`price` BETWEEN $min AND $max)";
 
 
-            $isEkzotic = $current_filters['ekzotic'] ? '(`category_id` = 1)' : '""';
-            $isGribs = $current_filters['gribs'] ? '(`category_id` = 2)' : '""';
-            $isYagods = $current_filters['yagods'] ? '(`category_id` = 3)' : '""';
-            $isFruits = $current_filters['fruits'] ? '(`category_id` = 4)' : '""';
-            $isVegetables = $current_filters['vegetables'] ? '(`category_id` = 5)' : '""';
+            // $isEkzotic = $current_filters['ekzotic'] ? '(`category_id` = 1)' : '""';
+            // $isGribs = $current_filters['gribs'] ? '(`category_id` = 2)' : '""';
+            // $isYagods = $current_filters['yagods'] ? '(`category_id` = 3)' : '""';
+            // $isFruits = $current_filters['fruits'] ? '(`category_id` = 4)' : '""';
+            // $isVegetables = $current_filters['vegetables'] ? '(`category_id` = 5)' : '""';
 
-            if (($isEkzotic == '') && ($isGribs == '') && ($isYagods == '') && ($isFruits == '') && ($isVegetables == '')) $category = '';
-            else $category = "($isEkzotic or $isGribs or $isYagods or $isFruits or $isVegetables)";
+            // if (($isEkzotic == '') && ($isGribs == '') && ($isYagods == '') && ($isFruits == '') && ($isVegetables == '')) $category = '';
+            // else $category = "($isEkzotic or $isGribs or $isYagods or $isFruits or $isVegetables)";
+            
+            $checkboxFiltersExist = isset($_SESSION['current_checkbox_filters']) && !empty($_SESSION['current_checkbox_filters']);
+            if (!$checkboxFiltersExist) {
+                $category = ''
+            }
 
 
             if ($current_filters['select_good_country_id'] == 'all' || $current_filters['select_good_country_id'] == '0') {

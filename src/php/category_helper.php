@@ -19,42 +19,12 @@
         }
     }
 
-    // function category_checkbox_list() {
-    //     $connection = new SQLConnection();
-    //     $categories = $connection->get_all_categories();
-    //     if ($categories) {
-    //         // строка
-    //         for ($i = 0; $i < ceil(count($categories) / 5); $i++) {
-    //             echo "<div class='categories-box categories-row bg-box-c'>";
-                
-    //             // элементы строки
-    //             for ($j = $i * 5; $j < $i * 5 + 5; $j++) {
-    //                 if ($j == count($categories)) break;
-
-    //                 $categoryID = $categories[$j]['id'];
-    //                 $categoryName = $categories[$j]['name'];
-
-    //                 // echo "<div class='filter-col'>";
-    //                 //     echo "<input type='checkbox' $isEkzotic name='category-$categoryID' id='category-$categoryID'>";
-    //                 //     echo "<label class='unselectable' for='category-$categoryID'>$categoryName</label>";
-    //                 // echo "</div>";
-
-    //                 echo "<div class='filter-col'>";
-    //                     echo "<input type='checkbox' name='category-$categoryID' id='category-$categoryID'>";
-    //                     echo "<label class='unselectable' for='category-$categoryID'>$categoryName</label>";
-    //                 echo "</div>";
-    //             }
-
-    //             echo "</div>";
-    //         }
-    //     }
-    // }
-
-
     function category_checkbox_list() {
         $connection = new SQLConnection();
         $categories = $connection->get_all_categories();
         if ($categories) {
+            $checkboxFiltersExist = isset($_SESSION['current_checkbox_filters']) && !empty($_SESSION['current_checkbox_filters']);
+
             echo "<table class='filter-table'>";
                 echo "<tbody>";
                     // строка
@@ -67,8 +37,14 @@
                             $categoryID = $categories[$j]['id'];
                             $categoryName = $categories[$j]['name'];
 
+                            // Если фильтры сброшены или не заданы, то п.у. отмечены будут все
+                            $checkedDefault = '';
+                            if (!$checkboxFiltersExist || in_array($categoryID, $_SESSION['current_checkbox_filters'])) {
+                                $checkedDefault = 'checked';
+                            }
+
                             echo "<td class='filter-td'>";
-                                echo "<input type='checkbox' name='category-$categoryID' id='category-$categoryID'>";
+                                echo "<input type='checkbox' $checkedDefault name='category-$categoryID' id='category-$categoryID'>";
                                 echo "<label class='unselectable' for='category-$categoryID'>$categoryName</label>"; 
                             echo "</td>";
                         }
@@ -77,6 +53,19 @@
                     }
                 echo "</tbody>";
             echo "</table>";
+        }
+    }
+
+    // динамические опции выбора категорий
+    function draw_categories_options() {
+        $connection = new SQLConnection();
+        $categories = $connection->get_all_categories();
+        if ($categories) {
+            for ($i = 0; $i < count($categories); $i++) {
+                $current_id = $categories[$i]['id'];
+                $current_name = $categories[$i]['name'];
+                echo "<option value='$current_id'>$current_name</option>";
+            }
         }
     }
 ?>

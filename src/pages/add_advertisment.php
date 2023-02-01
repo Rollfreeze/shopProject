@@ -2,6 +2,7 @@
     session_start();
     require_once "../php/general_page.php";
     require_once "../php/sql_connection.php";
+    require_once "../php/category_helper.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,7 +18,7 @@
     <?php
         echo getHeader();
 
-        if ($_POST) {
+        if (isset($_POST['good_title'])) {
             $isNew = (isset($_POST['good_is_new'])) ? 1 : 0;
             $isLeder = (isset($_POST['good_is_leader'])) ? 1 : 0;
 
@@ -67,18 +68,16 @@
                 <input class="img_upload_input" type="file" name="good_image_path_1" id="good_image_path_1" required>
                 
                 <!-- img-2 -->
-                <p class="radio-text" style="font-size: 18px; margin-top: 15px;">Выберите фотографию товара №2:</p>
+                <!-- <p class="radio-text" style="font-size: 18px; margin-top: 15px;">Выберите фотографию товара №2:</p>
                 <input class="img_upload_input" style="margin-bottom: 40px;" type="file" name="good_image_path_2" id="good_image_path_2" required>
-                <hr>
+                <hr> -->
                 
                 <!-- category -->
                 <p class="radio-text" style="font-size: 18px; margin-top: 20px;">Категория товара:</p>
                 <select class="form-select" name="good_category_id" id="good_category_id" required>
-                    <option value="1">Экзотика</option>
-                    <option value="2">Грибы</option>
-                    <option value="3">Ягоды</option>
-                    <option value="4">Фрукты</option>
-                    <option value="5">Овощи</option>
+                    <?php
+                        draw_categories_options();
+                    ?>
                 </select>
 
                 <!-- country -->
