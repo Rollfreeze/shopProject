@@ -24,6 +24,7 @@
         $categories = $connection->get_all_categories();
         if ($categories) {
             $checkboxFiltersExist = isset($_SESSION['current_checkbox_filters']) && !empty($_SESSION['current_checkbox_filters']);
+            $otherFiltersExist = isset($_SESSION['current_filters']);
 
             echo "<table class='filter-table'>";
                 echo "<tbody>";
@@ -39,7 +40,7 @@
 
                             // Если фильтры сброшены или не заданы, то п.у. отмечены будут все
                             $checkedDefault = '';
-                            if (!$checkboxFiltersExist || in_array($categoryID, $_SESSION['current_checkbox_filters'])) {
+                            if ((!$checkboxFiltersExist && !$otherFiltersExist) || in_array($categoryID, $_SESSION['current_checkbox_filters'])) {
                                 $checkedDefault = 'checked';
                             }
 

@@ -21,6 +21,8 @@
             // if (($isEkzotic == '') && ($isGribs == '') && ($isYagods == '') && ($isFruits == '') && ($isVegetables == '')) $category = '';
             // else $category = "($isEkzotic or $isGribs or $isYagods or $isFruits or $isVegetables)";
             
+
+
             $category = '';
             $checkboxFiltersExist = isset($_SESSION['current_checkbox_filters']) && !empty($_SESSION['current_checkbox_filters']);
             if ($checkboxFiltersExist) {
@@ -43,6 +45,8 @@
                 }
 
                 // var_dump($category);
+            } else if (isset($_SESSION['current_filters']) && !$checkboxFiltersExist) {
+                $category = " AND false";
             }
 
 
