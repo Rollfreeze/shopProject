@@ -1,4 +1,8 @@
-<?php session_start();?>
+<?php
+    session_start();
+    require_once "../php/sql_connection.php";
+    require_once "../php/general_page.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +15,6 @@
 </head>
 <body>
     <?php
-        require_once "../php/sql_connection.php";
         $drawException = false;
         $drawSuccess = false;
         if (isset($_GET['username']) && isset($_GET['password'])) {
@@ -30,7 +33,6 @@
             $_SESSION['current_user'] = null;
         }
 
-        require_once "../php/general_page.php";
         echo getHeader();
     ?>
 
@@ -45,7 +47,7 @@
         </main>
     </div>
 
-    <div class="container">
+    <div class="container" style="margin-bottom: 50px;">
         <div class="personal-data-law-box">
             <?php
                 if ($drawException) echo '<h2 class="red_alert">Пользователь не найден</h2>';
@@ -74,7 +76,6 @@ AUTH_FORM;
     </div>
 
     <?php
-        require_once "../php/general_page.php";
         echo getFooter();
     ?>
 </body>
