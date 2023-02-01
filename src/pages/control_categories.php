@@ -18,12 +18,12 @@
     <?php
         echo getHeader();
 
-        if ($_POST['add_category']) {
+        if (isset($_POST['add_category'])) {
             $connection = new SQLConnection();
             $result = $connection->add_category(
                 $_POST['category_name'],
             );
-        } else if ($_POST['change_category_name']) {
+        } else if (isset($_POST['change_category_name'])) {
             $connection = new SQLConnection();
             $result = $connection->update_category(
                 $_POST['id_category'],
