@@ -2,6 +2,7 @@
     session_start();
     require_once "../php/general_page.php";
     require_once "../php/edit_helper.php";
+    require_once "../php/good_cooments_fetch.php";
     require_once "../php/sql_connection.php";
 ?>
 <!DOCTYPE html>
@@ -19,7 +20,43 @@
     <?php
         echo getHeader();
 
-        if (isset($_GET['good_id']) && $_GET['good_id'] != null) {
+        var_dump($_POST['comment-area']);
+        var_dump($_POST['dele_comment_id']);
+        
+        $didDeleteComment = isset($_POST['dele_comment_id']);
+        $didNewComent = (isset($_GET['comment-area']) && !empty($_GET['comment-area']));
+        
+        // Переменные для алертов
+        $delete_comment_result = null;
+        $comment_result = null;
+
+        // Если был добавлен или удален комментарий
+        if ($didDeleteComment) {
+            $good_id = $_POST['good_id'];
+            $good_title = $_POST['good_title'];
+            $good_subtitle = $_POST['good_subtitle'];
+            $good_image_path_1 = $_POST['good_image_path_1'];
+            $good_image_path_2 = $_POST['good_image_path_2'];
+            $good_category_id = $_POST['good_category_id'];
+            $good_is_new = $_POST['good_is_new'];
+            $good_is_leader = $_POST['good_is_leader'];
+            $good_price = $_POST['good_price'];
+            $good_country_id = $_POST['good_country_id'];
+            $good_popularity = $_POST['good_popularity'];
+
+            $titlePlusiks = str_replace(" ", "+", $good_title);
+            $subtitlePlusiks = str_replace(" ", "+", $good_subtitle);
+
+            $good_isNew_href = ($_POST['good_is_new'] == '1') ? '1' : '0';
+            $good_isLeder_href = ($_POST['good_is_leader'] == '1') ? '1' : '0';
+
+            if ($didDeleteComment) {
+                $connection = new SQLConnection();
+                $delete_comment_result = $connection->delete_good_comment(
+                    $_POST['dele_comment_id'],
+                );
+            }
+        } else if (isset($_GET['good_id']) && $_GET['good_id'] != null) {
             // var_dump($_GET);
             $good_id = $_GET['good_id'];
             $good_title = $_GET['good_title'];
@@ -40,9 +77,8 @@
             $good_isLeder_href = ($_GET['good_is_leader'] == '1') ? '1' : '0';
 
 
-            if (isset($_GET['comment-area']) && !empty($_GET['comment-area'])) {
+            if ($didNewComent) {
                 $connection = new SQLConnection();
-
                 $user = $_SESSION['current_user'];
 
                 $comment_result = $connection->add_comment(
@@ -71,10 +107,15 @@
     </div>
 
     <div class="container">
+        <?php
+            if (isset($_POST['dele_comment_id']) && $delete_comment_result) echo '<h2 class="green_alert">Комментарий успешно удален!</h2>';
+            else if (isset($_POST['dele_comment_id']) && !$delete_comment_result) echo '<h2 class="red_alert">Не удалось удалить комментарий</h2>';
+            else if ($didNewComent && $comment_result) echo '<h2 class="green_alert">Комментарий успешно добавлен!</h2>';
+            else if ($didNewComent && !$comment_result) echo '<h2 class="red_alert">Не удалось добавить комментарий</h2>';
+          ?>
 
         <div class="show-up-container">
             <div class="good-item-page-avatar">
-                <!-- <div class="good-item-page-avatar-logo"></div> -->
                 <?php
                     $productLogo = '<div class="good-item-page-avatar-logo" style="' . 'background-image: url(' . '..' . "/assets/" . $good_image_path_1 . '")' . '"></div>';
                     echo $productLogo;
@@ -89,11 +130,7 @@
 
                 <div class="under-hr-description flex-row">
                     <div class="description-good-box">
-                        <!-- <p class='good-raiting'>Рейтинг товара: </p> -->
-                        <!-- <p class='good-country'>Страна производитель: </p> -->
-
                         <?php
-                        // $country = good_country_name($good_country_id);
                         $connection = new SQLConnection();
                         $country = $connection->get_country_name($good_country_id);
 
@@ -122,79 +159,55 @@
                 </div>
             </div>
         </div>
-
-
-
-        <!-- <div class="personal-data-law-box">
-            <h1 class="h1" style="text-align: left; margin-top: 0px;">Контакты</h1>
-            <p class="normal-text" style="margin-bottom: 0px;">Интернет-магазин Агро лавка Фрктов</p>
-            <p class="normal-text" style="margin-bottom: 0px;">(ООО Алиберция).</p>
-            <p class="normal-text" style="margin-bottom: 0px;">Телефон: +7 (495) 720-32-07</p>
-            <p class="normal-text" style="margin-bottom: 0px; display: inline;">Электронная почта: </p>
-            <a href="mailto:info@fruktov.pro" class="link" style="display: inline; font-size: 16px;">info@fruktov.pro</a>
-            <p class="normal-text" style="margin-bottom: 110px;">ИНН 9703001558.</p>
-        </div> -->
     </div>
 
     <div class="container" style="margin-top: 20px;">
-        <form method="get">
-            <?php
-                $hidden_elements = <<< HIDDEN
-                    <input type="hidden" name="good_id" value="$good_id"></input>
-                    <input type="hidden" name="good_title" value="$good_title"></input>
-                    <input type="hidden" name="good_subtitle" value="$good_subtitle"></input>
-                    <input type="hidden" name="good_image_path_1" value="$good_image_path_1"></input>
-                    <input type="hidden" name="good_image_path_2" value="$good_image_path_2"></input>
-                    <input type="hidden" name="good_category_id" value="$good_category_id"></input>
-                    <input type="hidden" name="good_is_new" value="$good_is_new"></input>
-                    <input type="hidden" name="good_is_leader" value="$good_is_leader"></input>
-                    <input type="hidden" name="good_price" value="$good_price"></input>
-                    <input type="hidden" name="good_country_id" value="$good_country_id"></input>
-                    <input type="hidden" name="good_popularity" value="$good_popularity"></input>
-
+    
+        <?php
+            $isAuth = isset($_SESSION['current_user']) && $_SESSION['current_user'] != null;
+            if ($isAuth) {
+                echo '<form action="good_item_page.php" method="get">';
+                    // форма для отправки самой же страницы на себя
+                    $hidden_elements = <<< HIDDEN
+                        <input type="hidden" name="good_id" value="$good_id"></input>
+                        <input type="hidden" name="good_title" value="$good_title"></input>
+                        <input type="hidden" name="good_subtitle" value="$good_subtitle"></input>
+                        <input type="hidden" name="good_image_path_1" value="$good_image_path_1"></input>
+                        <input type="hidden" name="good_image_path_2" value="$good_image_path_2"></input>
+                        <input type="hidden" name="good_category_id" value="$good_category_id"></input>
+                        <input type="hidden" name="good_is_new" value="$good_is_new"></input>
+                        <input type="hidden" name="good_is_leader" value="$good_is_leader"></input>
+                        <input type="hidden" name="good_price" value="$good_price"></input>
+                        <input type="hidden" name="good_country_id" value="$good_country_id"></input>
+                        <input type="hidden" name="good_popularity" value="$good_popularity"></input>
 HIDDEN;
-                echo $hidden_elements;
-            ?>
-
-
-            <div class="flex-row-end">
-                <div style="margin-right: 20px;">
-                    <button class="filter-button" style="width: 258px; margin: 0; margin-bottom: 15px;">Добавить комментарий</button>
+                    echo $hidden_elements;
+                
+    
+                $add_coment_btn = <<< BTN
+                <div class="flex-row-end">
+                    <div style="margin-right: 20px;">
+                        <button class="filter-button" style="width: 258px; margin: 0; margin-bottom: 15px;">Добавить комментарий</button>
+                    </div>
                 </div>
-            </div>
 
-            <div class="flex-row-end">
-                <textarea maxlength="50" name="comment-area" id="comment-area" cols="40" rows="4"></textarea>
-            </div>
-        </form>
+                <div class="flex-row-end">
+                    <textarea maxlength="50" name="comment-area" id="comment-area" cols="40" rows="4"></textarea>
+                </div>
+            </form>
+BTN;
+                echo $add_coment_btn;
+            }
+        ?>
 
-        <div class="user-coment">
-            <div class="user-line">
-                <div class="flex-row-2">
-                    <div class="auth-box"></div>
-                    <div class="user-coment-name">Julia</div>
-                    <div class="user-coment-time">23.04.2016 14:59:01</div>
-                </div>
-            </div>
-            
-            <div class="user-coment-box">
-                Комментарий: привет мир!
-            </div>
-        </div>
-        
-        <div class="user-coment">
-            <div class="user-line">
-                <div class="flex-row-2">
-                    <div class="auth-box"></div>
-                    <div class="user-coment-name">Egor</div>
-                    <div class="user-coment-time">23.04.2016 14:59:01</div>
-                </div>
-            </div>
-            
-            <div class="user-coment-box">
-                Комментарий: привет мир! ^^
-            </div>
-        </div>
+
+        <?php
+            good_cooments_fetch(
+                $good_id, $good_title, $good_subtitle, $good_image_path_1,
+                $good_image_path_2, $good_category_id, $good_is_new,
+                $good_is_leader, $good_price, $good_country_id, $good_popularity
+            );
+        ?>
     </div>
 
     <?php

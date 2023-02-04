@@ -406,4 +406,39 @@ class SQLConnection {
             return false;
         }
     }
+
+    // Получить комментарии по товару
+    function get_good_comments($good_id) {
+        try {
+            $connection = mysqli_connect($this->host, $this->user, $this->password, $this->db);
+            if (!$connection) {
+                die("Connection failed: " .mysqli_connect_error());
+            }
+            $sql_request = "SELECT * FROM `comments` WHERE `good_id` = $good_id";
+            $result = mysqli_query($connection, $sql_request);
+            $connection->close();
+    
+            $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
+            if (empty($rows)) return false;
+            return $rows;
+        } catch (Exception $_) {
+            return false;
+        }
+    }
+
+    // Удалить комент
+    function delete_good_comment($comment_id) {
+        try {
+            $connection = mysqli_connect($this->host, $this->user, $this->password, $this->db);
+            if (!$connection) {
+                die("Connection failed: " .mysqli_connect_error());
+            }
+            $sql_request = "DELETE FROM `comments` WHERE `id` = $comment_id;";
+            $result = mysqli_query($connection, $sql_request);
+            $connection->close();
+            return $result;
+        } catch (Exception $_) {
+            return false;
+        }
+    }
 }

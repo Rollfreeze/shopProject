@@ -1194,7 +1194,7 @@ td {
     cursor: pointer;
 }
 
-.advert_delete_button {
+.advert_delete_button, .advert_delete_button-2 {
     background-image: url("../assets/remove_icon.png");
     background-color: transparent;
     border: none;
@@ -1208,6 +1208,14 @@ td {
     top: 4px;
     right: 8px;
     cursor: pointer;
+}
+
+.advert_delete_button-2 {
+    top: 1.5px;
+    right: 15px;
+
+    width: 30px;
+    height: 30px;
 }
 
 .advert_edit_button {
@@ -1472,6 +1480,7 @@ td {
 .user-line {
     background-color: rgb(195, 195, 195);
     padding: 7px 20px;
+    position: relative;
 }
 
 .user-coment-name {
