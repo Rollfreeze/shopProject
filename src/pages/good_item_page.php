@@ -4,6 +4,8 @@
     require_once "../php/edit_helper.php";
     require_once "../php/good_cooments_fetch.php";
     require_once "../php/sql_connection.php";
+    require_once "../php/likes_helper.php";
+    // header("Location: good_item_page.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,6 +24,7 @@
 
         // var_dump($_POST['comment-area']);
         // var_dump($_POST['dele_comment_id']);
+        // var_dump($_POST['put_like']);
         
         $didDeleteComment = isset($_POST['dele_comment_id']);
         $didNewComent = (isset($_GET['comment-area']) && !empty($_GET['comment-area']));
@@ -56,7 +59,7 @@
                     $_POST['dele_comment_id'],
                 );
             }
-        } else if (isset($_GET['good_id']) && $_GET['good_id'] != null) {
+        } else if ((isset($_GET['good_id']) && $_GET['good_id'] != null)) {
             // var_dump($_GET);
             $good_id = $_GET['good_id'];
             $good_title = $_GET['good_title'];
@@ -89,6 +92,24 @@
                 );
 
                 // var_dump($comment_result);
+            }
+
+            if (isset($_GET['put_like'])) {
+                $user = $_SESSION['current_user'];
+
+                $connection = new SQLConnection();
+                $put_like_result = $connection->add_like(
+                    $good_id,
+                    $user['user_id']
+                );
+            } else if (isset($_GET['remove_like'])) {
+                $user = $_SESSION['current_user'];
+
+                $connection = new SQLConnection();
+                $remove_like_result = $connection->remove_like(
+                    $good_id,
+                    $user['user_id']
+                );
             }
         }
     ?>
@@ -130,8 +151,14 @@
                         ?>
                     </h1>
 
-                    <div class="heart-box-black"></div>
-                    <div class="heart-box-red"></div>
+                    <?php
+                        // Лайки
+                        likeBuilder(
+                            $good_id, $good_title, $good_subtitle, $good_image_path_1,
+                            $good_image_path_2, $good_category_id, $good_is_new,
+                            $good_is_leader, $good_price, $good_country_id, $good_popularity
+                        );
+                    ?>
                 </div>
 
 

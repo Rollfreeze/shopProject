@@ -441,4 +441,79 @@ class SQLConnection {
             return false;
         }
     }
+
+    // Поставить лайк товару
+    function add_like($good_id, $user_id) {
+        try {
+            $connection = mysqli_connect($this->host, $this->user, $this->password, $this->db);
+            if (!$connection) {
+                die("Connection failed: " .mysqli_connect_error());
+            }
+            $sql_request = "INSERT INTO `likes` (`id`, `good_id`, `user_id`) 
+                VALUES (NULL, '$good_id', '$user_id');";
+            $result = mysqli_query($connection, $sql_request);
+            $connection->close();
+            return $result;
+        } catch (Exception $_) {
+            // return false;
+            return $_;
+        }
+    }
+
+    // Убрать лайк товару
+    function remove_like($good_id, $user_id) {
+        try {
+            $connection = mysqli_connect($this->host, $this->user, $this->password, $this->db);
+            if (!$connection) {
+                die("Connection failed: " .mysqli_connect_error());
+            }
+            $sql_request = "DELETE FROM `likes` WHERE `good_id` = $good_id AND `user_id` = $user_id";
+            $result = mysqli_query($connection, $sql_request);
+            $connection->close();
+            return $result;
+        } catch (Exception $_) {
+            return false;
+        }
+    }
+
+    // Поставлен ли лайк пользоватея на эту запись
+    function did_user_like_it($good_id, $user_id) {
+        try {
+            $connection = mysqli_connect($this->host, $this->user, $this->password, $this->db);
+            if (!$connection) {
+                die("Connection failed: " .mysqli_connect_error());
+            }
+            $sql_request = "SELECT * FROM `likes`
+                WHERE `good_id` = $good_id
+                AND `user_id` = $user_id";
+            $result = mysqli_query($connection, $sql_request);
+            $connection->close();
+    
+            $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
+            if (empty($rows)) return false;
+            return true;
+        } catch (Exception $_) {
+            return false;
+        }
+    }
+
+    // Сколько всего лайков у записи
+    function likes_good_count($good_id) {
+        try {
+            $connection = mysqli_connect($this->host, $this->user, $this->password, $this->db);
+            if (!$connection) {
+                die("Connection failed: " .mysqli_connect_error());
+            }
+            $sql_request = "SELECT COUNT(*) as count FROM `likes` WHERE `good_id` = $good_id;";
+            $result = mysqli_query($connection, $sql_request);
+            $connection->close();
+    
+            $count_res = mysqli_fetch_all($result, MYSQLI_ASSOC);
+            // if (empty($rows)) return false;
+            // return $count_res['count'];
+            return $count_res[0]['count'];
+        } catch (Exception $_) {
+            return false;
+        }
+    }
 }

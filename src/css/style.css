@@ -127,7 +127,10 @@ color: #ff8000;
     background-image: url("../assets/heart-black.png");
     background-size: 100%;
     background-repeat: no-repeat;
-    margin-top: 2px;
+    margin-top: 10px;
+    cursor: pointer;
+    border: 0;
+    background-color: transparent;
 }
 
 .heart-box-red {
@@ -137,6 +140,10 @@ color: #ff8000;
     background-image: url("../assets/heart-red.png");
     background-size: 100%;
     background-repeat: no-repeat;
+    margin-top: 10px;
+    cursor: pointer;
+    border: 0;
+    background-color: transparent;
 }
 
 .promo-box {
@@ -1520,4 +1527,11 @@ td {
     padding: 9px 20px;
     font-size: 16px;
     font-family: sans-serif;
+}
+
+.likes_count {
+    font-size: 14px;
+    font-family: sans-serif;
+    padding-top: 12px;
+    padding-left: 8px;
 }
