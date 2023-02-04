@@ -152,11 +152,19 @@
             case 6: return 'По цене (max-min)';
             case 7: return 'По полуярности (худш.-лучш.)';
             case 8: return 'По полуярности (лучш.-худш)';
+            case 9: return 'Любимые';
         }
     }
 
     function filter_sort_selected($id) {
-        for ($i = 0; $i < 9; $i++) {
+        $isAuth = isset($_SESSION['current_user']) && $_SESSION['current_user'] != null;
+        if ($isAuth) {
+            $filtersAmount = 10;
+        } else {
+            $filtersAmount = 9;
+        }
+
+        for ($i = 0; $i < $filtersAmount; $i++) {
             $sort_name = filter_sort_name($i);
             if ($id == $i) echo "<option value='$i' selected>$sort_name</option>";
             else echo "<option value='$i'>$sort_name</option>";

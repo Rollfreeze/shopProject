@@ -96,10 +96,25 @@
                         $filters_sort = 'ORDER BY `popularity` DESC';
                         break;
                     }
+                    case '9':
+                        $filters_sort = '';
+                        break;
                 }
             }
 
-            $querry = "SELECT * FROM `goods` WHERE $price $category AND ($country) $filters_sort;";
+            if ($current_filters['select_good_filter_id'] == 9) {
+                $user = $_SESSION['current_user'];
+                $user_id = $user['user_id'];
+
+                $querry = "SELECT * FROM `goods`
+                    JOIN `likes` ON `likes`.`good_id` = `goods`.`id`
+                    WHERE `likes`.`user_id` = $user_id
+                    AND $price $category AND ($country);";
+            } else {
+                $querry = "SELECT * FROM `goods` WHERE $price $category AND ($country) $filters_sort;";
+            }
+
+            // $querry = "SELECT * FROM `goods` WHERE $price $category AND ($country) $filters_sort;";
 
             var_dump($querry);
             
