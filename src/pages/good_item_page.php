@@ -20,8 +20,8 @@
     <?php
         echo getHeader();
 
-        var_dump($_POST['comment-area']);
-        var_dump($_POST['dele_comment_id']);
+        // var_dump($_POST['comment-area']);
+        // var_dump($_POST['dele_comment_id']);
         
         $didDeleteComment = isset($_POST['dele_comment_id']);
         $didNewComent = (isset($_GET['comment-area']) && !empty($_GET['comment-area']));
@@ -124,8 +124,21 @@
             
             <div class="second-col">
                 <?php
-                echo "<h1 class='h1' style='text-align: left; margin-bottom: 5px; margin-top: 15px; font-size: 34px;'>$good_title</h1>";
+                // echo "<h1 class='h1' style='text-align: left; margin-bottom: 5px; margin-top: 15px; font-size: 34px;'>$good_title</h1>";
                 ?>
+                
+                <div class="flex-row-2">
+                    <h1 class='h1' style='text-align: left; margin-bottom: 5px; margin-top: 15px; margin-left: 0; margin-right: 20px; font-size: 34px;'>
+                        <?php
+                            echo $good_title
+                        ?>
+                    </h1>
+
+                    <div class="heart-box-black"></div>
+                    <div class="heart-box-red"></div>
+                </div>
+
+
                 <div class="gray-hr"></div>
 
                 <div class="under-hr-description flex-row">
