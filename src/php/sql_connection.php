@@ -389,4 +389,21 @@ class SQLConnection {
             return false;
         }
     }
+
+    // Добавить комментарий к товару
+    function add_comment($good_id, $user_id, $user_name, $comment) {
+        try {
+            $connection = mysqli_connect($this->host, $this->user, $this->password, $this->db);
+            if (!$connection) {
+                die("Connection failed: " .mysqli_connect_error());
+            }
+            $sql_request = "INSERT INTO `comments` (`id`, `good_id`, `user_id`, `user_name`, `comment`, `time`) 
+                VALUES (NULL, '$good_id', '$user_id', '$user_name', '$comment', CURRENT_TIMESTAMP);";
+            $result = mysqli_query($connection, $sql_request);
+            $connection->close();
+            return $result;
+        } catch (Exception $_) {
+            return false;
+        }
+    }
 }

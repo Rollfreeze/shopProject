@@ -15,6 +15,20 @@
     justify-content: space-between;
 }
 
+.flex-row-2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center
+}
+
+.flex-row-end {
+    display: flex;
+    flex-direction: row;
+    /* justify-content: end; */
+    justify-content: start;
+}
+
 .half-box {
     display: block;
     width: 50%;
@@ -1438,4 +1452,44 @@ td {
     padding: 12px 21px;
     font-weight: bold;
     text-align: left;
+}
+
+#comment-area {
+    padding: 10px;
+    max-width: 100%;
+    line-height: 1.5;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-shadow: 1px 1px 1px #999;
+    margin-bottom: 20px;
+
+    font-size: 16px;
+    letter-spacing: 1px;
+
+    resize: none;
+}
+
+.user-line {
+    background-color: rgb(195, 195, 195);
+    padding: 7px 20px;
+}
+
+.user-coment-name {
+    font-size: 16px;
+    font-family: sans-serif;
+    color: white;
+    margin-left: 10px;
+}
+
+.user-coment-time {
+    font-size: 14px;
+    font-family: sans-serif;
+    color: rgb(102, 100, 100);
+    margin-left: 10px;
+}
+
+.user-coment-box {
+    padding: 9px 20px;
+    font-size: 16px;
+    font-family: sans-serif;
 }

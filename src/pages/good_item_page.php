@@ -38,6 +38,22 @@
 
             $good_isNew_href = ($_GET['good_is_new'] == '1') ? '1' : '0';
             $good_isLeder_href = ($_GET['good_is_leader'] == '1') ? '1' : '0';
+
+
+            if (isset($_GET['comment-area']) && !empty($_GET['comment-area'])) {
+                $connection = new SQLConnection();
+
+                $user = $_SESSION['current_user'];
+
+                $comment_result = $connection->add_comment(
+                    $good_id,
+                    $user['user_id'],
+                    $user['user_name'],
+                    $_GET['comment-area'],
+                );
+
+                // var_dump($comment_result);
+            }
         }
     ?>
 
@@ -118,6 +134,67 @@
             <a href="mailto:info@fruktov.pro" class="link" style="display: inline; font-size: 16px;">info@fruktov.pro</a>
             <p class="normal-text" style="margin-bottom: 110px;">ИНН 9703001558.</p>
         </div> -->
+    </div>
+
+    <div class="container" style="margin-top: 20px;">
+        <form method="get">
+            <?php
+                $hidden_elements = <<< HIDDEN
+                    <input type="hidden" name="good_id" value="$good_id"></input>
+                    <input type="hidden" name="good_title" value="$good_title"></input>
+                    <input type="hidden" name="good_subtitle" value="$good_subtitle"></input>
+                    <input type="hidden" name="good_image_path_1" value="$good_image_path_1"></input>
+                    <input type="hidden" name="good_image_path_2" value="$good_image_path_2"></input>
+                    <input type="hidden" name="good_category_id" value="$good_category_id"></input>
+                    <input type="hidden" name="good_is_new" value="$good_is_new"></input>
+                    <input type="hidden" name="good_is_leader" value="$good_is_leader"></input>
+                    <input type="hidden" name="good_price" value="$good_price"></input>
+                    <input type="hidden" name="good_country_id" value="$good_country_id"></input>
+                    <input type="hidden" name="good_popularity" value="$good_popularity"></input>
+
+HIDDEN;
+                echo $hidden_elements;
+            ?>
+
+
+            <div class="flex-row-end">
+                <div style="margin-right: 20px;">
+                    <button class="filter-button" style="width: 258px; margin: 0; margin-bottom: 15px;">Добавить комментарий</button>
+                </div>
+            </div>
+
+            <div class="flex-row-end">
+                <textarea maxlength="50" name="comment-area" id="comment-area" cols="40" rows="4"></textarea>
+            </div>
+        </form>
+
+        <div class="user-coment">
+            <div class="user-line">
+                <div class="flex-row-2">
+                    <div class="auth-box"></div>
+                    <div class="user-coment-name">Julia</div>
+                    <div class="user-coment-time">23.04.2016 14:59:01</div>
+                </div>
+            </div>
+            
+            <div class="user-coment-box">
+                Комментарий: привет мир!
+            </div>
+        </div>
+        
+        <div class="user-coment">
+            <div class="user-line">
+                <div class="flex-row-2">
+                    <div class="auth-box"></div>
+                    <div class="user-coment-name">Egor</div>
+                    <div class="user-coment-time">23.04.2016 14:59:01</div>
+                </div>
+            </div>
+            
+            <div class="user-coment-box">
+                Комментарий: привет мир! ^^
+            </div>
+        </div>
     </div>
 
     <?php

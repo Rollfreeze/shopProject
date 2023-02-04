@@ -24,6 +24,7 @@
             else {
                 $drawSuccess = true;
                 $_SESSION['current_user'] = [
+                    'user_id' => $result[0]['id'],
                     'user_name' => $result[0]['login'],
                     'is_root' => ($result[0]['isRoot'] == "0") ? false : true
                 ];
