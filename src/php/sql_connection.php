@@ -382,7 +382,7 @@ class SQLConnection {
             $connection->close();
     
             $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
-            var_dump($rows);
+            // var_dump($rows);
             if (empty($rows)) return false;
             return $rows[0]['country_name'];
         } catch (Exception $_) {

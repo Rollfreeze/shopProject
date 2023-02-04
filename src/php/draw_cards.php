@@ -36,7 +36,7 @@
 
                 for ($k = 0; $k < count($_SESSION['current_checkbox_filters']); $k++) {
                     $id = $_SESSION['current_checkbox_filters'][$k];
-                    if ($k == 0) $category = " AND ";
+                    // if ($k == 0) $category = " AND ";
                     if ($k == count($_SESSION['current_checkbox_filters']) - 1) {
                         $category = $category . "(`category_id` = $id)";
                     } else {
@@ -44,9 +44,11 @@
                     }
                 }
 
+                $category = "AND (" . $category . ")";
+
                 // var_dump($category);
             } else if (isset($_SESSION['current_filters']) && !$checkboxFiltersExist) {
-                $category = " AND false";
+                $category = "AND false";
             }
 
 
@@ -97,9 +99,9 @@
                 }
             }
 
-            $querry = "SELECT * FROM `goods` WHERE $price $category AND $country $filters_sort;";
+            $querry = "SELECT * FROM `goods` WHERE $price $category AND ($country) $filters_sort;";
 
-            // var_dump($querry);
+            var_dump($querry);
             
 
             $good_cards = $connection->get_filter_goods($querry);

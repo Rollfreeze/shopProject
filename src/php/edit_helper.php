@@ -21,7 +21,7 @@
     function good_category_selected($good_category_id) {
         $connection = new SQLConnection();
         $categories = $connection->get_all_categories();
-        var_dump($categories);
+        // var_dump($categories);
         for ($i = 0; $i < count($categories); $i++) {
             $current_id = $categories[$i]['id'];
             $current_name = $categories[$i]['name'];
