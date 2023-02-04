@@ -113,11 +113,29 @@
         }
     }
 
-    function filter_country_selected($id) {
-        for ($i = 0; $i < 6; $i++) {
-            $country_name = filter_country_name($i);
-            if ($id == $i) echo "<option value='$i' selected>$country_name</option>";
-            else echo "<option value='$i'>$country_name</option>";
+    // function filter_country_selected($id) {
+    //     for ($i = 0; $i < 6; $i++) {
+    //         $country_name = filter_country_name($i);
+    //         if ($id == $i) echo "<option value='$i' selected>$country_name</option>";
+    //         else echo "<option value='$i'>$country_name</option>";
+    //     }
+    // }
+
+    function filter_country_selected($country_id) {
+        $connection = new SQLConnection();
+        $countries = $connection->get_all_countries();
+        if ($countries != false) {
+            if ($country_id == 0) echo "<option selected value=0>Все страны</option>";
+            else echo "<option value=0>Все страны</option>";
+
+            for ($i = 0; $i < count($countries); $i++) {
+                $current_id = $countries[$i]['id'];
+                $current_name = $countries[$i]['country_name'];
+                if ($country_id == $current_id) echo "<option value='$current_id' selected>$current_name</option>";
+                else echo "<option value='$current_id'>$current_name</option>";
+            }
+        } else {
+            echo "<option selected value=0>Все страны</option>";
         }
     }
 
