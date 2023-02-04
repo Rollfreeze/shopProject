@@ -2,10 +2,11 @@
 
     function getHeader() {
         $isAuth = isset($_SESSION['current_user']) && $_SESSION['current_user'] != null;
-        $user = $_SESSION['current_user'];
+        // $user = $_SESSION['current_user'];
         
         $isRoot = false;
         if ($isAuth) {
+            $user = $_SESSION['current_user'];
             $isRoot = $user['is_root'];
         }
 
