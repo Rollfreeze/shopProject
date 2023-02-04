@@ -71,7 +71,7 @@ ROOT_TOOLS;
         <a id="card_name_title" href="good_item_page.php?good_id=$good_id&good_title=$titlePlusiks&good_subtitle=$subtitlePlusiks&good_image_path_1=$good_image_path_1&good_image_path_2=$good_image_path_2&good_category_id=$good_category_id&good_is_new=$good_is_new&good_is_leader=$good_is_leader&good_price=$good_price&good_country_id=$good_country_id&good_popularity=$good_popularity" class="product-title">$good_title</a>
 
         <div class="product-price">
-            <p class="product-money">$good_price</p>руб.
+            <p class="product-money">$good_price</p> руб.
         </div>
 
         <div>
