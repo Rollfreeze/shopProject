@@ -123,10 +123,6 @@
             </div>
             
             <div class="second-col">
-                <?php
-                // echo "<h1 class='h1' style='text-align: left; margin-bottom: 5px; margin-top: 15px; font-size: 34px;'>$good_title</h1>";
-                ?>
-                
                 <div class="flex-row-2">
                     <h1 class='h1' style='text-align: left; margin-bottom: 5px; margin-top: 15px; margin-left: 0; margin-right: 20px; font-size: 34px;'>
                         <?php
