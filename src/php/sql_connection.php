@@ -82,6 +82,7 @@ class SQLConnection {
                 die("Connection failed: " .mysqli_connect_error());
             }
             $sql_request = $querry;
+            // var_dump($sql_request);
             $result = mysqli_query($connection, $sql_request);
             $connection->close();
     
@@ -505,12 +506,14 @@ class SQLConnection {
                 die("Connection failed: " .mysqli_connect_error());
             }
             $sql_request = "SELECT COUNT(*) as count FROM `likes` WHERE `good_id` = $good_id;";
+            // var_dump($sql_request);
             $result = mysqli_query($connection, $sql_request);
             $connection->close();
     
             $count_res = mysqli_fetch_all($result, MYSQLI_ASSOC);
             // if (empty($rows)) return false;
             // return $count_res['count'];
+            // var_dump($count_res);
             return $count_res[0]['count'];
         } catch (Exception $_) {
             return false;

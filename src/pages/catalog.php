@@ -43,9 +43,6 @@
 
         // Установка фильтров в сессию
         if (isset($_GET['filter'])) {
-
-            // $GLOBALS['filter_been_set'] = true;
-            
             // отдельный объект под динамические чекбоксы
             $_SESSION['current_checkbox_filters'] = array();
             for ($i = 0; $i < 60; $i++) {
@@ -55,14 +52,7 @@
                 }
             }
 
-            // var_dump($_SESSION['current_checkbox_filters']);
-
             $_SESSION['current_filters'] = [
-                // 'ekzotic' => isset($_GET['ekzotic']) ? true : false,
-                // 'gribs' => isset($_GET['gribs']) ? true : false,
-                // 'yagods' => isset($_GET['yagods']) ? true : false,
-                // 'fruits' => isset($_GET['fruits']) ? true : false,
-                // 'vegetables' => isset($_GET['vegetables']) ? true : false,
                 'price_from' => (isset($_GET['price_from']) && $_GET['price_from'] != '') ? $_GET['price_from'] : '0',
                 'price_to' => (isset($_GET['price_to']) && $_GET['price_to'] != '') ? $_GET['price_to'] : '1000000000',
                 'select_good_country_id' => isset($_GET['select_good_country_id']) ? $_GET['select_good_country_id'] : 'all',
@@ -74,26 +64,12 @@
         if (isset($_SESSION['current_filters'])) {
             $filters = $_SESSION['current_filters'];
 
-            // $isEkzotic = $filters['ekzotic'] ? 'checked' : '';
-            // $isGribs = $filters['gribs'] ? 'checked' : '';
-            // $isYagods = $filters['yagods'] ? 'checked' : '';
-            // $isFruits = $filters['fruits'] ? 'checked' : '';
-            // $isVegetables = $filters['vegetables'] ? 'checked' : '';
-
             $defaultMin = $filters['price_from'] == '0' ? '' : $filters['price_from'];
             $defaultMax = $filters['price_to'] == '1000000000' ? '' : $filters['price_to'];
 
             $defaultCountryId = $filters['select_good_country_id'] == 'all' ? '0' : $filters['select_good_country_id'];
             $defaultFilterId = $filters['select_good_filter_id'] == 'all' ? '0' : $filters['select_good_filter_id'];
-        } else {
-            // $isEkzotic = 'checked';
-            // $isGribs = 'checked';
-            // $isYagods = 'checked';
-            // $isFruits = 'checked';
-            // $isVegetables = 'checked';
         }
-
-        // var_dump($_SESSION['current_checkbox_filters']);
     ?>
 
     <!-- bread bar -->
@@ -173,14 +149,10 @@
         </main>
     
         <aside class="aside">
-            <?php
-                draw_adverts();
-            ?>
+            <?php draw_adverts();?>
         </aside>
     </div>
 
-    <?php
-        echo getFooter();
-    ?>
+    <?php echo getFooter();?>
 </body>
 </html>

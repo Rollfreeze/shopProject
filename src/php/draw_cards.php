@@ -106,7 +106,7 @@
                 $user = $_SESSION['current_user'];
                 $user_id = $user['user_id'];
 
-                $querry = "SELECT * FROM `goods`
+                $querry = "SELECT `goods`.* FROM `goods`
                     JOIN `likes` ON `likes`.`good_id` = `goods`.`id`
                     WHERE `likes`.`user_id` = $user_id
                     AND $price $category AND ($country);";
@@ -116,7 +116,7 @@
 
             // $querry = "SELECT * FROM `goods` WHERE $price $category AND ($country) $filters_sort;";
 
-            var_dump($querry);
+            // var_dump($querry);
             
 
             $good_cards = $connection->get_filter_goods($querry);
