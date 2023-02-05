@@ -16,6 +16,10 @@ function deacreaseCount(a, b) {
     }
 }
 
+function goAuthPlease() {
+    alert("Пожалуйста, авторизируйтесь, чтобы добавлять товар в корзину и совершать покупки")
+}
+
 function addGoodsToBasket(button) {
     var amountSelectedValue = button.nextElementSibling.children[1].value;
     console.log(amountSelectedValue);

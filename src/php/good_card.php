@@ -14,6 +14,12 @@
         $isRoot = false;
         if ($isAuth) {
             $isRoot = $user['is_root'];
+
+            // Если пользователь авторизирован, то можно добавлять
+            $addGoodButton = "<button class='product-button' onclick='addGoodsToBasket(this)'>Купить продукт</button>";
+        } else {
+            // Иначе - алерт "авторизируйтесь"
+            $addGoodButton = "<button class='product-button' onclick='goAuthPlease()'>Купить продукт</button>";
         }
 
         $connection = new SQLConnection();
@@ -84,7 +90,7 @@ ROOT_TOOLS;
 
         $isNew
 
-        <button class="product-button" onclick="addGoodsToBasket(this)">Купить продукт</button>
+        $addGoodButton
 
         <div class="product-item-kg-counter">
             <span class="down" onclick="deacreaseCount(event, this)">-</span>
