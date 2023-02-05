@@ -21,10 +21,6 @@
 <body>
     <?php
         echo getHeader();
-
-        // var_dump($_POST['comment-area']);
-        // var_dump($_POST['dele_comment_id']);
-        // var_dump($_POST['put_like']);
         
         $didDeleteComment = isset($_POST['dele_comment_id']);
         $didNewComent = (isset($_GET['comment-area']) && !empty($_GET['comment-area']));
@@ -60,7 +56,6 @@
                 );
             }
         } else if ((isset($_GET['good_id']) && $_GET['good_id'] != null)) {
-            // var_dump($_GET);
             $good_id = $_GET['good_id'];
             $good_title = $_GET['good_title'];
             $good_subtitle = $_GET['good_subtitle'];
@@ -90,8 +85,6 @@
                     $user['user_name'],
                     $_GET['comment-area'],
                 );
-
-                // var_dump($comment_result);
             }
 
             if (isset($_GET['put_like'])) {

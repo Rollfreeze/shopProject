@@ -84,11 +84,11 @@ ROOT_TOOLS;
 
         $isNew
 
-        <button class="product-button">Купить продукт</button>
+        <button class="product-button" onclick="addGoodsToBasket(this)">Купить продукт</button>
 
         <div class="product-item-kg-counter">
             <span class="down" onclick="deacreaseCount(event, this)">-</span>
-            <input type="text" value="1"></input>
+            <input class="goodAmountInput" type="text" value="1"></input>
             <span class="up" onclick="increaseCount(event, this)">+</span>
         </div>
 

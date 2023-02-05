@@ -15,3 +15,8 @@ function deacreaseCount(a, b) {
         input.value = value;
     }
 }
+
+function addGoodsToBasket(button) {
+    var amountSelectedValue = button.nextElementSibling.children[1].value;
+    console.log(amountSelectedValue);
+}

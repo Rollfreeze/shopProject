@@ -1535,3 +1535,7 @@ td {
     padding-top: 12px;
     padding-left: 8px;
 }
+
+.goodAmountInput {
+    pointer-events:none;
+}
