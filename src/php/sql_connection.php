@@ -527,9 +527,9 @@ class SQLConnection {
             if (!$connection) {
                 die("Connection failed: " .mysqli_connect_error());
             }
-            $sql_request = "SELECT * FROM `goods`
-                JOIN `likes` ON `likes`.`good_id` = `goods`.`id`
-                WHERE `likes`.`user_id` = $user_id;";
+            $sql_request = "SELECT * FROM `goods`
+                JOIN `likes` ON `likes`.`good_id` = `goods`.`id`
+                WHERE `likes`.`user_id` = $user_id;";
             $result = mysqli_query($connection, $sql_request);
             $connection->close();
     
