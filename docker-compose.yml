@@ -52,6 +52,6 @@ services:
       - MYSQL_USER=egor
       - MYSQL_ROOT_PASSWORD=egor
       - MYSQL_PASSWORD=egor
-      - MYSQL_DATABASE=shop
+      # - MYSQL_DATABASE=shop
     volumes:
       - './src/mysql:/var/lib/mysql'

@@ -4,7 +4,7 @@ class SQLConnection {
     // хост, к которому мы подключаемся
     private $host = 'db';
     // имя пользователя
-    private $user = 'egor';
+    private $user = 'root';
     // пароль
     private $password = 'egor';
     // база данных
