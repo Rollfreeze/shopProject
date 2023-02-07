@@ -16,10 +16,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/styleBase.css">
     <link rel="stylesheet" href="../css/style.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script type="text/javascript" src="../js/counter.js"></script>
     <title>Каталог</title>
 </head>
 <body>
+    
+    <!-- <button onclick='helloAjax()' style='font-size: 16px;'>check</button> -->
+    <?php
+        // if (isset($_GET['ajaxData'])) {
+        //     var_dump($_GET['ajaxData']);
+        //     $age = array("Peter"=>35, "Ben"=>37, "Joe"=>43);
+        //     echo json_encode($age);
+        //     die();
+        // }
+    ?>
+
+    <!-- <script>
+        function helloAjax() {
+            $.ajax({
+                type: "GET",
+                url: "catalog.php",
+                dataType: "text",
+                data: {
+                    ajaxData: 'true'
+                },
+                success: function(response) {
+                    alert('success!');
+                    console.log(response);
+                },
+                error: function(exception) {
+                    alert('exception');
+                    console.log(exception);
+                },
+            });
+        }
+    </script> -->
+
+
+
+
+
+
+
     <?php
         echo getHeader();
 
@@ -70,6 +109,10 @@
             $defaultCountryId = $filters['select_good_country_id'] == 'all' ? '0' : $filters['select_good_country_id'];
             $defaultFilterId = $filters['select_good_filter_id'] == 'all' ? '0' : $filters['select_good_filter_id'];
         }
+
+        // if (isset($_POST['add_basket'])) {
+        //     var_dump($_POST['add_basket']);
+        // }
     ?>
 
     <!-- bread bar -->
