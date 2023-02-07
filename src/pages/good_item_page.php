@@ -221,7 +221,7 @@ HIDDEN;
                 </div>
 
                 <div class="flex-row-end">
-                    <textarea maxlength="50" name="comment-area" id="comment-area" cols="40" rows="4"></textarea>
+                    <textarea maxlength="450" name="comment-area" id="comment-area" cols="40" rows="4"></textarea>
                 </div>
             </form>
 BTN;

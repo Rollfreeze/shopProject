@@ -44,9 +44,14 @@ services:
       - '5506:3306'
     restart: unless-stopped
     environment:
-      - MYSQL_USER=root
-      - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_PASSWORD=root
-      # - MYSQL_DATABASE=shop-db
+      # - MYSQL_USER=root
+      # - MYSQL_ROOT_PASSWORD=root
+      # - MYSQL_PASSWORD=root
+      # - MYSQL_DATABASE=shop
+
+      - MYSQL_USER=egor
+      - MYSQL_ROOT_PASSWORD=egor
+      - MYSQL_PASSWORD=egor
+      - MYSQL_DATABASE=shop
     volumes:
       - './src/mysql:/var/lib/mysql'
