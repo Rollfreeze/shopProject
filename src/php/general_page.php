@@ -87,7 +87,7 @@ RIGHT_NAV;
                         <div class="shop-baket"></div>
                         <div class="shop-basket-note">
                             <a href="basket.php">Ваша корзина</a>
-                            <p id="basket_ps">Товаров нет</p>
+                            <p id="basket_p">Товаров нет</p>
                         </div>
                     </div>
                 </div>

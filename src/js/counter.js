@@ -61,6 +61,9 @@ function addGoodsToBasket(button) {
             button.innerHTML = "Перейти в корзину";
 
             counter[2].style = "display: none;"
+
+            document.getElementById("basket_p").innerHTML =
+                `Позиций: <span class='orange-selected'>${data.goods_id.length}</span>, на сумму: <span class='orange-selected'>${data.common_sum}</span>`;
         },
         error: function(er) {
             console.log(er);

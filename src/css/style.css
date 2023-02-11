@@ -1289,6 +1289,12 @@ td {
     color:rgb(255, 149, 0);
 }
 
+.orange-selected {
+    color: #ff8000;
+    /* font-size: 14px; */
+    font-weight: bold;
+}
+
 .brown-c {
     color: brown;
 }
