@@ -3,9 +3,6 @@
 
     /// Первое добавление в корзину
     if (isset($_POST) && !isset($_SESSION['current_basket'])) {
-
-
-
         $_SESSION['current_basket'] = [
             // List<int>
             'goods_id' => array(),
@@ -18,7 +15,6 @@
 
             // 'debug_first' => true
         ];
-
 
         // Добавили в общее количество добавленных позиций
         array_push($_SESSION['current_basket']['goods_id'], $_POST['good_id']);
@@ -98,7 +94,6 @@
             }
             $_SESSION['current_basket']['common_sum'] = $common_sum;
         }
-
         // $_SESSION['current_basket']['debug_first'] = false;
 
         echo json_encode($_SESSION['current_basket']);
