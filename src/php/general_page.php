@@ -5,9 +5,17 @@
         // $user = $_SESSION['current_user'];
         
         $isRoot = false;
+        $basketMessage = "Товаров нет";
         if ($isAuth) {
             $user = $_SESSION['current_user'];
             $isRoot = $user['is_root'];
+
+            if (isset($_SESSION['current_basket']) && !empty($_SESSION['current_basket']['goods_id'])) {
+                $positions = count($_SESSION['current_basket']['goods_id']);
+                $commonSum = $_SESSION['current_basket']['common_sum'];
+                $basketMessage = "Позиций: <span class='orange-selected'>$positions</span>, на сумму: <span class='orange-selected'>$commonSum</span>";
+            }
+            
         }
 
         if ($isAuth && $isRoot) {
@@ -87,7 +95,7 @@ RIGHT_NAV;
                         <div class="shop-baket"></div>
                         <div class="shop-basket-note">
                             <a href="basket.php">Ваша корзина</a>
-                            <p id="basket_p">Товаров нет</p>
+                            <p id="basket_p">$basketMessage</p>
                         </div>
                     </div>
                 </div>

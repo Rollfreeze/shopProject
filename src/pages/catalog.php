@@ -22,43 +22,6 @@
 </head>
 <body>
     
-    <!-- <button onclick='helloAjax()' style='font-size: 16px;'>check</button> -->
-    <?php
-        // if (isset($_GET['ajaxData'])) {
-        //     var_dump($_GET['ajaxData']);
-        //     $age = array("Peter"=>35, "Ben"=>37, "Joe"=>43);
-        //     echo json_encode($age);
-        //     die();
-        // }
-    ?>
-
-    <!-- <script>
-        function helloAjax() {
-            $.ajax({
-                type: "GET",
-                url: "catalog.php",
-                dataType: "text",
-                data: {
-                    ajaxData: 'true'
-                },
-                success: function(response) {
-                    alert('success!');
-                    console.log(response);
-                },
-                error: function(exception) {
-                    alert('exception');
-                    console.log(exception);
-                },
-            });
-        }
-    </script> -->
-
-
-
-
-
-
-
     <?php
         echo getHeader();
 
