@@ -4,6 +4,7 @@
     require_once "../php/sql_connection.php";
     require_once "../php/category_helper.php";
     require_once "../php/country_helper.php";
+    require_once "../php/redirect_helper.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">

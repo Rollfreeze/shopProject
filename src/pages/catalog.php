@@ -25,14 +25,22 @@
     <?php
         echo getHeader();
 
+        $isRoot = false;
+        $isAuth = isset($_SESSION['current_user']) && $_SESSION['current_user'] != null;
+        if ($isAuth) {
+            $user = $_SESSION['current_user'];
+            $isRoot = $user['is_root'];
+        }
+
+
         // Удаление товара
-        if (isset($_POST['good_id_delete'])) {
+        if (isset($_POST['good_id_delete']) && $isRoot) {
             $connection = new SQLConnection();
             $res = $connection->delete_good($_POST['good_id_delete']);
         } 
 
         // Удаление рекламы
-        if (isset($_POST['advert_id_delete'])) {
+        if (isset($_POST['advert_id_delete']) && $isRoot) {
             $connection = new SQLConnection();
             $res = $connection->delete_advert($_POST['advert_id_delete']);
         }
