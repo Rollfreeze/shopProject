@@ -88,8 +88,6 @@ ROOT_TOOLS;
             <p class="country-card">Рейтинг: <span class="country-card $score_color">$good_popularity<span></p>руб.
         </div>
 
-        $isNew
-
         $addGoodButton
 
         <div class="product-item-kg-counter">
@@ -99,6 +97,8 @@ ROOT_TOOLS;
         </div>
 
         <p class="product-description">$good_subtitle</p>
+
+        $isNew
     </div>
 good_card;
 

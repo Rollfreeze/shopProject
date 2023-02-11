@@ -22,23 +22,25 @@ function goAuthPlease() {
 
 function addGoodsToBasket(button) {
     var amountSelectedValue = button.nextElementSibling.children[1].value;
-    // console.log(amountSelectedValue);
 
-    var card = button.parentElement.children[1];
-    // console.log(card);
+    var button = button.parentElement.children[7];
+    var counter = button.parentElement.children[8].children;
+
+
+    var cardForm = button.parentElement.children[1];
 
     var cardData = {
-        "good_id": card[0].defaultValue,
-        "good_title": card[1].defaultValue,
-        "good_subtitle": card[2].defaultValue,
-        "good_image_path_1": card[3].defaultValue,
-        "good_image_path_2": card[4].defaultValue,
-        "good_category_id": card[5].defaultValue,
-        "good_is_new": card[6].defaultValue,
-        "good_is_leader": card[7].defaultValue,
-        "good_price": card[8].defaultValue,
-        "good_country_id": card[9].defaultValue,
-        "good_popularity": card[10].defaultValue,
+        "good_id": cardForm[0].defaultValue,
+        "good_title": cardForm[1].defaultValue,
+        "good_subtitle": cardForm[2].defaultValue,
+        "good_image_path_1": cardForm[3].defaultValue,
+        "good_image_path_2": cardForm[4].defaultValue,
+        "good_category_id": cardForm[5].defaultValue,
+        "good_is_new": cardForm[6].defaultValue,
+        "good_is_leader": cardForm[7].defaultValue,
+        "good_price": cardForm[8].defaultValue,
+        "good_country_id": cardForm[9].defaultValue,
+        "good_popularity": cardForm[10].defaultValue,
         "amount_selected_value": amountSelectedValue
     }
 
@@ -51,7 +53,14 @@ function addGoodsToBasket(button) {
         dataType: "json",
         success: function(data) {
             console.log(data);
-            alert('success');
+            // alert('success');
+
+            counter[0].style = "transition: 0.0s; font-size: 15px; display: block; color: green;"
+            counter[0].innerHTML = "В корзине: ";
+
+            button.innerHTML = "Перейти в корзину";
+
+            counter[2].style = "display: none;"
         },
         error: function(er) {
             console.log(er);
