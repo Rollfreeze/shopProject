@@ -20,17 +20,9 @@ function goAuthPlease() {
     alert("Пожалуйста, авторизируйтесь, чтобы добавлять товар в корзину и совершать покупки")
 }
 
-// function ajaxSession() {
-//     $.ajax({
-//         url: "catalog.php",
-//         type: "post",
-//         data: {add_basket: 'check'},
-//     });
-// }
-
 function addGoodsToBasket(button) {
     var amountSelectedValue = button.nextElementSibling.children[1].value;
-    // console.log(amountSelectedValue);
+    console.log(amountSelectedValue);
 
     var card = button.parentElement.children[1];
     // console.log(card);
@@ -51,21 +43,8 @@ function addGoodsToBasket(button) {
 
     console.log(cardData);
 
-    // ajaxSession();
-
-    // let xhttp = new XMLHttpRequest();
-    // xhttp.onreadystatechange = function() {
-    //     if (this.readyState == 4 && this.status == 200) {
-            
-    //     }
-    // }
-
-    // xhttp.open("POST", "catalog.php");
-    // xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    // xhttp.send('add_basket=check');
-
     $.ajax({
-        url: "../js/putBasket.php",
+        url: "../php/put_basket.php",
         method: "POST",
         data: cardData, 
         dataType: "json",
@@ -83,27 +62,27 @@ function addGoodsToBasket(button) {
 
 
 
-function ajax_checker() {
+// function ajax_checker() {
 
-    $.ajax({
-        type: 'POST',
-        url: 'catalog.php',
-        data: {
-            ajaxData: 'ajax data came!'
-        }, 
-        dataType: 'JSON',
-        success: function(data) {
-        //   console.log(data);
-            alert('success');
-            console.log(data);
-        },
-        error: function(er) {
-        //   console.log(er);
-            alert('error');
-            console.log(er);
-        }
-    });
-}
+//     $.ajax({
+//         type: 'POST',
+//         url: 'catalog.php',
+//         data: {
+//             ajaxData: 'ajax data came!'
+//         }, 
+//         dataType: 'JSON',
+//         success: function(data) {
+//         //   console.log(data);
+//             alert('success');
+//             console.log(data);
+//         },
+//         error: function(er) {
+//         //   console.log(er);
+//             alert('error');
+//             console.log(er);
+//         }
+//     });
+// }
 
 
 
