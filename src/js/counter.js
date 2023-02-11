@@ -54,7 +54,7 @@ function addGoodsToBasket(button) {
             alert('success');
         },
         error: function(er) {
-        //   console.log(er);
+            console.log(er);
             alert('error');
         }
     });
@@ -84,48 +84,3 @@ function addGoodsToBasket(button) {
 //         }
 //     });
 // }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-function helloAjax() {
-    $.ajax({
-        type: "POST",
-        url: "catalog.php",
-        dataType: "json",
-        data: {
-            ajaxData: 'true'
-        },
-        success: function(response) {
-            alert('success!');
-            console.log(response);
-        },
-        error: function(exception) {
-            alert('exception');
-            console.log(exception);
-        },
-    });
-}
