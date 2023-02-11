@@ -37,58 +37,30 @@ NEW;
         }
 
         $rootTools = '';
-//         if ($isRoot) {
-//             $rootTools = <<< ROOT_TOOLS
-
-//             <form method="post" class="delete-advert-form">
-//                 <input type="hidden" name="good_id_delete" id="good_id_delete" value="$good_id"></input>
-//                 <input type="submit" class="advert_delete_button"></input>
-//             </form>
-            
-//             <form method="get" action="edit_advertisment.php" class="edit-advert-form">
-//                 <input type="hidden" name="good_id" id="good_id" value="$good_id"></input>
-//                 <input type="hidden" name="good_title" id="good_title" value="$good_title"></input>
-//                 <input type="hidden" name="good_subtitle" id="good_subtitle" value="$good_subtitle"></input>
-//                 <input type="hidden" name="good_image_path_1" id="good_image_path_1" value="$good_image_path_1"></input>
-//                 <input type="hidden" name="good_image_path_2" id="good_image_path_2" value="$good_image_path_2"></input>
-//                 <input type="hidden" name="good_category_id" id="good_category_id" value="$good_category_id"></input>
-//                 <input type="hidden" name="good_is_new" id="good_is_new" value="$good_is_new"></input>
-//                 <input type="hidden" name="good_is_leader" id="good_is_leader" value="$good_is_leader"></input>
-//                 <input type="hidden" name="good_price" id="good_price" value="$good_price"></input>
-//                 <input type="hidden" name="good_country_id" id="good_country_id" value="$good_country_id"></input>
-//                 <input type="hidden" name="good_popularity" id="good_popularity" value="$good_popularity"></input>
-//                 <input type="submit" class="advert_edit_button"></input>
-//             </form>
-// ROOT_TOOLS;
-//         }
-
-        $rootAccessStyle = 'display: none;';
         if ($isRoot) {
-            $rootAccessStyle = "";
-        }
+            $rootTools = <<< ROOT_TOOLS
 
-        $rootTools = <<< ROOT_TOOLS
-
-        <form method="post" class="delete-advert-form" style="$rootAccessStyle">
-            <input type="hidden" name="good_id_delete" id="good_id_delete" value="$good_id"></input>
-            <input type="submit" class="advert_delete_button"></input>
-        </form>
-        
-        <form method="get" action="edit_advertisment.php" class="edit-advert-form" style="$rootAccessStyle">
-            <input type="hidden" name="good_id" id="good_id" value="$good_id"></input>
-            <input type="hidden" name="good_title" id="good_title" value="$good_title"></input>
-            <input type="hidden" name="good_subtitle" id="good_subtitle" value="$good_subtitle"></input>
-            <input type="hidden" name="good_image_path_1" id="good_image_path_1" value="$good_image_path_1"></input>
-            <input type="hidden" name="good_image_path_2" id="good_image_path_2" value="$good_image_path_2"></input>
-            <input type="hidden" name="good_category_id" id="good_category_id" value="$good_category_id"></input>
-            <input type="hidden" name="good_is_new" id="good_is_new" value="$good_is_new"></input>
-            <input type="hidden" name="good_is_leader" id="good_is_leader" value="$good_is_leader"></input>
-            <input type="hidden" name="good_price" id="good_price" value="$good_price"></input>
-            <input type="hidden" name="good_country_id" id="good_country_id" value="$good_country_id"></input>
-            <input type="hidden" name="good_popularity" id="good_popularity" value="$good_popularity"></input>
-            <input type="submit" class="advert_edit_button"></input>
-        </form>
+            <form method="post" class="delete-advert-form">
+                <input type="hidden" name="good_id_delete" id="good_id_delete" value="$good_id"></input>
+                <input type="submit" class="advert_delete_button"></input>
+            </form>
+            
+            <form method="get" action="edit_advertisment.php" class="edit-advert-form">
+                <input type="hidden" name="good_id" id="good_id" value="$good_id"></input>
+                <input type="hidden" name="good_title" id="good_title" value="$good_title"></input>
+                <input type="hidden" name="good_subtitle" id="good_subtitle" value="$good_subtitle"></input>
+                <input type="hidden" name="good_image_path_1" id="good_image_path_1" value="$good_image_path_1"></input>
+                <input type="hidden" name="good_image_path_2" id="good_image_path_2" value="$good_image_path_2"></input>
+                <input type="hidden" name="good_category_id" id="good_category_id" value="$good_category_id"></input>
+                <input type="hidden" name="good_is_new" id="good_is_new" value="$good_is_new"></input>
+                <input type="hidden" name="good_is_leader" id="good_is_leader" value="$good_is_leader"></input>
+                <input type="hidden" name="good_price" id="good_price" value="$good_price"></input>
+                <input type="hidden" name="good_country_id" id="good_country_id" value="$good_country_id"></input>
+                <input type="hidden" name="good_popularity" id="good_popularity" value="$good_popularity"></input>
+                <input type="submit" class="advert_edit_button"></input>
+            </form>
 ROOT_TOOLS;
+        }
         
         // $bgImage = 'background-image: url("../assets/")';
         $productLogo = '<div class="product-logo" style="' . 'background-image: url(' . '..' . "/assets/" . $good_image_path_1 . '")' . '"></div>';
