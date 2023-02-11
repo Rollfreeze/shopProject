@@ -22,7 +22,7 @@ function goAuthPlease() {
 
 function addGoodsToBasket(button) {
     var amountSelectedValue = button.nextElementSibling.children[1].value;
-    console.log(amountSelectedValue);
+    // console.log(amountSelectedValue);
 
     var card = button.parentElement.children[1];
     // console.log(card);
@@ -38,7 +38,8 @@ function addGoodsToBasket(button) {
         "good_is_leader": card[7].defaultValue,
         "good_price": card[8].defaultValue,
         "good_country_id": card[9].defaultValue,
-        "good_popularity": card[10].defaultValue
+        "good_popularity": card[10].defaultValue,
+        "amount_selected_value": amountSelectedValue
     }
 
     console.log(cardData);
