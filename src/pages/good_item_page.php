@@ -72,7 +72,7 @@ COUNTER;
                 if ($good) {
                     $good_id = $good['id'];
                     $good_title = $good['title'];
-                    $good_subtitle = $good['ubtitle'];
+                    $good_subtitle = $good['subtitle'];
                     $good_image_path_1 = $good['image_path_1'];
                     $good_image_path_2 = $good['image_path_2'];
                     $good_category_id = $good['category_id'];
@@ -81,6 +81,12 @@ COUNTER;
                     $good_price = $good['price'];
                     $good_country_id = $good['country_id'];
                     $good_popularity = $good['popularity'];
+
+                    $titlePlusiks = str_replace(" ", "+", $good_title);
+                    $subtitlePlusiks = str_replace(" ", "+", $good_subtitle);
+        
+                    $good_isNew_href = ($good['is_new'] == '1') ? '1' : '0';
+                    $good_isLeder_href = ($good['is_leader'] == '1') ? '1' : '0';
                 }
             } else {
                 $good_id = $_GET['good_id'];
@@ -94,13 +100,15 @@ COUNTER;
                 $good_price = $_GET['good_price'];
                 $good_country_id = $_GET['good_country_id'];
                 $good_popularity = $_GET['good_popularity'];
+
+                $titlePlusiks = str_replace(" ", "+", $good_title);
+                $subtitlePlusiks = str_replace(" ", "+", $good_subtitle);
+    
+                $good_isNew_href = ($_GET['good_is_new'] == '1') ? '1' : '0';
+                $good_isLeder_href = ($_GET['good_is_leader'] == '1') ? '1' : '0';
             }
 
-            $titlePlusiks = str_replace(" ", "+", $good_title);
-            $subtitlePlusiks = str_replace(" ", "+", $good_subtitle);
 
-            $good_isNew_href = ($_GET['good_is_new'] == '1') ? '1' : '0';
-            $good_isLeder_href = ($_GET['good_is_leader'] == '1') ? '1' : '0';
 
             // $good_id = $_GET['good_id'];
             // $good_title = $_GET['good_title'];
