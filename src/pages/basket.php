@@ -1,7 +1,7 @@
 <?php
     session_start();
     require_once "../php/general_page.php";
-
+    require_once "../php/basket_helper.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,53 +33,16 @@
         </main>
     </div>
 
-    <div class="container">
-        <div class="personal-data-law-box">
-            <h1 class="h1" style="text-align: left; margin-top: 0px;">Моя корзина</h1>
-
-            <div class="pay-row">
-                <div class="pay-box flex-row">
-                    <div class="summury-col">
-                        <p class="normal-bold" style="margin-bottom: 5px;">Итого:</p>
-                        <p class="normal-gray" style="margin-bottom: 0px;">Общий вес: 1кг</p>
-                    </div>
-
-                    <div class="summury-money">174 руб.</div>
-
-                    <buttom class="pay-basket-button">Оформить заказ</buttom>
-                </div>
-            </div>
-        </div>
-
-        <div class="basket-box">
-            <div class="amount-row">
-                <div class="normal-little">В корзине товаров: 1</div>
-            </div>
-
-            <div class="good-item-row">
-                <div class="good-item-row-left">
-                    <div class="good-item-logo"></div>
-                    <a href="" class="good-item-title">Яблоки Гренни Смит</a>
-                </div>
-                
-
-                <div class="good-item-kg-amount">
-                    <p class="normal-bold" style="display:bloc; margin-bottom: 0px; font-size: 18px;">кг:</p>
-                    <div class="product-item-kg-counter">
-                        <span class="down" onclick="deacreaseCount(event, this)">-</span>
-                        <input type="text" value="1"></input>
-                        <span class="up" onclick="increaseCount(event, this)">+</span>
-                    </div>
-                    <div class="good-item-price">174 руб.</div>
-                    <!-- <button class="delete-item-from-basket-box"></button> -->
-                    <a href="empty_basket.php" class="delete-item-from-basket-box"></a>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <?php
-        require_once "../php/general_page.php";
+        $isAuth = isset($_SESSION['current_user']) && $_SESSION['current_user'] != null;
+        $user = $_SESSION['current_user'];
+        $isBasket = isset($_SESSION['current_basket']) && !empty($_SESSION['current_basket']['goods_id']);
+
+        if ($isAuth && $isBasket) {
+            draw_basket();
+        } else {
+            draw_empty_basket();
+        }
         echo getFooter();
     ?>
 </body>
