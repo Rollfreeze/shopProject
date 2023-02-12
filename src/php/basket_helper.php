@@ -18,6 +18,10 @@ EMPTY_BASKET;
 
 
     function draw_basket() {
+        $commonWeight = array_sum($_SESSION['current_basket']['id_its_amount']);
+        $common_sum = $_SESSION['current_basket']['common_sum'];
+        $goods_amount = count($_SESSION['current_basket']['goods_id']);
+
         $basketContainer = <<< BASKET
         <div class="container">
             <div class="personal-data-law-box">
@@ -27,10 +31,10 @@ EMPTY_BASKET;
                     <div class="pay-box flex-row">
                         <div class="summury-col">
                             <p class="normal-bold" style="margin-bottom: 5px;">Итого:</p>
-                            <p class="normal-gray" style="margin-bottom: 0px;">Общий вес: 1кг</p>
+                            <p class="normal-gray" style="margin-bottom: 0px;">Общий вес: $commonWeight кг</p>
                         </div>
 
-                        <div class="summury-money">174 руб.</div>
+                        <div class="summury-money">$common_sum руб.</div>
 
                         <buttom class="pay-basket-button">Оформить заказ</buttom>
                     </div>
@@ -39,7 +43,7 @@ EMPTY_BASKET;
 
             <div class="basket-box">
                 <div class="amount-row">
-                    <div class="normal-little">В корзине товаров: 1</div>
+                    <div class="normal-little">В корзине товаров: $goods_amount</div>
                 </div>
 
                 <div class="good-item-row">
