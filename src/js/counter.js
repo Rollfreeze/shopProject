@@ -52,7 +52,7 @@ function addGoodsToBasket(button) {
         data: cardData, 
         dataType: "json",
         success: function(data) {
-            // console.log(data);
+            console.log(data);
             // alert('success');
 
             counter[0].style = "transition: 0.0s; font-size: 15px; display: block; color: green;"
@@ -104,6 +104,8 @@ function addGoodsToBasketFromCard(button) {
         data: cardData, 
         dataType: "json",
         success: function(data) {
+            console.log(data);
+
             counter[0].style = "transition: 0.0s; font-size: 15px; display: block; color: green;"
             counter[0].innerHTML = "В корзине: ";
             counter[0].onclick = "";
@@ -119,6 +121,55 @@ function addGoodsToBasketFromCard(button) {
 
             document.getElementById("basket_p").innerHTML =
                 `Позиций: <span class='orange-selected'>${data.goods_id.length}</span>, на сумму: <span class='orange-selected'>${data.common_sum}</span>`;
+        },
+        error: function(er) {
+            console.log(er);
+            alert('error');
+        }
+    });
+}
+
+
+function deleteFromBasket(id, button) {
+    console.log(button.parentElement.parentElement.parentElement.parentElement);
+
+    var deleteData = {
+        "delete_id": id
+    }
+    
+    $.ajax({
+        url: "../php/delete_from_basket.php",
+        method: "POST",
+        data: deleteData, 
+        dataType: "json",
+        success: function(data) {
+            // alert(data);
+            console.log(data);
+
+
+            if (data.goods_id.length > 0) {
+                document.getElementById("basket_p").innerHTML =
+                    `Позиций: <span class='orange-selected'>${data.goods_id.length}</span>, на сумму: <span class='orange-selected'>${data.common_sum}</span>`;
+            } else {
+                document.getElementById("basket_p").innerHTML = `Товаров нет`;
+                document.getElementById("basket_pay_row").style = "display: none;";
+            }
+
+            var weightAmount = 0;
+            for (const [key, value] of Object.entries(data.id_its_amount)) {
+                weightAmount += value;
+            }
+
+            document.getElementById("commonWeight").innerHTML =
+                `Общий вес: ${weightAmount.toString()} кг`;
+
+            document.getElementById("common_sum").innerHTML =
+                `${data.common_sum} руб.`;
+
+            document.getElementById("goods_amount").innerHTML =
+                `В корзине товаров: ${data.goods_id.length}`;
+
+            button.parentElement.parentElement.remove();
         },
         error: function(er) {
             console.log(er);

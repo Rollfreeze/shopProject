@@ -34,7 +34,7 @@ EMPTY_BASKET;
                     <span class="up" onclick="increaseCount(event, this)">+</span>
                 </div>
                 <div class="good-item-price">$currentSum руб.</div>
-                <a href="empty_basket.php" class="delete-item-from-basket-box"></a>
+                <button onclick="deleteFromBasket($id, this)" class="delete-item-from-basket-box"></button>
             </div>
         </div>
 ITEM_ROW;
@@ -77,14 +77,14 @@ ITEM_ROW;
             <div class="personal-data-law-box">
                 <h1 class="h1" style="text-align: left; margin-top: 0px;">Моя корзина</h1>
 
-                <div class="pay-row">
+                <div id="basket_pay_row" class="pay-row">
                     <div class="pay-box flex-row">
                         <div class="summury-col">
                             <p class="normal-bold" style="margin-bottom: 5px;">Итого:</p>
-                            <p class="normal-gray" style="margin-bottom: 0px;">Общий вес: $commonWeight кг</p>
+                            <p id="commonWeight" class="normal-gray" style="margin-bottom: 0px;">Общий вес: $commonWeight кг</p>
                         </div>
 
-                        <div class="summury-money">$common_sum руб.</div>
+                        <div id="common_sum" class="summury-money">$common_sum руб.</div>
 
                         <buttom class="pay-basket-button">Оформить заказ</buttom>
                     </div>
@@ -93,7 +93,7 @@ ITEM_ROW;
 
             <div class="basket-box">
                 <div class="amount-row">
-                    <div class="normal-little">В корзине товаров: $goods_amount</div>
+                    <div id="goods_amount" class="normal-little">В корзине товаров: $goods_amount</div>
                 </div>
 BASKET_START;
         echo $basketContainerStart;
@@ -101,6 +101,11 @@ BASKET_START;
         draw_all_item_rows();
 
         $basketContainerEnd = <<< BASKET_END
+            </div>
+
+            <div id="go_catalog_note" class="align-center-box">
+                <a class="link" href="catalog.php" style="display: inline; text-decoration: none; font-size: 16px">Нажмите здесь </a>
+                <p class="normal-text" style="display: inline; font-size: 16px"> чтобы продолжить покупки</p>
             </div>
         </div>
 BASKET_END;
