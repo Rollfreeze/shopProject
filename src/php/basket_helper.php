@@ -17,7 +17,7 @@ EMPTY_BASKET;
     }
 
     
-    function draw_item_row($id, $title, $currentAmount, $currentSum, $goodImage) {
+    function draw_item_row($id, $title, $currentAmount, $currentSum, $goodImage, $pricePer) {
         $item_row = <<< ITEM_ROW
         <div class="good-item-row">
             <div class="good-item-row-left">
@@ -29,6 +29,8 @@ EMPTY_BASKET;
             <div class="good-item-kg-amount">
                 <p class="normal-bold" style="display:bloc; margin-bottom: 0px; font-size: 18px;">кг:</p>
                 <div class="product-item-kg-counter">
+                    <!-- price per -->
+                    <input type="hidden" value="$pricePer"></input>
                     <span class="down" onclick="basketDeacrease(event, this)">-</span>
                     <input class="goodAmountInput" type="text" value="$currentAmount"></input>
                     <span class="up" onclick="basketIncrease(event, this)">+</span>
@@ -54,6 +56,7 @@ ITEM_ROW;
                 $current_sum = 
                     intval($_SESSION['current_basket']['id_its_amount'][$current_id]) *
                     intval($_SESSION['current_basket']['id_its_price'][$current_id]);
+                $pricePer = $_SESSION['current_basket']['id_its_price'][$current_id];
 
                 draw_item_row(
                     $current_id,
@@ -61,6 +64,7 @@ ITEM_ROW;
                     $current_ammount,
                     $current_sum,
                     $good_item['image_path_1'],
+                    $pricePer
                 );
             }
         }
