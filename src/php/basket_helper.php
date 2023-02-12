@@ -17,12 +17,12 @@ EMPTY_BASKET;
     }
 
     
-    function draw_item_row($title, $currentAmount, $currentSum, $goodImage) {
+    function draw_item_row($id, $title, $currentAmount, $currentSum, $goodImage) {
         $item_row = <<< ITEM_ROW
         <div class="good-item-row">
             <div class="good-item-row-left">
                 <div class="good-item-logo" style="background-image: url('../assets/$goodImage');"></div>
-                <a href="" class="good-item-title">$title</a>
+                <a href="good_item_page.php?get_by_id=$id" class="good-item-title">$title</a>
             </div>
             
 
@@ -55,7 +55,13 @@ ITEM_ROW;
                     intval($_SESSION['current_basket']['id_its_amount'][$current_id]) *
                     intval($_SESSION['current_basket']['id_its_price'][$current_id]);
 
-                draw_item_row($good_item['title'], $current_ammount, $current_sum, $good_item['image_path_1']);
+                draw_item_row(
+                    $current_id,
+                    $good_item['title'],
+                    $current_ammount,
+                    $current_sum,
+                    $good_item['image_path_1'],
+                );
             }
         }
     }

@@ -64,24 +64,61 @@ COUNTER;
                     $_POST['dele_comment_id'],
                 );
             }
-        } else if ((isset($_GET['good_id']) && $_GET['good_id'] != null)) {
-            $good_id = $_GET['good_id'];
-            $good_title = $_GET['good_title'];
-            $good_subtitle = $_GET['good_subtitle'];
-            $good_image_path_1 = $_GET['good_image_path_1'];
-            $good_image_path_2 = $_GET['good_image_path_2'];
-            $good_category_id = $_GET['good_category_id'];
-            $good_is_new = $_GET['good_is_new'];
-            $good_is_leader = $_GET['good_is_leader'];
-            $good_price = $_GET['good_price'];
-            $good_country_id = $_GET['good_country_id'];
-            $good_popularity = $_GET['good_popularity'];
+        } else if ((isset($_GET['good_id']) && $_GET['good_id'] != null) || isset($_GET['get_by_id'])) {
+            if (isset($_GET['get_by_id'])) {
+                $connection = new SQLConnection();
+                $good = $connection->get_good($_GET['get_by_id']);
+                // var_dump($good);
+                if ($good) {
+                    $good_id = $good['id'];
+                    $good_title = $good['title'];
+                    $good_subtitle = $good['ubtitle'];
+                    $good_image_path_1 = $good['image_path_1'];
+                    $good_image_path_2 = $good['image_path_2'];
+                    $good_category_id = $good['category_id'];
+                    $good_is_new = $good['is_new'];
+                    $good_is_leader = $good['is_leader'];
+                    $good_price = $good['price'];
+                    $good_country_id = $good['country_id'];
+                    $good_popularity = $good['popularity'];
+                }
+            } else {
+                $good_id = $_GET['good_id'];
+                $good_title = $_GET['good_title'];
+                $good_subtitle = $_GET['good_subtitle'];
+                $good_image_path_1 = $_GET['good_image_path_1'];
+                $good_image_path_2 = $_GET['good_image_path_2'];
+                $good_category_id = $_GET['good_category_id'];
+                $good_is_new = $_GET['good_is_new'];
+                $good_is_leader = $_GET['good_is_leader'];
+                $good_price = $_GET['good_price'];
+                $good_country_id = $_GET['good_country_id'];
+                $good_popularity = $_GET['good_popularity'];
+            }
 
             $titlePlusiks = str_replace(" ", "+", $good_title);
             $subtitlePlusiks = str_replace(" ", "+", $good_subtitle);
 
             $good_isNew_href = ($_GET['good_is_new'] == '1') ? '1' : '0';
             $good_isLeder_href = ($_GET['good_is_leader'] == '1') ? '1' : '0';
+
+            // $good_id = $_GET['good_id'];
+            // $good_title = $_GET['good_title'];
+            // $good_subtitle = $_GET['good_subtitle'];
+            // $good_image_path_1 = $_GET['good_image_path_1'];
+            // $good_image_path_2 = $_GET['good_image_path_2'];
+            // $good_category_id = $_GET['good_category_id'];
+            // $good_is_new = $_GET['good_is_new'];
+            // $good_is_leader = $_GET['good_is_leader'];
+            // $good_price = $_GET['good_price'];
+            // $good_country_id = $_GET['good_country_id'];
+            // $good_popularity = $_GET['good_popularity'];
+
+            // $titlePlusiks = str_replace(" ", "+", $good_title);
+            // $subtitlePlusiks = str_replace(" ", "+", $good_subtitle);
+
+            // $good_isNew_href = ($_GET['good_is_new'] == '1') ? '1' : '0';
+            // $good_isLeder_href = ($_GET['good_is_leader'] == '1') ? '1' : '0';
 
 
             if ($didNewComent) {
