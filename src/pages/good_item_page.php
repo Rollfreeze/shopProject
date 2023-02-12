@@ -15,6 +15,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/styleBase.css">
     <link rel="stylesheet" href="../css/style.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script type="text/javascript" src="../js/counter.js"></script>
     <title>Просмотр товара</title>
 </head>
@@ -119,7 +120,7 @@ COUNTER;
         
         if ($isAuth) {
             // Если пользователь авторизирован, то можно добавлять
-            $addGoodButton = "<button class='product-button' style='margin-top: 120px;' onclick='addGoodsToBasket(this)'>Купить продукт</button>";
+            $addGoodButton = "<button class='product-button' style='margin-top: 120px;' onclick='addGoodsToBasketFromCard(this)'>Купить продукт</button>";
         } else {
             // Иначе - алерт "авторизируйтесь"
             $addGoodButton = "<button class='product-button' style='margin-top: 120px;' onclick='goAuthPlease()'>Купить продукт</button>";
@@ -207,22 +208,31 @@ COUNTER;
                         echo "<p class='counter-box-money'>$good_price руб. за кг.</p>";
                         ?>
 
-                        <!-- <div class="product-item-kg-counter">
-                            <span class="down" onclick="deacreaseCount(event, this)">-</span>
-                            <input type="text" value="1"></input>
-                            <span class="up" onclick="increaseCount(event, this)">+</span>
-                        </div> -->
-
                         <?php
                         echo $customCounter;
                         ?>
 
-                        <!-- <p class="normal-little" style="margin: 0 auto;">кг</p> -->
-                        
-                        <!-- <button class="product-button" style="margin-top: 100px;">Добавить в корзину</button> -->
-
                         <?php
                         echo $addGoodButton;
+                        ?>
+
+                        <?php
+                            $dataForm = <<< DATA_FORM
+                            <form style="display: none;">
+                                <input type="hidden" name="good_id" value="$good_id"></input>
+                                <input type="hidden" name="good_title" value="$good_title"></input>
+                                <input type="hidden" name="good_subtitle" value="$good_subtitle"></input>
+                                <input type="hidden" name="good_image_path_1" value="$good_image_path_1"></input>
+                                <input type="hidden" name="good_image_path_2" value="$good_image_path_2"></input>
+                                <input type="hidden" name="good_category_id" value="$good_category_id"></input>
+                                <input type="hidden" name="good_is_new" value="$good_is_new"></input>
+                                <input type="hidden" name="good_is_leader" value="$good_is_leader"></input>
+                                <input type="hidden" name="good_price" value="$good_price"></input>
+                                <input type="hidden" name="good_country_id" value="$good_country_id"></input>
+                                <input type="hidden" name="good_popularity" value="$good_popularity"></input>
+                            </form>
+DATA_FORM;
+                            echo $dataForm;
                         ?>
                     </div>
                 </div>
