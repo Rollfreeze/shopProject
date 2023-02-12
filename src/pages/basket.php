@@ -1,8 +1,9 @@
 <?php
     session_start();
     require_once "../php/general_page.php";
+    require_once "../php/sql_connection.php";
     require_once "../php/basket_helper.php";
-?>
+    ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,8 +17,6 @@
     <title>Коризна</title>
 </head>
 <body>
-    <script type="text/javascript" src="js/counter.js"></script>
-
     <?php
         echo getHeader();
     ?>

@@ -16,13 +16,57 @@ EMPTY_BASKET;
         echo $emptyBasketContainer;
     }
 
+    
+    function draw_item_row($title, $currentAmount, $currentSum, $goodImage) {
+        $item_row = <<< ITEM_ROW
+        <div class="good-item-row">
+            <div class="good-item-row-left">
+                <div class="good-item-logo" style="background-image: url('../assets/$goodImage');"></div>
+                <a href="" class="good-item-title">$title</a>
+            </div>
+            
+
+            <div class="good-item-kg-amount">
+                <p class="normal-bold" style="display:bloc; margin-bottom: 0px; font-size: 18px;">кг:</p>
+                <div class="product-item-kg-counter">
+                    <span class="down" onclick="deacreaseCount(event, this)">-</span>
+                    <input type="text" value="$currentAmount"></input>
+                    <span class="up" onclick="increaseCount(event, this)">+</span>
+                </div>
+                <div class="good-item-price">$currentSum руб.</div>
+                <a href="empty_basket.php" class="delete-item-from-basket-box"></a>
+            </div>
+        </div>
+ITEM_ROW;
+        echo $item_row;
+    }
+
+    function draw_all_item_rows() {
+        for ($i = 0; $i < count($_SESSION['current_basket']['goods_id']); $i++) {
+            $current_id = $_SESSION['current_basket']['goods_id'][$i];
+
+
+            $connection = new SQLConnection();
+            $good_item = $connection->get_good($current_id);
+            // var_dump($good_item);
+            if ($good_item) {
+                $current_ammount = $_SESSION['current_basket']['id_its_amount'][$current_id];
+                $current_sum = 
+                    intval($_SESSION['current_basket']['id_its_amount'][$current_id]) *
+                    intval($_SESSION['current_basket']['id_its_price'][$current_id]);
+
+                draw_item_row($good_item['title'], $current_ammount, $current_sum, $good_item['image_path_1']);
+            }
+        }
+    }
+
 
     function draw_basket() {
         $commonWeight = array_sum($_SESSION['current_basket']['id_its_amount']);
         $common_sum = $_SESSION['current_basket']['common_sum'];
         $goods_amount = count($_SESSION['current_basket']['goods_id']);
 
-        $basketContainer = <<< BASKET
+        $basketContainerStart = <<< BASKET_START
         <div class="container">
             <div class="personal-data-law-box">
                 <h1 class="h1" style="text-align: left; margin-top: 0px;">Моя корзина</h1>
@@ -45,28 +89,15 @@ EMPTY_BASKET;
                 <div class="amount-row">
                     <div class="normal-little">В корзине товаров: $goods_amount</div>
                 </div>
+BASKET_START;
+        echo $basketContainerStart;
 
-                <div class="good-item-row">
-                    <div class="good-item-row-left">
-                        <div class="good-item-logo"></div>
-                        <a href="" class="good-item-title">Яблоки Гренни Смит</a>
-                    </div>
-                    
+        draw_all_item_rows();
 
-                    <div class="good-item-kg-amount">
-                        <p class="normal-bold" style="display:bloc; margin-bottom: 0px; font-size: 18px;">кг:</p>
-                        <div class="product-item-kg-counter">
-                            <span class="down" onclick="deacreaseCount(event, this)">-</span>
-                            <input type="text" value="1"></input>
-                            <span class="up" onclick="increaseCount(event, this)">+</span>
-                        </div>
-                        <div class="good-item-price">174 руб.</div>
-                        <a href="empty_basket.php" class="delete-item-from-basket-box"></a>
-                    </div>
-                </div>
+        $basketContainerEnd = <<< BASKET_END
             </div>
         </div>
-BASKET;
-        echo $basketContainer;
+BASKET_END;
+        echo $basketContainerEnd;
     }
 ?>

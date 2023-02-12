@@ -74,6 +74,25 @@ class SQLConnection {
         }
     }
 
+    // Получить товар по id
+    function get_good($id) {
+        try {
+            $connection = mysqli_connect($this->host, $this->user, $this->password, $this->db);
+            if (!$connection) {
+                die("Connection failed: " .mysqli_connect_error());
+            }
+            $sql_request = "SELECT * FROM `goods` where `id` = $id";
+            $result = mysqli_query($connection, $sql_request);
+            $connection->close();
+    
+            $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
+            if (empty($rows)) return false;
+            return $rows[0];
+        } catch (Exception $_) {
+            return false;
+        }
+    }
+
     // Получить товары по фильтрам
     function get_filter_goods($querry) {
         try {
