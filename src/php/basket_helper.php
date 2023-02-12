@@ -29,9 +29,9 @@ EMPTY_BASKET;
             <div class="good-item-kg-amount">
                 <p class="normal-bold" style="display:bloc; margin-bottom: 0px; font-size: 18px;">кг:</p>
                 <div class="product-item-kg-counter">
-                    <span class="down" onclick="deacreaseCount(event, this)">-</span>
-                    <input type="text" value="$currentAmount"></input>
-                    <span class="up" onclick="increaseCount(event, this)">+</span>
+                    <span class="down" onclick="basketDeacrease(event, this)">-</span>
+                    <input class="goodAmountInput" type="text" value="$currentAmount"></input>
+                    <span class="up" onclick="basketIncrease(event, this)">+</span>
                 </div>
                 <div class="good-item-price">$currentSum руб.</div>
                 <button onclick="deleteFromBasket($id, this)" class="delete-item-from-basket-box"></button>
