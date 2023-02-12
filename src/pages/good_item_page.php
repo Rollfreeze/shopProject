@@ -21,6 +21,14 @@
 <body>
     <?php
         echo getHeader();
+
+        $customCounter = <<< COUNTER
+        <div class="product-item-kg-counter">
+            <span class="down" onclick="deacreaseCount(event, this)">-</span>
+            <input class="goodAmountInput" type="text" value="1"></input>
+            <span class="up" onclick="increaseCount(event, this)">+</span>
+        </div>
+COUNTER;
         
         $didDeleteComment = isset($_POST['dele_comment_id']);
         $didNewComent = (isset($_GET['comment-area']) && !empty($_GET['comment-area']));
@@ -105,6 +113,30 @@
                 );
             }
         }
+
+        $isAuth = isset($_SESSION['current_user']) && $_SESSION['current_user'] != null;
+        $user = $_SESSION['current_user'];
+        
+        if ($isAuth) {
+            // Если пользователь авторизирован, то можно добавлять
+            $addGoodButton = "<button class='product-button' style='margin-top: 120px;' onclick='addGoodsToBasket(this)'>Купить продукт</button>";
+        } else {
+            // Иначе - алерт "авторизируйтесь"
+            $addGoodButton = "<button class='product-button' style='margin-top: 120px;' onclick='goAuthPlease()'>Купить продукт</button>";
+            
+        }
+
+        if ($isAuth && isset($_SESSION['current_basket']) && in_array($good_id, $_SESSION['current_basket']['goods_id'])) {
+            $addGoodButton = "<button class='product-button' style='margin-top: 120px;' onclick='goToBasket(this)'>Перейти в корзину</button>";
+            $amountChosen = $_SESSION['current_basket']['id_its_amount'][$good_id];
+
+            $customCounter = <<< COUNTER
+            <div class="product-item-kg-counter">
+                <span class="down" style="transition: 0.0s; font-size: 15px; display: block; color: green;">В коризне: </span>
+                <input class="goodAmountInput" type="text" value="$amountChosen"></input>
+            </div>
+COUNTER;
+        }
     ?>
 
     <!-- bread bar -->
@@ -175,15 +207,23 @@
                         echo "<p class='counter-box-money'>$good_price руб. за кг.</p>";
                         ?>
 
-                        <div class="product-item-kg-counter">
+                        <!-- <div class="product-item-kg-counter">
                             <span class="down" onclick="deacreaseCount(event, this)">-</span>
                             <input type="text" value="1"></input>
                             <span class="up" onclick="increaseCount(event, this)">+</span>
-                        </div>
+                        </div> -->
 
-                        <p class="normal-little" style="margin: 0 auto;">кг</p>
+                        <?php
+                        echo $customCounter;
+                        ?>
+
+                        <!-- <p class="normal-little" style="margin: 0 auto;">кг</p> -->
                         
-                        <button class="product-button" style="margin-top: 100px;">Добавить в корзину</button>
+                        <!-- <button class="product-button" style="margin-top: 100px;">Добавить в корзину</button> -->
+
+                        <?php
+                        echo $addGoodButton;
+                        ?>
                     </div>
                 </div>
             </div>
