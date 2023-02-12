@@ -563,6 +563,10 @@ td {
     cursor: pointer;
     margin: 0 auto;
     display: block;
+    font-size: 14px;
+    text-decoration: none;
+    font-family: sans-serif;
+
 }
 
 .product-button:hover {

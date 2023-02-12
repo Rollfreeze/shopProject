@@ -30,7 +30,7 @@ COUNTER;
             var_dump($_SESSION['current_basket']['goods_id']);
 
             if (isset($_SESSION['current_basket']) && in_array($good_id, $_SESSION['current_basket']['goods_id'])) {
-                $addGoodButton = "<button class='product-button' onclick='goToBasket(this)'>Перейти в корзину</button>";
+                $addGoodButton = "<a href='basket.php' class='product-button'>Перейти в корзину</a>";
                 $amountChosen = $_SESSION['current_basket']['id_its_amount'][$good_id];
 
                 $customCounter = <<< COUNTER

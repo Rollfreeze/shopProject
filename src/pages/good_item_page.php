@@ -127,7 +127,8 @@ COUNTER;
         }
 
         if ($isAuth && isset($_SESSION['current_basket']) && in_array($good_id, $_SESSION['current_basket']['goods_id'])) {
-            $addGoodButton = "<button class='product-button' style='margin-top: 120px;' onclick='goToBasket(this)'>Перейти в корзину</button>";
+            // $addGoodButton = "<button class='product-button' style='margin-top: 120px;' onclick='goToBasket(this)'>Перейти в корзину</button>";
+            $addGoodButton = "<a href='basket.php' style='margin-top: 120px;' class='product-button'>Перейти в корзину</a>";
             $amountChosen = $_SESSION['current_basket']['id_its_amount'][$good_id];
 
             $customCounter = <<< COUNTER

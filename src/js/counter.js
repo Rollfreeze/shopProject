@@ -59,7 +59,15 @@ function addGoodsToBasket(button) {
             counter[0].innerHTML = "В корзине: ";
             counter[0].onclick = "";
 
-            button.innerHTML = "Перейти в корзину";
+            // button.innerHTML = "Перейти в корзину";
+            var a_button = document.createElement('a');
+            a_button.href = 'basket.php';
+            a_button.className = 'product-button';
+            a_button.innerHTML = 'Перейти в корзину';
+
+            button.parentNode.replaceChild(a_button, button);
+
+            // "<a href='basket.php' class='product-button'>Перейти в корзину</a>";
 
             counter[2].style = "display: none;"
 
