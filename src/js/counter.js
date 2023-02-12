@@ -179,11 +179,21 @@ function deleteFromBasket(id, button) {
 }
 
 function basketIncrease(a, b) {
+    var pricePer = b.parentElement.children[0].defaultValue;
     var input = b.previousElementSibling;
     var value = parseInt(input.value, 10);
     value = isNaN(value) ? 0 : value;
     value++;
     input.value = value;
+    b.parentElement.nextElementSibling.innerHTML = `${value * pricePer} руб.`;
+    // Через текст получил текущее значение общего веса и увеличили на 1
+    var commonWeight = parseInt(document.getElementById("commonWeight").innerHTML.match(/\d+/)[0]) + 1;
+    document.getElementById("commonWeight").innerHTML =
+        `Общий вес: ${commonWeight.toString()} кг`;
+    // Через текст получил текущее значение общей суммы и увеличили на нужный прирост
+    var commonWeight = parseInt(document.getElementById("common_sum").innerHTML.match(/\d+/)[0]) + parseInt(pricePer);
+    document.getElementById("common_sum").innerHTML =
+        `${commonWeight} руб.`;
 }
 
 function basketDeacrease(a, b) {
