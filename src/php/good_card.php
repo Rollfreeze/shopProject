@@ -26,8 +26,8 @@ COUNTER;
             // Если пользователь авторизирован, то можно добавлять
             $addGoodButton = "<button class='product-button' onclick='addGoodsToBasket(this)'>Купить продукт</button>";
             
-            var_dump($good_id);
-            var_dump($_SESSION['current_basket']['goods_id']);
+            // var_dump($good_id);
+            // var_dump($_SESSION['current_basket']['goods_id']);
 
             if (isset($_SESSION['current_basket']) && in_array($good_id, $_SESSION['current_basket']['goods_id'])) {
                 $addGoodButton = "<a href='basket.php' class='product-button'>Перейти в корзину</a>";
