@@ -155,13 +155,16 @@ function deleteFromBasket(id, button) {
                 document.getElementById("basket_pay_row").style = "display: none;";
             }
 
-            var weightAmount = 0;
-            for (const [key, value] of Object.entries(data.id_its_amount)) {
-                weightAmount += value;
-            }
+            // var weightAmount = 0;
+            // for (const [key, value] of Object.entries(data.id_its_amount)) {
+            //     weightAmount += value;
+            // }
+
+            // document.getElementById("commonWeight").innerHTML =
+            //     `Общий вес: ${weightAmount.toString()} кг`;
 
             document.getElementById("commonWeight").innerHTML =
-                `Общий вес: ${weightAmount.toString()} кг`;
+                `Общий вес: ${data.common_weight.toString()} кг`;
 
             document.getElementById("common_sum").innerHTML =
                 `${data.common_sum} руб.`;
@@ -178,49 +181,103 @@ function deleteFromBasket(id, button) {
     });
 }
 
-function basketIncrease(a, b) {
-    var pricePer = b.parentElement.children[0].defaultValue;
-    var input = b.previousElementSibling;
-    var value = parseInt(input.value, 10);
-    value = isNaN(value) ? 0 : value;
-    value++;
-    input.value = value;
+function basketIncrease(a, b, id) {
+    var data = {
+        "id": id
+    }
 
-    // Увеличиваем сумму данного товара
-    b.parentElement.nextElementSibling.innerHTML = `${value * pricePer} руб.`;
+    $.ajax({
+        url: "../php/increase_good_basket.php",
+        method: "POST",
+        data: data, 
+        dataType: "json",
+        success: function(data) {
+            console.log(data);
 
-    // Через текст получил текущее значение общего веса и увеличили на 1
-    var commonWeight = parseInt(document.getElementById("commonWeight").innerHTML.match(/\d+/)[0]) + 1;
-    document.getElementById("commonWeight").innerHTML =
-        `Общий вес: ${commonWeight.toString()} кг`;
+            if (data.goods_id.length > 0) {
+                document.getElementById("basket_p").innerHTML =
+                    `Позиций: <span class='orange-selected'>${data.goods_id.length}</span>, на сумму: <span class='orange-selected'>${data.common_sum}</span>`;
+            } else {
+                document.getElementById("basket_p").innerHTML = `Товаров нет`;
+                document.getElementById("basket_pay_row").style = "display: none;";
+            }
 
-    // Через текст получил текущее значение общей суммы и увеличили на нужный прирост
-    var commonWeight = parseInt(document.getElementById("common_sum").innerHTML.match(/\d+/)[0]) + parseInt(pricePer);
-    document.getElementById("common_sum").innerHTML =
-        `${commonWeight} руб.`;
+            document.getElementById("commonWeight").innerHTML =
+                `Общий вес: ${data.common_weight.toString()} кг`;
+
+            document.getElementById("common_sum").innerHTML =
+                `${data.common_sum} руб.`;
+
+            document.getElementById("goods_amount").innerHTML =
+                `В корзине товаров: ${data.goods_id.length}`;
+
+
+            var pricePer = b.parentElement.children[0].defaultValue;
+            var input = b.previousElementSibling;
+            var value = parseInt(input.value, 10);
+            value = isNaN(value) ? 0 : value;
+            value++;
+            input.value = value;
+
+            // Увеличиваем сумму данного товара
+            b.parentElement.nextElementSibling.innerHTML = `${value * pricePer} руб.`;
+        },
+        error: function(er) {
+            console.log(er);
+            alert('error');
+        }
+    });
 }
 
-function basketDeacrease(a, b) {
-    var pricePer = b.parentElement.children[0].defaultValue;
+function basketDeacrease(a, b, id) {
+    var data = {
+        "id": id
+    }
 
     var input = b.nextElementSibling;
     var value = parseInt(input.value, 10);
     if (value > 1) {
-        value = isNaN(value) ? 0 : value;
-        value--;
-        input.value = value;
+        $.ajax({
+            url: "../php/deacrease_good_basket.php",
+            method: "POST",
+            data: data, 
+            dataType: "json",
+            success: function(data) {
+                console.log(data);
+    
+                if (data.goods_id.length > 0) {
+                    document.getElementById("basket_p").innerHTML =
+                        `Позиций: <span class='orange-selected'>${data.goods_id.length}</span>, на сумму: <span class='orange-selected'>${data.common_sum}</span>`;
+                } else {
+                    document.getElementById("basket_p").innerHTML = `Товаров нет`;
+                    document.getElementById("basket_pay_row").style = "display: none;";
+                }
+    
+                document.getElementById("commonWeight").innerHTML =
+                    `Общий вес: ${data.common_weight.toString()} кг`;
+    
+                document.getElementById("common_sum").innerHTML =
+                    `${data.common_sum} руб.`;
+    
+                document.getElementById("goods_amount").innerHTML =
+                    `В корзине товаров: ${data.goods_id.length}`;
+    
+    
+                var pricePer = b.parentElement.children[0].defaultValue;
+    
+                var input = b.nextElementSibling;
+                var value = parseInt(input.value, 10);
+                value = isNaN(value) ? 0 : value;
+                value--;
+                input.value = value;
+        
+                // Уменьшаем сумму данного товара
+                b.parentElement.nextElementSibling.innerHTML = `${value * pricePer} руб.`;
+            },
+            error: function(er) {
+                console.log(er);
+                alert('error');
+            }
+        });
     }
-
-    // Уменьшаем сумму данного товара
-    b.parentElement.nextElementSibling.innerHTML = `${value * pricePer} руб.`;
-
-    // Через текст получил текущее значение общего веса и увеличили на 1
-    var commonWeight = parseInt(document.getElementById("commonWeight").innerHTML.match(/\d+/)[0]) - 1;
-    document.getElementById("commonWeight").innerHTML =
-        `Общий вес: ${commonWeight.toString()} кг`;
-
-    // Через текст получил текущее значение общей суммы и уменьшили на нужный прирост
-    var commonWeight = parseInt(document.getElementById("common_sum").innerHTML.match(/\d+/)[0]) - parseInt(pricePer);
-    document.getElementById("common_sum").innerHTML =
-        `${commonWeight} руб.`;
 }

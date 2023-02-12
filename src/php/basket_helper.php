@@ -16,7 +16,7 @@ EMPTY_BASKET;
         echo $emptyBasketContainer;
     }
 
-    
+    // <span class="link" style="margin-left: 20px; display: inline; text-decoration: none; font-size: 16px; cursor: pointer;">Применить</span>
     function draw_item_row($id, $title, $currentAmount, $currentSum, $goodImage, $pricePer) {
         $item_row = <<< ITEM_ROW
         <div class="good-item-row">
@@ -31,9 +31,9 @@ EMPTY_BASKET;
                 <div class="product-item-kg-counter">
                     <!-- price per -->
                     <input type="hidden" value="$pricePer"></input>
-                    <span class="down" onclick="basketDeacrease(event, this)">-</span>
+                    <span class="down" onclick="basketDeacrease(event, this, $id)">-</span>
                     <input class="goodAmountInput" type="text" value="$currentAmount"></input>
-                    <span class="up" onclick="basketIncrease(event, this)">+</span>
+                    <span class="up" onclick="basketIncrease(event, this, $id)">+</span>
                 </div>
                 <div class="good-item-price">$currentSum руб.</div>
                 <button onclick="deleteFromBasket($id, this)" class="delete-item-from-basket-box"></button>

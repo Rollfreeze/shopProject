@@ -2,13 +2,7 @@
     session_start();
 
     if (isset($_POST) && isset($_SESSION['current_basket'])) {
-
-        $delete_id = strval($_POST['delete_id']);
-        $temp = array_diff($_SESSION['current_basket']['goods_id'], ["$delete_id"]);
-        $_SESSION['current_basket']['goods_id'] = array_values($temp);
-
-        unset($_SESSION['current_basket']['id_its_amount'][intval($_POST['delete_id'])]);
-        unset($_SESSION['current_basket']['id_its_price'][intval($_POST['delete_id'])]);
+        $_SESSION['current_basket']['id_its_amount'][$_POST['id']]--;
 
         // Текущая общая сумма
         $common_sum = 0;
