@@ -1,4 +1,8 @@
-<?php session_start();?>
+<?php
+    session_start();
+    require_once "../php/general_page.php";
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,13 +11,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/styleBase.css">
     <link rel="stylesheet" href="../css/style.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript" src="../js/counter.js"></script>
     <title>Коризна</title>
 </head>
 <body>
     <script type="text/javascript" src="js/counter.js"></script>
 
     <?php
-        require_once "../php/general_page.php";
         echo getHeader();
     ?>
 
@@ -27,18 +32,6 @@
            </div>
         </main>
     </div>
-
-    <!-- <div class="container">
-        <div class="personal-data-law-box">
-            <h1 class="h1" style="text-align: left; margin-top: 0px;">Моя корзина</h1>
-            <div class="empty-basket-box"></div>
-
-            <div class="align-center-box">
-                <a class="link" href="catalog.php" style="display: inline; text-decoration: none; font-size: 16px">Нажмите здесь </a>
-                <p class="normal-text" style="display: inline; font-size: 16px"> чтобы продолжить покупки</p>
-            </div>
-        </div>
-    </div> -->
 
     <div class="container">
         <div class="personal-data-law-box">
