@@ -23,6 +23,8 @@
 <body>
     
     <?php
+        // остановился на каунтерах при перезагрузке
+
         echo getHeader();
 
         $isRoot = false;

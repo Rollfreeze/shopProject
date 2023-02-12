@@ -71,28 +71,3 @@ function addGoodsToBasket(button) {
         }
     });
 }
-
-
-
-
-// function ajax_checker() {
-
-//     $.ajax({
-//         type: 'POST',
-//         url: 'catalog.php',
-//         data: {
-//             ajaxData: 'ajax data came!'
-//         }, 
-//         dataType: 'JSON',
-//         success: function(data) {
-//         //   console.log(data);
-//             alert('success');
-//             console.log(data);
-//         },
-//         error: function(er) {
-//         //   console.log(er);
-//             alert('error');
-//             console.log(er);
-//         }
-//     });
-// }
