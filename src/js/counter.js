@@ -57,6 +57,7 @@ function addGoodsToBasket(button) {
 
             counter[0].style = "transition: 0.0s; font-size: 15px; display: block; color: green;"
             counter[0].innerHTML = "В корзине: ";
+            counter[0].onclick = "";
 
             button.innerHTML = "Перейти в корзину";
 
