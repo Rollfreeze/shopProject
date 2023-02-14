@@ -11,10 +11,12 @@
         $connection = new SQLConnection();
 
         $name = $_SESSION['current_user']['user_name'];
+        $userID = intval($_SESSION['current_user']['user_id']);
         $phone = $_POST['order_phone'];
         $address = $_POST['order_address'];
         $totalCost = $_SESSION['current_basket']['common_sum'];
-        $addOrderID = $connection->add_order($name, $phone, $totalCost, $address);
+        $addOrderID = $connection->add_order($userID, $name, $phone, $totalCost, $address);
+        var_dump($addOrderID);
 
         // Если заказ создан, то значит у нас есть этот id.
         // Следовательно, по этому id добавляем детали покупки

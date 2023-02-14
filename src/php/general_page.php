@@ -61,11 +61,9 @@ RIGHT_NAV;
                         <div class="nav-left">
                             <a href="index.php">Главная</a>
                             <a href="catalog.php">Каталог</a>
-                            <!-- <a href="about_us.php">О компании</a> -->
                             <a href="payment.php">Оплата</a>
-                            <!-- <a href="delivery_to_office.php">Фрукты в офис</a> -->
                             <a href="contacts.php">Контакты</a>
-                            <a href="delivery.php">Заказы</a>
+                            <a href="my_orders_page.php">Мои заказы</a>
                         </div>
                         
                         $RIGHT_NAV
