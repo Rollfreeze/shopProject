@@ -62,10 +62,10 @@ RIGHT_NAV;
                             <a href="index.php">Главная</a>
                             <a href="catalog.php">Каталог</a>
                             <!-- <a href="about_us.php">О компании</a> -->
-                            <a href="delivery.php">Доставка</a>
                             <a href="payment.php">Оплата</a>
                             <!-- <a href="delivery_to_office.php">Фрукты в офис</a> -->
                             <a href="contacts.php">Контакты</a>
+                            <a href="delivery.php">Заказы</a>
                         </div>
                         
                         $RIGHT_NAV

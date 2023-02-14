@@ -559,4 +559,46 @@ class SQLConnection {
             return false;
         }
     }
+
+    // Добавить заказ
+    function add_order($customer_name, $customer_phone, $order_price, $address) {
+        try {
+            $connection = mysqli_connect($this->host, $this->user, $this->password, $this->db);
+            if (!$connection) {
+                die("Connection failed: " . mysqli_connect_error());
+            }
+            $sql_request = "INSERT INTO `orders`
+                (`id`, `customer_name`, `customer_phone`, `date`, `order_price`, `order_status_id`, `address`)
+                    VALUES 
+                (NULL, '$customer_name', '$customer_phone', CURRENT_TIMESTAMP, '$order_price', '1', '$address');";
+            $result = mysqli_query($connection, $sql_request);
+            /// Если не получилось заполнить
+            if (!$result) return false;
+
+            /// А если получилось, то берем вставленный id 
+            $result = mysqli_insert_id($connection);
+            $connection->close();
+            return $result;
+        } catch (Exception $_) {
+            return false;
+        }
+    }
+
+    // Добавить элемент заказа
+    function add_order_element($order_id, $name, $image, $amount, $totalCost, $goodId) {
+        try {
+            $connection = mysqli_connect($this->host, $this->user, $this->password, $this->db);
+            if (!$connection) {
+                die("Connection failed: " . mysqli_connect_error());
+            }
+            $sql_request = "INSERT INTO `order_elements` 
+                (`id`, `order_id`, `name`, `image`, `amount`, `total_cost`, `good_id`) 
+                    VALUES 
+                (NULL, '$order_id', '$name', '$image', '$amount', '$totalCost', '$goodId');";
+            $result = mysqli_query($connection, $sql_request);
+            return $result;
+        } catch (Exception $_) {
+            return false;
+        }
+    }
 }
