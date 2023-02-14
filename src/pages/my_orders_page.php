@@ -4,6 +4,9 @@
     require_once "../php/sql_connection.php";
     require_once "../php/country_helper.php";
     require_once "../php/redirect_helper.php";
+
+    $isAuth = isset($_SESSION['current_user']) && $_SESSION['current_user'] != null;
+    if (!$isAuth) header('Location: http://localhost/pages/catalog.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -41,7 +44,8 @@
                 // <div class="amount-row">
                 //     <div id="goods_amount" class="normal-little">В корзине товаров: $goods_amount</div>
                 // </div>
-                // $connection = new SQLConnection();
+                $connection = new SQLConnection();
+                // $user_orders = $connection->get_all_user_orders($)
 
 
 

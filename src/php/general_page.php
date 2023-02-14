@@ -6,7 +6,9 @@
         
         $isRoot = false;
         $basketMessage = "Товаров нет";
+        $myOrders = '';
         if ($isAuth) {
+            $myOrders = '<a href="my_orders_page.php">Мои заказы</a>';
             $user = $_SESSION['current_user'];
             $isRoot = $user['is_root'];
 
@@ -63,7 +65,7 @@ RIGHT_NAV;
                             <a href="catalog.php">Каталог</a>
                             <a href="payment.php">Оплата</a>
                             <a href="contacts.php">Контакты</a>
-                            <a href="my_orders_page.php">Мои заказы</a>
+                            $myOrders
                         </div>
                         
                         $RIGHT_NAV
