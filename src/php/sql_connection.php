@@ -658,4 +658,45 @@ class SQLConnection {
             return false;
         }
     }
+
+    // Обновить статус заказа
+    function update_order_status($order_id, $new_status_id) {
+        try {
+            $connection = mysqli_connect($this->host, $this->user, $this->password, $this->db);
+            if (!$connection) {
+                die("Connection failed: " .mysqli_connect_error());
+            }
+            $sql_request = "UPDATE `orders` SET `order_status_id` = '$new_status_id' WHERE `orders`.`id` = $order_id;";
+            $result = mysqli_query($connection, $sql_request);
+            $connection->close();
+            return $result;
+        } catch (Exception $_) {
+            return false;
+        }
+    }
+    
+    // Удалить статус заказа
+    function delete_order($order_id) {
+        try {
+            $connection = mysqli_connect($this->host, $this->user, $this->password, $this->db);
+            if (!$connection) {
+                die("Connection failed: " .mysqli_connect_error());
+            }
+
+            $sql_request = "DELETE FROM `order_elements` WHERE `order_id` = $order_id";
+            $result = mysqli_query($connection, $sql_request);
+            if (!$result) {
+                $connection->close();
+                return false;
+            }
+
+            $sql_request = "DELETE FROM orders WHERE `orders`.`id` = $order_id;";
+            $result = mysqli_query($connection, $sql_request);
+            $connection->close();
+            return $result;
+
+        } catch (Exception $_) {
+            return false;
+        }
+    }
 }

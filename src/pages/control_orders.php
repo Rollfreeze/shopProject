@@ -25,6 +25,19 @@
 <body>
     <?php
         echo getHeader();
+
+        $connection = new SQLConnection();
+        $isDelete = isset($_GET['delete_order_id']);
+        $isChangeOrderStatus = isset($_GET['order_status_select']) && isset($_GET['order_id']);
+        $update_status_res = false;
+        $delete_res = false;
+        if ($isChangeOrderStatus) {
+            $update_status_res = $connection->update_order_status($_GET['order_id'], $_GET['order_status_select']);
+        } elseif ($isDelete) {
+            $delete_res = $connection->delete_order($_GET['delete_order_id']);
+        }
+
+        $orders = $connection->get_all_orders();
     ?>
 
     <!-- bread bar -->
@@ -39,13 +52,15 @@
     </div>
 
     <div class="container">
+        <?php
+            if ($isChangeOrderStatus && $update_status_res) echo '<h2 class="green_alert">Статус заказа успешно обновлен!</h2>';
+            else if ($isChangeOrderStatus && !$update_status_res) echo '<h2 class="red_alert">Не удалось изменить статус заказа</h2>';
+            else if ($isDelete && $delete_res) echo '<h2 class="green_alert">Заказ успешно удален!</h2>';
+            else if ($isDelete && !$delete_res) echo '<h2 class="red_alert">Не удалось удалить заказ</h2>';
+        ?>
+
         <div class="personal-data-law-box">
             <h1 class="h1" style="text-align: center; margin-top: 0px;">Просмотр заказов</h1>
-
-            <?php
-                $connection = new SQLConnection();
-                $orders = $connection->get_all_orders();
-            ?>
 
             <table class="orders-forms-box">
                 <tbody>

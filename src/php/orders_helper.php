@@ -24,7 +24,7 @@ ITEM_ROW;
         switch($status_id) {
             case 1: return 'Обрабатывается';
             case 2: return 'Доставлено';
-            case 3: return 'Отклонен';
+            case 3: return 'Отклонено';
         }
     }
 
@@ -65,6 +65,17 @@ ORDER;
         echo $order;
     }
 
+    function get_select_status($current_order_status_id) {
+        for ($i = 1; $i <= 3; $i++) {
+            $name = get_status_name($i);
+            if ($current_order_status_id == $i) {
+                echo "<option style='text-align: center;' value='$i' selected>$name</option>";
+            } else {
+                echo "<option style='text-align: center;' value='$i'>$name</option>";
+            }
+        }
+    }
+
     // Все заказы с возможностью админа
     function get_root_order_table_row($id, $customer_name,
         $customer_phone, $date, $order_price, $goods_in_order,
@@ -90,7 +101,22 @@ ORDER;
                 </form>
             </td>
             <td class="td-2 cntr">$order_price руб.</td>
-            <td class="td-2 cntr" style="color: $status_color">$status_name</td>
+
+            <td class="td-2 cntr">
+                <form>
+                    <input type="hidden" name="order_id" value="$id">
+                    <select name="order_status_select">
+ORDER;
+            echo $order;
+
+            get_select_status($order_status_id);
+
+            $order = <<< ORDER
+                    </select>
+                    <button>Сохранить</button>
+                </form>
+            </td>
+
             <td class="td-2 cntr">
                 <form method="get">
                     <input type="hidden" name="delete_order_id" value="$id">
