@@ -1,10 +1,10 @@
 <?php
-    function draw_ordered_item_row($id, $title, $currentAmount, $currentSum, $goodImage) {
+    function draw_ordered_item_row($good_id, $title, $currentAmount, $currentSum, $goodImage) {
         $item_row = <<< ITEM_ROW
         <div class="good-item-row">
             <div class="good-item-row-left">
                 <div class="good-item-logo" style="background-image: url('../assets/$goodImage');"></div>
-                <a href="good_item_page.php?get_by_id=$id" class="good-item-title">$title</a>
+                <a href="good_item_page.php?get_by_id=$good_id" class="good-item-title">$title</a>
             </div>
             
 
@@ -50,7 +50,14 @@ ITEM_ROW;
             <td class="td-2 cntr">$address</td>
             <td class="td-2 cntr">$date</td>
 
-            <td class="td-2 cntr"><a class="td-a" href="#">Посмотреть</a></td>
+            <td class="td-2 cntr">
+                <form method="get" action="order_details_page.php">
+                    <input type="hidden" name="order_id" value="$id">
+                    <input type="hidden" name="order_price" value="$order_price">
+                    <input type="hidden" name="goods_in_order" value="$goods_in_order">
+                    <button type="submit" class="td-a">Посмотреть</button>
+                </form>
+            </td>
             <td class="td-2 cntr">$order_price руб.</td>
             <td class="td-2 cntr" style="color: $status_color">$status_name</td>
         </tr>

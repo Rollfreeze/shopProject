@@ -72,30 +72,6 @@
                     ?>
                 </tbody>
             </table>
-            
-            <?php
-//                 echo '<div class="basket-box">';
-
-//                 $connection = new SQLConnection();
-//                 $user_id = $_SESSION['current_user']['user_id'];
-//                 $user_orders = $connection->get_all_user_orders($user_id);
-
-//                 if ($user_orders) {
-//                     for ($i = 0; $i < count($user_orders); $i++) {
-//                         $goods_in_current_order = $user_orders[$i]['goods_in_order'];
-//                         $goods_in_basket_row = <<< GOOODS_IN_BASKET
-//                         <div class="amount-row">
-//                             <div id="goods_amount" class="normal-little">В текущем заказе товаров: $goods_in_current_order</div>
-//                         </div>
-// GOOODS_IN_BASKET;
-//                         echo $goods_in_basket_row;
-
-//                         draw_ordered_item_row();
-//                     }
-//                 }
-
-//                 echo '</div>';
-            ?>
         </div>
     </div>
 
