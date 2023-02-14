@@ -1349,6 +1349,13 @@ td {
     padding-top: 20px;
 }
 
+.orders-forms-box {
+    width: 1320px;
+    margin: 0 auto;
+    margin-bottom: 50px;
+    padding-top: 20px;
+}
+
 .form-title {
     font-size: 24px;
     font-family: sans-serif;
@@ -1584,5 +1591,19 @@ td {
 }
 
 #order_address::placeholder {
+    text-align: center;
+}
+
+.td-a {
+    font-family: sans-serif;
+    color:rgb(208, 255, 0);
+    text-decoration: none;
+    font-size: 15px;
+    text-align: center;
+    display: block;
+    font-weight: bold;
+}
+
+.cntr {
     text-align: center;
 }

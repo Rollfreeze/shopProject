@@ -561,16 +561,16 @@ class SQLConnection {
     }
 
     // Добавить заказ
-    function add_order($user_id, $customer_name, $customer_phone, $order_price, $address) {
+    function add_order($user_id, $customer_name, $customer_phone, $order_price, $goods_in_order, $address) {
         try {
             $connection = mysqli_connect($this->host, $this->user, $this->password, $this->db);
             if (!$connection) {
                 die("Connection failed: " . mysqli_connect_error());
             }
             $sql_request = "INSERT INTO `orders` 
-                (`id`, `user_id`, `customer_name`, `customer_phone`, `date`, `order_price`, `order_status_id`, `address`) 
-                    VALUES 
-                (NULL, '$user_id', '$customer_name', '$customer_phone', CURRENT_TIMESTAMP, '$order_price', '1', '$address');";
+                (`id`, `user_id`, `customer_name`, `customer_phone`, `date`, `order_price`, `goods_in_order`, `order_status_id`, `address`) 
+                VALUES 
+                (NULL, '$user_id', '$customer_name', '$customer_phone', CURRENT_TIMESTAMP, '$order_price', '$goods_in_order', '1', '$address');";
             $result = mysqli_query($connection, $sql_request);
             /// Если не получилось заполнить
             if (!$result) return false;

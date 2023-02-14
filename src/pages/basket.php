@@ -15,8 +15,8 @@
         $phone = $_POST['order_phone'];
         $address = $_POST['order_address'];
         $totalCost = $_SESSION['current_basket']['common_sum'];
-        $addOrderID = $connection->add_order($userID, $name, $phone, $totalCost, $address);
-        var_dump($addOrderID);
+        $goods_in_order = count($_SESSION['current_basket']['goods_id']);
+        $addOrderID = $connection->add_order($userID, $name, $phone, $totalCost, $goods_in_order, $address);
 
         // Если заказ создан, то значит у нас есть этот id.
         // Следовательно, по этому id добавляем детали покупки
