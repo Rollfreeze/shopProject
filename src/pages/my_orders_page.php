@@ -35,7 +35,13 @@
 
     <div class="container">
         <div class="personal-data-law-box">
-            <h1 class="h1" style="text-align: center; margin-top: 0px;">Просмотр моих заказов</h1>
+            <h1 class="h1" style="text-align: center; margin-top: 0px;">Просмотр заказов</h1>
+
+            <?php
+                $userID = $_SESSION['current_user']['user_id'];
+                $connection = new SQLConnection();
+                $orders = $connection->get_all_user_orders($userID);
+            ?>
 
             <table class="orders-forms-box">
                 <tbody>
@@ -50,9 +56,6 @@
                         <td class="td-2 cntr">Статус заказа</td>
                     </tr>
                     <?php
-                        $userID = $_SESSION['current_user']['user_id'];
-                        $connection = new SQLConnection();
-                        $orders = $connection->get_all_user_orders($userID);
                         foreach($orders as $order) {
                             get_order_table_row(
                                 $order['id'],
