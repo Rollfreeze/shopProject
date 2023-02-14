@@ -16,7 +16,6 @@ EMPTY_BASKET;
         echo $emptyBasketContainer;
     }
 
-    // <span class="link" style="margin-left: 20px; display: inline; text-decoration: none; font-size: 16px; cursor: pointer;">Применить</span>
     function draw_item_row($id, $title, $currentAmount, $currentSum, $goodImage, $pricePer) {
         $item_row = <<< ITEM_ROW
         <div class="good-item-row">
@@ -83,14 +82,26 @@ ITEM_ROW;
 
                 <div id="basket_pay_row" class="pay-row">
                     <div class="pay-box flex-row">
-                        <div class="summury-col">
-                            <p class="normal-bold" style="margin-bottom: 5px;">Итого:</p>
-                            <p id="commonWeight" class="normal-gray" style="margin-bottom: 0px;">Общий вес: $commonWeight кг</p>
+                        <div class="flex-row" style="width: 350px;">
+                            <div class="summury-col">
+                                <p class="normal-bold" style="margin-bottom: 5px;">Итого:</p>
+                                <p id="commonWeight" class="normal-gray" style="margin-bottom: 0px;">Общий вес: $commonWeight кг</p>
+                            </div>
+
+                            <div id="common_sum" class="summury-money">$common_sum руб.</div>
                         </div>
 
-                        <div id="common_sum" class="summury-money">$common_sum руб.</div>
 
-                        <buttom class="pay-basket-button">Оформить заказ</buttom>
+                        <form method="post" class="basket-order-form">
+                            <div class="flex-row">
+                                <input class="auth_form_input" type="text" name="order_phone" minlength="11" maxlength="11" id="order_phone" placeholder="Номер телефона" required>
+                                <input class="auth_form_input" type="text" name="order_address" minlength="1" id="order_address" placeholder="Адрес доставки" required>
+                            </div>
+
+                            <div class="flex-row">
+                                <button type="submit" class="pay-basket-button">Оформить заказ</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
