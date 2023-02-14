@@ -1574,6 +1574,15 @@ td {
     margin-right: 15px;
 }
 
+#order_phone::placeholder {
+    text-align: center;
+}
+
+
 #order_address {
     margin-left: 15px;
+}
+
+#order_address::placeholder {
+    text-align: center;
 }
