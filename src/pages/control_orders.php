@@ -4,8 +4,13 @@
     require_once "../php/sql_connection.php";
     require_once "../php/country_helper.php";
     require_once "../php/orders_helper.php";
+    $isRoot = false;
     $isAuth = isset($_SESSION['current_user']) && $_SESSION['current_user'] != null;
-    if (!$isAuth) header('Location: http://localhost/pages/catalog.php');
+    if ($isAuth) {
+        $user = $_SESSION['current_user'];
+        $isRoot = $user['is_root'];
+    }
+    if (!$isRoot) header('Location: http://localhost/pages/catalog.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,7 +20,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/styleBase.css">
     <link rel="stylesheet" href="../css/style.css">
-    <title>Мои заказы</title>
+    <title>Контроль заказов</title>
 </head>
 <body>
     <?php
@@ -28,7 +33,7 @@
            <div class="bread-bar">
                 <a class="bread-bar-item" href="index.php" style="margin-left: 0px">Главная</a>
                 <span class="bread-slesh">/</span>
-                <a class="bread-bar-item" href="my_orders_page.php">Мои заказы</a>
+                <a class="bread-bar-item" href="control_orders.php">Контроль заказов</a>
            </div>
         </main>
     </div>
@@ -38,9 +43,8 @@
             <h1 class="h1" style="text-align: center; margin-top: 0px;">Просмотр заказов</h1>
 
             <?php
-                $userID = $_SESSION['current_user']['user_id'];
                 $connection = new SQLConnection();
-                $orders = $connection->get_all_user_orders($userID);
+                $orders = $connection->get_all_orders();
             ?>
 
             <table class="orders-forms-box">
@@ -54,10 +58,11 @@
                         <td class="td-2 cntr">Состав</td>
                         <td class="td-2 cntr">Стоимость (руб.)</td>
                         <td class="td-2 cntr">Статус</td>
+                        <td class="td-2 cntr">Действие</td>
                     </tr>
                     <?php
                         foreach($orders as $order) {
-                            get_order_table_row(
+                            get_root_order_table_row(
                                 $order['id'],
                                 $order['customer_name'],
                                 $order['customer_phone'],

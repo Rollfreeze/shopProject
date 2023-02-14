@@ -603,6 +603,25 @@ class SQLConnection {
         }
     }
 
+    // Получить все заказы
+    function get_all_orders() {
+        try {
+            $connection = mysqli_connect($this->host, $this->user, $this->password, $this->db);
+            if (!$connection) {
+                die("Connection failed: " .mysqli_connect_error());
+            }
+            $sql_request = "SELECT * FROM `orders`";
+            $result = mysqli_query($connection, $sql_request);
+            $connection->close();
+    
+            $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
+            if (empty($rows)) return false;
+            return $rows;
+        } catch (Exception $_) {
+            return false;
+        }
+    }
+
     // Получить все заказы пользователя
     function get_all_user_orders($user_id) {
         try {

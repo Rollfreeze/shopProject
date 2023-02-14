@@ -24,14 +24,16 @@
             $user_name = $_SESSION['current_user']['user_name'];
             $RIGHT_NAV = <<< RIGHT_NAV
             <div class="nav-right">
+                <div class="orders-control-box"></div>
+                <a class="admin-hover" href="control_orders.php">Контроль заказов</a>
                 <div class="globus-control-box"></div>
                 <a class="admin-hover" href="control_countries.php">Менеджер стран</a>
                 <div class="categories-control-box"></div>
                 <a class="admin-hover" href="control_categories.php">Контроль категорий</a>
                 <div class="advert-box"></div>
-                <a class="admin-hover" href="add_advert.php">Добавить рекламу</a>
+                <a class="admin-hover" href="add_advert.php">Новая реклама</a>
                 <div class="edit-box"></div>
-                <a class="admin-hover" href="add_advertisment.php">Добавить товар</a>
+                <a class="admin-hover" href="add_advertisment.php">Новый товар</a>
                 <div class="auth-box"></div>
                 <a href="authorization_page.php">$user_name</a>
             </div>

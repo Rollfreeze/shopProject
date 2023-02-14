@@ -6,9 +6,18 @@
     require_once "../php/orders_helper.php";
     $isAuth = isset($_SESSION['current_user']) && $_SESSION['current_user'] != null;
     if (!$isAuth || !isset($_GET['order_id'])) header('Location: http://localhost/pages/catalog.php');
+    if ($isAuth) {
+        $user = $_SESSION['current_user'];
+        $isRoot = $user['is_root'];
+    }
     $order_id = $_GET['order_id'];
     $goods_in_order = $_GET['goods_in_order'];
     $order_price = $_GET['order_price'];
+
+    $goBackStep = "<a class='bread-bar-item' href='my_orders_page.php'>Мои заказы</a>";
+    if (isset($_GET['as_root']) && $_GET['as_root'] == true && $isRoot) {
+        $goBackStep = "<a class='bread-bar-item' href='control_orders.php'>Контроль заказов</a>";
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,10 +37,12 @@
     <!-- bread bar -->
     <div class="container">
         <main class="main">
-           <div class="bread-bar" style="width: 395px;">
+           <div class="bread-bar" style="width: 460px;">
                 <a class="bread-bar-item" href="index.php" style="margin-left: 0px">Главная</a>
                 <span class="bread-slesh">/</span>
-                <a class="bread-bar-item" href="my_orders_page.php">Мои заказы</a>
+                <?php
+                echo $goBackStep;
+                ?>
                 <span class="bread-slesh">/</span>
                 <?php
                 echo "<a class='bread-bar-item' href='order_details_page.php?order_id=$order_id&order_price=$order_price&goods_in_order=$goods_in_order'>Детали заказа</a>";
