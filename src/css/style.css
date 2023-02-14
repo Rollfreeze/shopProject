@@ -1644,4 +1644,5 @@ td {
 
 .action_delete {
     color: rgb(180, 66, 66);
+    text-decoration: underline;
 }
