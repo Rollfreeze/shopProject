@@ -16,11 +16,10 @@
         </div>
 COUNTER;
 
-        $isAuth = isset($_SESSION['current_user']) && $_SESSION['current_user'] != null;
-        $user = $_SESSION['current_user'];
-        
+        $isAuth = isset($_SESSION['current_user']) && $_SESSION['current_user'] != null;        
         $isRoot = false;
         if ($isAuth) {
+            $user = $_SESSION['current_user'];
             $isRoot = $user['is_root'];
 
             // Если пользователь авторизирован, то можно добавлять

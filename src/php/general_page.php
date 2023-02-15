@@ -50,7 +50,7 @@ RIGHT_NAV;
             $RIGHT_NAV = <<< RIGHT_NAV
             <div class="nav-right">
                 <div class="auth-box"></div>
-                <a href="authorization_page.php">Авторизироваться</a>
+                <a href="authorization_page.php">Авторизоваться</a>
             </div>
 RIGHT_NAV;
         }
