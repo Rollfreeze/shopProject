@@ -5,7 +5,6 @@
     require_once "../php/good_cooments_fetch.php";
     require_once "../php/sql_connection.php";
     require_once "../php/likes_helper.php";
-    // header("Location: good_item_page.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,7 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/styleBase.css">
     <link rel="stylesheet" href="../css/style.css">
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="../js/jq.js"></script>
     <script type="text/javascript" src="../js/counter.js"></script>
     <title>Просмотр товара</title>
 </head>
