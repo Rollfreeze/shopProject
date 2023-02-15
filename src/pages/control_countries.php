@@ -1,9 +1,9 @@
 <?php
     session_start();
+    require_once "../php/redirect_helper.php";
     require_once "../php/general_page.php";
     require_once "../php/sql_connection.php";
     require_once "../php/country_helper.php";
-    require_once "../php/redirect_helper.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
