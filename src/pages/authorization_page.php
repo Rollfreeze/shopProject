@@ -54,7 +54,7 @@
             <?php
                 if ($drawException) echo '<h2 class="red_alert">Пользователь не найден</h2>';
                 if ($drawSuccess) {
-                    $username = $_GET['username'];
+                    $username = $_POST['username'];
                     echo '<h2 class="green_alert">Авторизация прошла успешно!</h2>';
                     echo "<h1 class='h1' style='text-align: center; margin-top: 0px;'>Добро пожаловать, $username!</h1>";
                     echo get_log_out_button();
