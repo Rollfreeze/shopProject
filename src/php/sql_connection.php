@@ -17,6 +17,8 @@ class SQLConnection {
             if (!$connection) {
                 die("Connection failed: " .mysqli_connect_error());
             }
+            $login = htmlspecialchars($login);
+            $password = htmlspecialchars($password);
             $sql_request = "SELECT * FROM `users` WHERE `login` = '$login' AND `password` = '$password'";
             $result = mysqli_query($connection, $sql_request);
             $connection->close();
@@ -417,6 +419,7 @@ class SQLConnection {
             if (!$connection) {
                 die("Connection failed: " .mysqli_connect_error());
             }
+            $comment = htmlspecialchars($comment);
             $sql_request = "INSERT INTO `comments` (`id`, `good_id`, `user_id`, `user_name`, `comment`, `time`) 
                 VALUES (NULL, '$good_id', '$user_id', '$user_name', '$comment', CURRENT_TIMESTAMP);";
             $result = mysqli_query($connection, $sql_request);

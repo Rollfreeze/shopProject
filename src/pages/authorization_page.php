@@ -62,8 +62,8 @@
                     $AUTH_FORM = <<< AUTH_FORM
                     <h1 class="h1" style="text-align: center; margin-top: 0px;">Авторизация</h1>
                     <form action="authorization_page.php" class="authorization-form" method="post">
-                        <input class="auth_form_input" type="text" name="username" minlength="1" pattern="^[a-zA-Z0-9_.-]*$" id="username" placeholder="Логин" required>
-                        <input class="auth_form_input" type="text" name="password" minlength="1" pattern="^[a-zA-Z0-9_.-]*$" id="password" placeholder="Пароль" required>
+                        <input class="auth_form_input" type="text" name="username" minlength="1" id="username" placeholder="Логин" required>
+                        <input class="auth_form_input" type="text" name="password" minlength="1" id="password" placeholder="Пароль" required>
                         <button class="auth_form_button" type="submit">Вход в аккаунт</button>
                     </form>
 AUTH_FORM;
