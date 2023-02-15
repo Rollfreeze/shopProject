@@ -10,4 +10,5 @@
     if (!$isRoot) {
         header('Location: http://localhost/pages/catalog.php');
     }
-?>  
+?> 
+
